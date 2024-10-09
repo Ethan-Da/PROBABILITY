@@ -21,20 +21,18 @@ Ce document est constitué d'un énoncé clair des objectifs du projet, des pré
 ### 4.Documents 
 Documents référencés : 0 pour l'instant
 
-
 ## II./ Enoncé
 
-### 1.Objectif du projet
 L'objectif du projet est de développer une application web de calcul robuste permettant l’accueil de plusieurs utilisateurs,
 conformément aux besoins du client.  
 Les fonctionnalités souhaitées sont donc : la gestion d’informations liés aux utilisateurs, la capacité à réaliser des calculs fiables et performants.  
 Le site web doit être facile à prendre en main, les informations et outils doivent être disponibles et facilement accessibles aux utilisateurs.
 De plus, un texte explicatif et une vidéo de présentation doivent être réaliser pour mettre en valeur la plateforme.
 
-Ici, la liste détaillés des attentes fonctionnelles évoqués par le client :
+Ici, la liste détaillés des attentes fonctionnelles évoqués par le client que doit atteindre notre solution :
 
 
-* L'application accueille différents modules comme : 
+* L'application accueille différents modules de calculs comme : 
   - [REPONSE CLIENT]
   - [REPONSE CLIENT]
   - [REPONSE CLIENT]
@@ -54,24 +52,11 @@ Ici, la liste détaillés des attentes fonctionnelles évoqués par le client :
   * Le visiteur peut accéder à la page d’accueil mais ne pourra pas utiliser les modules présents sur la plateforme. 
   
   * L’administrateur web peut consulter les fichier logs, supprimer des comptes, créer des comptes à partir de fichiers csv.
-  * L'administrateur système peut, depuis la plateforme web, accéder aux logs du systèmes.
+  * L'administrateur système peut, depuis la plateforme web, accéder aux logs du système.
 
 
-
-
-
-
-
-
-
-
-Un serveur web et un SGBD sera mis en place pour faire fonctionner l'application
-
-
-
-Description détaillée du problème à résoudre, le contexte, les objectifs du projet. Si besoin,
-On fait une présentation de l’existant. Définition des objectifs que doit atteindre la solution.
-
+Enfin, un serveur web, un SGBD tel que MySQL et des applications de sécurisation des accées ssh seront installés sur un 
+Raspberry Pi pour faire fonctionner l'application.
 
 ## III./ Pré-requis
 
@@ -88,14 +73,13 @@ Les ressources matérielles seront les ordinateurs de l'IUT, un RaspberryPi et u
 
 ## IV./ Priorités
 
-Les priorités éventuelles du développements si elles ont été fixées avec l’accord du client :
+Les priorités éventuelles du développements à confirmés avec le client :
 
--sécurité du site
+1. La sécurité du site.
 
--configuration du système de compte
+2. La configuration du système de compte.
 
--développement des modules de calcules
-
+3. Le développement des modules de calculs.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
