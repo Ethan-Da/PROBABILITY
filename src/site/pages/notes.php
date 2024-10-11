@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de notes - Mon site web</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<?php include '../includes/header.php'; ?>
+
+<div class="container">
+    <div class="content">
+        <h2>Tableau des notes</h2>
+        <?php
+        $fichier_csv = 'notes.csv';
+
+        if (file_exists($fichier_csv)) {
+            echo "<table class='table-notes'>";
+            echo "<tr><th>Nom</th><th>Prénom</th><th>Groupe</th><th>Note</th><th>Date</th><th>Heure</th></tr>";
+            if (($handle = fopen($fichier_csv, 'r')) !== false) {
+                $first_row = true;
+                while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+                    if ($first_row) {
+                        $first_row = false;
+                        continue;
+                    }
+                    echo "<tr>";
+                    foreach ($data as $cell) {
+                        echo "<td>" . (!empty($cell) ? htmlspecialchars($cell) : "<span class='non-renseigne'>non renseigné</span>") . "</td>";
+                    }
+                    echo '</tr>';
+                }
+                fclose($handle);
+            }
+            echo "</table>";
+        } else {
+            echo "<p>Le fichier CSV n'a pas été trouvé.</p>";
+        }
+        ?>
+    </div>
+</div>
+
+<?php include '../includes/footer.php'; ?>
+
+</body>
+</html>
