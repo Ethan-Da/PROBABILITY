@@ -1,3 +1,4 @@
-<footer style="background-color: #5D5DFF; color: white; text-align: center; padding: 15px;">
-    <p>&copy; 2024 Hazim-Rayan Marouan. Page réalisé le 28/09/2024.</p>
+<footer style="background-color: #666666; color: white; text-align: center; padding: 15px;">
+    <p>&copy; Page réalisé par Blomkoum CAMARA, Ethan DANGEUL, Maxence ARSENE, Roméo LEBLOND et MAROUAN Hazim-Rayan</p>
+    <p>Année 2024/2025</p>
 </footer>
