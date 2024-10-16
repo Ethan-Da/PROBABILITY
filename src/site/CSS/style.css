@@ -1,7 +1,7 @@
 /* Fond dégradé sur toute la page */
 html, body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #89CFF0, #FADADD); /* Dégradé bleu-rose */
+    background: #f8f8ff;
     height: 100vh;
     margin: 0;
     display: flex;
@@ -34,14 +34,13 @@ html, body {
 
 /* Style du header */
 header {
-    background-color: #5D5DFF;
+    background-color: #666666;
     color: white;
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
     width: 100%;
     text-align: center;
-    border-radius: 10px 10px 0 0; /* Bords arrondis en haut */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
 }
 
@@ -55,13 +54,12 @@ header {
 
 /* Style du footer */
 footer {
-    background-color: #5D5DFF;
+    background-color: #666666;
     color: white;
     padding: 20px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    border-radius: 0 0 10px 10px; /* Bords arrondis en bas */
     margin-top: 20px;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre pour le footer */
     width: 100%;
