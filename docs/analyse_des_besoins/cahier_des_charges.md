@@ -51,7 +51,7 @@ Ici, la liste détaillés des attentes fonctionnelles évoqués par le client qu
 * L'application doit gérer les différents utilisateurs et leur droit (administrateur système, administrateur web, utilisateur inscrit et visiteur).
   * Le visiteur peut accéder à la page d’accueil mais ne pourra pas utiliser les modules présents sur la plateforme. 
   
-  * L’administrateur web peut consulter les fichier logs, supprimer des comptes, créer des comptes à partir de fichiers csv.
+  * L’administrateur web peut consulter les utilisateurs inscrits, supprimer des comptes, créer des comptes à partir de fichiers csv.
   * L'administrateur système peut, depuis la plateforme web, accéder aux logs du système.
 
 
@@ -85,30 +85,29 @@ Les priorités éventuelles du développements à confirmés avec le client :
 
 ## LECTURE DU CAHIER DES CHARGES (énoncé SAE)
 
-| Acteurs            | Objets                                    | Actions                                                                  |
-|:-------------------|:----------------------------------------- | :------------------------------------------------------------------------|
-| Administrateur Web |Page d’accueil                             |  Accéder à la page d’accueil                                             |
-| Admin Sys          | Carte SD                                  |  Accéder à son profil pour changer son mot de passe                      |
-| Client             | Mot de passe                              |  Voir la liste des utilisateurs inscrits                                 |
-| Visiteur           | Profile                                   |  Stocker certains résultats de calcul qui s’affichera dans un historique |
-|                    | Formulaire d’inscription                  |  Se connecter                                                            |
-|                    | Serveur Web                               |  Créer des comptes utilisateurs à partir d’un fichier csv                |
-|                    | Modules                                   |  Supprimer des comptes utilisateurs et l’historique liés à ces comptes   |
-|                    | Plateforme                                |  Stocker les suppressions dans un fichier de log                         |
-|                    | Le système                                |  Utiliser les modules de calculs qui sont disponibles                    |
-|                    | Base de données                           |  Gérer les mots de passe                                                 |
-|                    | Tableau de bord                           |  Consulter le fichier des logs                                           |
-|                    | Applications pour sécuriser les accès ssh |  Inspecter les utilisateurs inscrits                                     |
-|                    | Message de confirmation d'inscription     |  Consulter le journal d'activités de l'application Web                   |
-|                    | sms                                       |  Créer un compte utilisateur à partir d'un formulaire                    |
-|                    | historique                                |  Créer un fichier log après la suppression d'un compte utilisateur       |
-|                    | journal d’activités                       |  interdire l'utilisation des modules de calcules aux utilisateurs<br> non enregistrer|
-|                    | liste d’utilisateur                       |  modifier son mot de passe s'il est oublié                               |
-|                    | fichier csv                               |                                                                          |
-|                    |captcha                                    |                                                                          |
-|                    |texte applicatif                           |                                                                          |
-|                    |compte utilisateur                         |                                                                          |
-|                    |fichier de logs                            |                                                                          |
+| Acteurs            | Objets                                                  | Actions                                                                  |
+|:-------------------|:--------------------------------------------------------| :------------------------------------------------------------------------|
+| Administrateur Web | Page d’accueil                                          |  Accéder à la page d’accueil                                             |
+| Admin Sys          | Carte SD                                                |  Accéder à son profil pour changer son mot de passe                      |
+| Client             | Mot de passe                                            |  Voir la liste des utilisateurs inscrits                                 |
+| Visiteur           | Profile                                                 |  Stocker certains résultats de calcul qui s’affichera dans un historique |
+|                    | Formulaire d’inscription                                |  Se connecter                                                            |
+|                    | Serveur Web                                             |  Créer des comptes utilisateurs à partir d’un fichier csv                |
+|                    | Modules                                                 |  Supprimer des comptes utilisateurs et l’historique liés à ces comptes   |
+|                    | Plateforme                                              |  Stocker les suppressions dans un fichier de log                         |
+|                    | Le système                                              |  Utiliser les modules de calculs qui sont disponibles                    |
+|                    | Base de données                                         |  Gérer les mots de passe                                                 |
+|                    | Tableau de bord                                         |  Consulter le fichier des logs                                           |
+|                    | Applications pour sécuriser les accès ssh               |  Inspecter les utilisateurs inscrits                                     |
+|                    | Message de confirmation d'inscription                   |  Consulter le journal d'activités de l'application Web                   |
+|                    | fichier de logs                                         |  Créer un compte utilisateur à partir d'un formulaire                    |
+|                    | historique                                              |  Créer un fichier log après la suppression d'un compte utilisateur       |
+|                    | journal d’activités                                     |  interdire l'utilisation des modules de calcules aux utilisateurs<br> non enregistrer|
+|                    | liste d’utilisateur                                     |  modifier son mot de passe s'il est oublié                               |
+|                    | fichier csv                                             |                                                                          |
+|                    | captcha                                                 |                                                                          |
+|                    | texte applicatif                                        |                                                                          |
+|                    | compte utilisateur                                      |                                                                          |
 
 
 ### Exigences fontionnelles et techniques
