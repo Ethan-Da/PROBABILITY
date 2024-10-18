@@ -110,6 +110,27 @@ Les priorités éventuelles du développements à confirmés avec le client :
 |                    |compte utilisateur                         |                                                                          |
 |                    |fichier de logs                            |                                                                          |
 
+
+### Exigences fontionnelles et techniques
+
+| Exigences fonctionnelles                         | Exigences techniques                                                     |
+|--------------------------------------------------|--------------------------------------------------------------------------| 
+|Créer un compte utilisateur à parir d'un login et d'un mot de passe |Serveur Web APACHE                                      |
+|Authentifier un utilisateur grâce à son login est son mot de passse  |Base de données MySQL                                  |
+|Enregistrer les informations d'un compte utilisateur dans une base de données |Carte SD                                      |
+|Identifier les utilisaeurs enregistrés des non-enregistré |Ordinateur                                                        |
+|Accès au module de calcul seulement pour les utilisateurs enregistrés|Système d'exploitation                                 |
+|Enregistrer les résultats des modules de calcules dans un historique supprimable <br>par admin Web ||
+|Modifier le mot de passe de son profil utilisateur||
+|Créer un fichier Log, consultable par l'administrateur Web, dans le serveur après <br>chaque inscriptions||
+|Pouvoir reconstruir un mot de passe utilisateur si l'ancien est oublié||
+|Créer et maintenir une liste d'utilisateur consulable et modifiable par <br>l'administrateur Web||
+|Créer un fichier Log dans le serveur après chaque suppression de comptes utilisateurs<br>ou/et de leurs historique  ||
+|Enregistrer les interactions avec la plateforme dans un journal d'activités consultable <br>par l'admin Système||
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
 ## QUESTIONS CLIENT
 
 ### Question 1 :
