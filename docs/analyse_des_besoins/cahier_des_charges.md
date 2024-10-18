@@ -98,12 +98,12 @@ Les priorités éventuelles du développements à confirmés avec le client :
 |                    | Le système                                |  Utiliser les modules de calculs qui sont disponibles                    |
 |                    | Base de données                           |  Gérer les mots de passe                                                 |
 |                    | Tableau de bord                           |  Consulter le fichier des logs                                           |
-|                    | Applications pour sécuriser les accès ssh |   Inspecter les utilisateurs inscrits                                    |
-|                    | Message de confirmation d'inscription     |                                                                          |
-|                    | sms                                       |                                                                          |
-|                    | historique                                |                                                                          |
-|                    | journal d’activités                       |                                                                          |
-|                    | liste d’utilisateur                       |                                                                          |
+|                    | Applications pour sécuriser les accès ssh |  Inspecter les utilisateurs inscrits                                     |
+|                    | Message de confirmation d'inscription     |  Consulter le journal d'activités de l'application Web                   |
+|                    | sms                                       |  Créer un compte utilisateur à partir d'un formulaire                    |
+|                    | historique                                |  Créer un fichier log après la suppression d'un compte utilisateur       |
+|                    | journal d’activités                       |  interdire l'utilisation des modules de calcules aux utilisateurs<br> non enregistrer|
+|                    | liste d’utilisateur                       |  modifier son mot de passe s'il est oublié                               |
 |                    | fichier csv                               |                                                                          |
 |                    |captcha                                    |                                                                          |
 |                    |texte applicatif                           |                                                                          |
