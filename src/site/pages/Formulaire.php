@@ -1,3 +1,76 @@
+<?php
+# Liste des questions
+$liste_questions = array(
+    'question1' => array(
+        'question' => "Quelle est la couleur du cheval blanc ?",
+        'reponses' => array('blanc', 'blanche', 'neige', 'clair')
+    ),
+    'question2' => array(
+        'question' => "Combien font deux + quatre ?",
+        'reponses' => array('6', 'six')
+    )
+);
+
+# Activation des sessions (pour que PHP charge la session de l'utilisateur, via le cookie PHPSESSID)
+# à placer avant tout affichage, car a besoin d'envoyer des headers HTTP
+session_start();
+
+$show_captcha = false;
+$error_message = '';
+$filter_value = '';
+$input_value = '';
+
+# Vérif du formulaire
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['ok'])) {
+        #Variable pour afficher le CATPCHA
+        $show_captcha = true;
+
+        #Pour conserver les valeurs du filtre et du champ
+        $filter_value = isset($_POST['filter']) ? $_POST['filter'] : '';
+        $input_value = isset($_POST['input']) ? $_POST['input'] : '';
+
+        #Une question au hasard
+        $id_question_posee = array_rand($liste_questions);
+        $_SESSION['captcha']['id_question_posee'] = $id_question_posee;
+    }
+
+    #Vérif de la réponse au CAPTCHA et du filtre
+    if (isset($_POST['submit_captcha'])) {
+        $reponse = isset($_POST['captcha_reponse']) ? $_POST['captcha_reponse'] : '';
+        $id_question_posee = isset($_SESSION['captcha']['id_question_posee']) ? $_SESSION['captcha']['id_question_posee'] : '';
+
+        #Validation de la réponse au CAPTCHA
+        $captcha_correct = in_array(strtolower($reponse), array_map('strtolower', $liste_questions[$id_question_posee]['reponses']));
+
+        #Validation du filtre
+        $filter_correct = false;
+
+        switch ($_POST['filter']) {
+            case 'email':
+                $filter_correct = filter_var($_POST['input'], FILTER_VALIDATE_EMAIL);
+                break;
+
+            case 'prenom':
+                $filter_correct = preg_match('/^[a-zA-Z]{1,30}$/', $_POST['input']);
+                break;
+
+            case 'id':
+                $filter_correct = is_numeric($_POST['input']) && ($_POST['input'] >= 1000 && $_POST['input'] <= 9999);
+                break;
+        }
+
+        if ($captcha_correct && $filter_correct) {
+            header('Location:verifier.php');
+            exit();
+        } else {
+            $error_message = "Réponse incorrecte au CAPTCHA ou filtre invalide. Réessayez.";
+            $show_captcha = true;
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +81,7 @@
         /* Style général de la page */
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #89CFF0, #FADADD); /* Dégradé de bleu et rose */
+            background: linear-gradient(120deg, #89CFF0, #FADADD);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -37,7 +110,6 @@
 
         /* Champs de saisie et select */
         input[type="text"],
-        input[type="password"],
         select {
             width: 100%;
             padding: 10px;
@@ -51,7 +123,6 @@
 
         /* Focus sur les champs */
         input[type="text"]:focus,
-        input[type="password"]:focus,
         select:focus {
             border-color: #89CFF0;
             outline: none;
@@ -80,48 +151,6 @@
             font-size: 14px;
             margin-bottom: 10px;
         }
-
-        /* Style pour le select */
-        select {
-            appearance: none;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        /* Ajouter une icône pour indiquer que c'est un select */
-        select {
-            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23999" d="M2 0L0 2h4z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 10px top 50%;
-            background-size: 10px 10px;
-        }
-
-        /* Rendre le select plus fluide sur mobile */
-        select:focus {
-            border-color: #89CFF0;
-        }
-
-        /* Ajustement sur les petits écrans */
-        @media (max-width: 400px) {
-            .form-container {
-                padding: 15px;
-                width: 100%;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-
-            input[type="text"],
-            input[type="password"],
-            select,
-            button {
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -129,34 +158,36 @@
 <div class="form-container">
     <h2>Vérification</h2>
 
-    <!-- Afficher un message d'erreur en fonction du paramètre GET 'erreur' -->
-    <?php
-    if (isset($_GET['erreur'])) {
-        $erreur = $_GET['erreur'];
-        if ($erreur == 1) {
-            echo "<p class='error-message'>Veuillez entrer un email valide avec un maximum de 50 caractères.</p>";
-        } elseif ($erreur == 2) {
-            echo "<p class='error-message'>Le prénom ne doit contenir que des lettres et avoir un maximum de 30 caractères.</p>";
-        } elseif ($erreur == 3) {
-            echo "<p class='error-message'>L'ID doit être un nombre entre 1000 et 9999.</p>";
-        }
-    }
-
-    ?>
+    <!-- Afficher un message d'erreur si nécessaire -->
+    <?php if ($error_message): ?>
+        <p class="error-message"><?php echo $error_message; ?></p>
+    <?php endif; ?>
 
     <!-- Formulaire de vérification -->
-    <form action="verifier.php" method="POST">
+    <form action="" method="POST">
         <label for="filter" aria-label="Sélectionner un filtre">Choisir ce que vous voulez vérifier :</label>
         <select name="filter" id="filter" required>
-            <option value="email">Email</option>
-            <option value="prenom">Prénom</option>
-            <option value="id">ID</option>
+            <option value="email" <?php echo ($filter_value === 'email') ? 'selected' : ''; ?>>Email</option>
+            <option value="prenom" <?php echo ($filter_value === 'prenom') ? 'selected' : ''; ?>>Prénom</option>
+            <option value="id" <?php echo ($filter_value === 'id') ? 'selected' : ''; ?>>ID</option>
         </select>
 
         <label for="input" aria-label="Champ d'entrée">Entrée à vérifier :</label>
-        <input type="text" name="input" id="input" required>
+        <input type="text" name="input" id="input" value="<?php echo htmlspecialchars($input_value); ?>" required>
 
         <button type="submit" name="ok" value="ok">Vérifier</button>
+
+        <!-- Affichage du CAPTCHA si requis -->
+        <?php if ($show_captcha): ?>
+            <div>
+                <h3>Captcha</h3>
+                Question : <?php echo $liste_questions[$_SESSION['captcha']['id_question_posee']]['question']; ?>
+                <br>
+                Réponse : <input type="text" name="captcha_reponse" value="" required />
+                <br><br>
+                <button type="submit" name="submit_captcha">Soumettre le CAPTCHA</button>
+            </div>
+        <?php endif; ?>
     </form>
 </div>
 
