@@ -1,7 +1,7 @@
 <header style="background-color: #666666; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between;">
     <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
         <a href="index.php">
-        <img src="../images/logo2.png" alt="Logo" style="height: 40px; margin-right: 20px;">
+        <img src="../images/logo2.png" alt="Logo" style="height: 80px; margin-right: 20px;">
         </a>
         <nav>
             <ul style="list-style-type: none; padding: 0; display: flex;">
