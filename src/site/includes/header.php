@@ -1,11 +1,11 @@
 <header style="background-color: #666666; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between;">
     <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
-        <a href="accueil.php">
+        <a href="index.php">
         <img src="../images/logo2.png" alt="Logo" style="height: 40px; margin-right: 20px;">
         </a>
         <nav>
             <ul style="list-style-type: none; padding: 0; display: flex;">
-                <li style="margin-right: 20px;"><a href="accueil.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')">Accueil</a></li>
+                <li style="margin-right: 20px;"><a href="index.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')">Accueil</a></li>
                 <li style="margin-right: 20px;"><a href="module1.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')">Module1</a></li>
                 <li style="margin-right: 20px;"><a href="module2.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')">Module2</a></li>
             </ul>
