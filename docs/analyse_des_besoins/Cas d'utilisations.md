@@ -16,9 +16,7 @@
 |--|--|--|
 |Supprimer un compte|se connecter|Enregistrer le résultat d'un calcul dans un historique|
 |Consulter le journal d'activités|Créer un compte|Enregister un fichier log|
-||Se déconnecté|Utiliser un module de calcul|
-|||Modifier son mot de passe (profil)|
-|||Vérifier la validité du contenu \n du formulaire de connexion|
+||Se déconnecté|Ajouter une activiter dans le journald'activités|
+||Utiliser un module de calcul|Realiser les calculs d'unmoduledecalcul|
+||Modifier son mot de passe|Vérifier la validité du contenu \n du formulaire de connexion|
 |||Vérifier la validité du contenu \n du formulaire d'inscription|
-|||Réaliser les calcul d'un module de calcul|
-|||Ajouter une activitédans le journal d'activités|
