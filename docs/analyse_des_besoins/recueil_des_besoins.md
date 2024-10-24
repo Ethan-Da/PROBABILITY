@@ -12,7 +12,7 @@ Le projet sera limité au réseau de l'IUT de Vélizy. Sa portée reste pédagod
 
 ## II./ Chapitre 2 – Terminologie employée / Glossaire
 
-
+**SAé** (Situation d'Apprentissage et d'Évaluation) : Projet permettant aux étudiants de mettre en pratique des compétences techniques et théoriques acquises durant l'année.
 
 ## III./ Chapitre 3 – Les cas d’utilisation
 
