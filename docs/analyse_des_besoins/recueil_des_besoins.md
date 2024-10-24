@@ -14,6 +14,8 @@ Le projet sera limité au réseau de l'IUT de Vélizy. Sa portée reste pédagod
 
 **SAé** (Situation d'Apprentissage et d'Évaluation) : Projet permettant aux étudiants de mettre en pratique des compétences techniques et théoriques acquises durant l'année.
 
+**RPI (Raspberry Pi)** : Ordinateur monocarte utilisé pour héberger le serveur web du projet et exécuter l'application développée.
+
 ## III./ Chapitre 3 – Les cas d’utilisation
 
 Le diagramme comprenant les acteurs principaux et leurs objectifs est dans le dossier images
