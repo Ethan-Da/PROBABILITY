@@ -7,7 +7,7 @@
 ||Utiliser un module de calcul|Realiser les calcul d'un module|
 ||Modifier son mot de passe (profil)|Ajouter une activiter au journal d'activités|
 ||Se déconnecté|Verifier la validité du contenu \n du formulaire de connexion|
-|||Vérifierla validité du contenu \n du formulaire d'inscription|
+|||Vérifier la validité du contenu \n du formulaire d'inscription|
 
 
 
