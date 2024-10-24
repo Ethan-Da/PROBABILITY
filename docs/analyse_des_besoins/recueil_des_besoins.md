@@ -18,6 +18,8 @@ Le projet sera limité au réseau de l'IUT de Vélizy. Sa portée reste pédagod
 
 **Gitlab** : Plateforme de gestion de versions utilisée pour héberger le code source du projet et permettre le suivi des modifications.
 
+**Administrateur web** : Personne responsable de la gestion des utilisateurs inscrits, des modules de calculs et de la maintenance des comptes via l'interface d'administration.
+
 ## III./ Chapitre 3 – Les cas d’utilisation
 
 Le diagramme comprenant les acteurs principaux et leurs objectifs est dans le dossier images
