@@ -16,6 +16,8 @@ Le projet sera limité au réseau de l'IUT de Vélizy. Sa portée reste pédagod
 
 **RPI (Raspberry Pi)** : Ordinateur monocarte utilisé pour héberger le serveur web du projet et exécuter l'application développée.
 
+**Gitlab** : Plateforme de gestion de versions utilisée pour héberger le code source du projet et permettre le suivi des modifications.
+
 ## III./ Chapitre 3 – Les cas d’utilisation
 
 Le diagramme comprenant les acteurs principaux et leurs objectifs est dans le dossier images
