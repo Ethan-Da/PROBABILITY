@@ -20,6 +20,8 @@ Le projet sera limité au réseau de l'IUT de Vélizy. Sa portée reste pédagod
 
 **Administrateur web** : Personne responsable de la gestion des utilisateurs inscrits, des modules de calculs et de la maintenance des comptes via l'interface d'administration.
 
+**Administrateur système** : Personne en charge de la gestion du serveur, notamment de la configuration, du déploiement, et de la maintenance des services associés à la plateforme web.
+
 ## III./ Chapitre 3 – Les cas d’utilisation
 
 Le diagramme comprenant les acteurs principaux et leurs objectifs est dans le dossier images
