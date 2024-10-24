@@ -1,13 +1,14 @@
 ## I./ Chapitre 1 – Objectif et portée
 
-Le projet est de mettre en place une plateforme web proposant divers services de calculs, sa portée reste pédagodique et il n'est pas destiné a être mis en ligne.  
-Ses objectifs généraux sont de respecter les besoins du client expliciter dans le cahier des charges.
 
-Les profils intervenants dans le projet seront :
-- les visiteurs
-- les utilisateurs
-- l'administrateur web
-- l'administrateur système
+Le projet consiste à mettre en place une plateforme web de calculs mathématiques. 
+Son objectif général est l'apprentissage de bonnes méthodes de développements et le respect des besoins client expliciter dans le cahier des charges.
+
+Le projet est encadré par Monsieur Hoguin, principalement pour la partie Web. La conception est encadré par Monsieur Djerroud. 
+L'équipe de développement est constitué de : Maxence Arsène, Bloumkoum Camara, Roméo Leblond, Ethan Dangeul, Hazim-Rayan Marouan. 
+
+Le projet sera limité au réseau de l'IUT de Vélizy. Sa portée reste pédagodique et il n'est pas destiné a être mis en ligne.
+
 
 ## II./ Chapitre 2 – Terminologie employée / Glossaire
 
