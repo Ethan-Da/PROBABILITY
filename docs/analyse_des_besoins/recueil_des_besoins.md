@@ -73,6 +73,17 @@ https://lucid.app/lucidchart/0396fa81-ce6c-4a1f-97a1-1d0d16478c6c/edit?viewport_
 | Pré-condition      | La fiche de calcul est désormais enregistrer dans l'historique de l'utilisateur.                                                            |
 | Contraintes        |                                                                                                                                             |
 
+| Cas d'utilisation :| Modification du mot de passe utilisateur                                                                                                             |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Description        | Un utilisateur peux modifier son mot de passe lorsqu'il est connecté                                                                          |
+| Portée             | Système ⬛                                                                                                                                   |
+| Niveau             | Utlisateur 🌊                                                                                                                               |
+| Acteur Principale  | Utilisateur                                                                                                                                 |                                                                          
+| Scénario nominal   | 1. L'utilisateur se connecte <br/> 2. Modifie son mot de passe <br/> 3. Valide sa modification <br/> |
+| Scénario alternatifs |                                                                                                                                             |
+| Scénario exceptionnel |                                                                                                                                             |
+| Pré-condition      | L'utilisateur a un compte                                                           |
+| Contraintes        |                                                                                                                                             |
 
 
 
