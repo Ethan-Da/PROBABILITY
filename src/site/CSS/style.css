@@ -123,6 +123,7 @@ table.table-notes {
 
 /* Style du tableau de damier */
 table.table-damier {
+    border-color: transparent;
     border-collapse: collapse;
     margin-top: 20px;
     margin-left: auto;
@@ -133,5 +134,90 @@ table.table-damier {
     width: 40px; /* Largeur fixe des cellules */
     height: 40px; /* Hauteur fixe des cellules */
     border: 1px solid #000; /* Ajout d'une bordure pour mieux voir les cases */
+}
+
+.form-damier{
+    background-color: #e9f0ff;
+    border-radius: 1em;
+    padding: 20px;
+
+}
+input[type=number]{
+    outline-width: 1px ;
+    outline-style: inset;
+    outline-color: lightgray;
+
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+
+    border: 10px gray;
+    background-color: aliceblue;
+    border-radius: 0.5em;
+    height: 45px;
+    width: 90px
+}
+input[type = number]:focus{
+    outline-color: darkorange;
+    outline-style: groove ;
+    outline-width: 2px;
+    background-color: #bbbbbb;
+    box-shadow: inset 0 0 5px lightgray;
+
+}
+input[type = number]:hover{
+    background-color: #bbbbbb;
+    cursor: text;
+}
+
+label{
+    font-weight: bold;
+}
+label::selection{
+    background-color: #666666;
+    color:aliceblue;
+
+}
+
+.button{
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+
+
+    background-color: #252525;
+    border-radius: 1em;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) ;
+    letter-spacing: 0.075em;
+    padding: 1rem 2rem;
+    color : aliceblue;
+    font-weight: 750;
+}
+.button:hover{
+    background-color: #555555;
+    font-weight: 900;
+    transform-origin: bottom;
+    transform: rotate3d(1, 0, 0, 20deg);
+    box-shadow: inset 0 0 10px aliceblue;
+    cursor: pointer;
+
+}
+.button:focus{
+    animation: clicked .1s steps(60, end);
+}
+@keyframes clicked {
+    from{
+        transform: scale(100%);
+    }
+
+    to{
+        transform: scale(200%);
+        background-color: white;
+        color: white;
+        border: transparent;
+        opacity: 0%;
+    }
 }
 

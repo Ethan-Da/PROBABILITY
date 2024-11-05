@@ -11,37 +11,38 @@ $liste_questions = array(
     )
 );
 
-# Activation des sessions (pour que PHP charge la session de l'utilisateur, via le cookie PHPSESSID)
-# à placer avant tout affichage, car a besoin d'envoyer des headers HTTP
+# Activation des sessions pour récuperer des variables de sessions
 session_start();
 
-$show_captcha = false;
+$affiche_captcha = false;
 $error_message = '';
-$filter_value = '';
-$input_value = '';
+$filtre= '';
+$entree = '';
 
 # Vérif du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['ok'])) {
         #Variable pour afficher le CATPCHA
-        $show_captcha = true;
+        $affiche_captcha = true;
 
         #Pour conserver les valeurs du filtre et du champ
-        $filter_value = isset($_POST['filter']) ? $_POST['filter'] : '';
-        $input_value = isset($_POST['input']) ? $_POST['input'] : '';
+        $filter = $_POST['filter'];
+        $entree = $_POST['input'];
 
-        #Une question au hasard
+        #Selectinne une question au hasard dans la liste des questions
         $id_question_posee = array_rand($liste_questions);
+
+        #variable de session
         $_SESSION['captcha']['id_question_posee'] = $id_question_posee;
     }
 
     #Vérif de la réponse au CAPTCHA et du filtre
     if (isset($_POST['submit_captcha'])) {
-        $reponse = isset($_POST['captcha_reponse']) ? $_POST['captcha_reponse'] : '';
-        $id_question_posee = isset($_SESSION['captcha']['id_question_posee']) ? $_SESSION['captcha']['id_question_posee'] : '';
+        $reponse = $_POST['captcha_reponse'];
+        $id_question_posee = $_SESSION['captcha']['id_question_posee'];
 
         #Validation de la réponse au CAPTCHA
-        $captcha_correct = in_array(strtolower($reponse), array_map('strtolower', $liste_questions[$id_question_posee]['reponses']));
+        $captcha_correct = in_array(($reponse),$liste_questions[$id_question_posee]['reponses']);
 
         #Validation du filtre
         $filter_correct = false;
@@ -56,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
 
             case 'id':
-                $filter_correct = is_numeric($_POST['input']) && ($_POST['input'] >= 1000 && $_POST['input'] <= 9999);
+                $filter_correct = is_numeric($_POST['input']);
                 break;
         }
 
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         } else {
             $error_message = "Réponse incorrecte au CAPTCHA ou filtre invalide. Réessayez.";
-            $show_captcha = true;
+            $affiche_captcha = true;
         }
     }
 }
@@ -165,25 +166,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Formulaire de vérification -->
     <form action="" method="POST">
-        <label for="filter" aria-label="Sélectionner un filtre">Choisir ce que vous voulez vérifier :</label>
+        <label for="filter" text="Sélectionner un filtre">Choisir ce que vous voulez vérifier :</label>
         <select name="filter" id="filter" required>
-            <option value="email" <?php echo ($filter_value === 'email') ? 'selected' : ''; ?>>Email</option>
-            <option value="prenom" <?php echo ($filter_value === 'prenom') ? 'selected' : ''; ?>>Prénom</option>
-            <option value="id" <?php echo ($filter_value === 'id') ? 'selected' : ''; ?>>ID</option>
+            <option value="email" <?php echo ($filtre === 'email'); ?>>Email</option>
+            <option value="prenom" <?php echo ($filtre === 'prenom'); ?>>Prénom</option>
+            <option value="id" <?php echo ($filtre === 'id'); ?>>ID</option>
         </select>
 
-        <label for="input" aria-label="Champ d'entrée">Entrée à vérifier :</label>
-        <input type="text" name="input" id="input" value="<?php echo htmlspecialchars($input_value); ?>" required>
+        <label for="input" text="Champ d'entrée">Entrée à vérifier :</label>
+        <input type="text" name="input" id="input" value="<?php echo htmlspecialchars($entree); ?>" required>
 
         <button type="submit" name="ok" value="ok">Vérifier</button>
 
         <!-- Affichage du CAPTCHA si requis -->
-        <?php if ($show_captcha): ?>
+        <?php if ($affiche_captcha): ?>
             <div>
-                <h3>Captcha</h3>
+                <h3>Etes-vous un robot ?</h3>
                 Question : <?php echo $liste_questions[$_SESSION['captcha']['id_question_posee']]['question']; ?>
                 <br>
-                Réponse : <input type="text" name="captcha_reponse" value="" required />
+                Réponse : <input type="text" name="captcha_reponse" value=""/>
                 <br><br>
                 <button type="submit" name="submit_captcha">Soumettre le CAPTCHA</button>
             </div>

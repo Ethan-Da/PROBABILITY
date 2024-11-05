@@ -4,82 +4,81 @@
 
 ### 1.Contexte
 
-Dans le cadre de la seconde année de BUT informatique, le développement d’une application web, de A à Z, est proposé.
-Cette dernière est une plateforme de calcul possédant différents modules. 
-Ce cahier des charges est rédigé afin de s'assurer que l’application peut répondre aux besoins du client.
-On analyse les besoins définis dans l'énoncé afin de créer un cahier des charges fourni.
-Ce projet est à but pédagogique.
+Le projet s'inscrit dans le cadre de la seconde année de BUT informatique à l'IUT de Vélizy, durant les semestres 3 et 4 de l'année 2024. Il s'agit d'un projet transversal qui mobilise de nombreuses ressources du semestre, couvrant des domaines variés tels que le développement web (R301), le développement efficace (R302), l'analyse (R303), la qualité de développement (R304), la programmation système et l'architecture réseau (R305/R306), ainsi que d'autres aspects comme le SQL (R307), les probabilités (R308), la cryptographie (R309), le management des SI (R310/R311) et la communication professionnelle (R313).
+
+La plateforme que nous devons développer sera hébergée sur un serveur Raspberry Pi 4 (RPI4) fourni par l'IUT. Ce choix technique nous progète dans un monde professionnel car nous devrons nous-mêmes procéder à l'installation et à la configuration complète de l'environnement, incluant le système d'exploitation, le serveur web et l'ensemble des applications nécessaire pour notre plateforme.
  
 ### 2.Objectifs
 
-L'objectif de ce document est d'avoir une vision précises des attentes du client et facilités la communication avec lui. 
-On presentera clairement les fonctionnalités voulus par le client.
+Ce document a pour vocation première de définir avec précision le projet et l'ensemble de ses fonctionnalités. Il servira de référence tout au long du développement, permettant d'assurer une communication claire entre les différents intervenants, qu'il s'agisse des professeurs ou des futurs utilisateurs. Dans un contexte de travail en équipe de cinq étudiants, selon nous, il est essentiel d'avoir une base documentaire solide qui guidera nos efforts de développement et servira de support pour l'évaluation finale du projet.
+
+Nous développerons de notre mieux pour avoir une plateforme web performante et sécurisée, qui offrira différents modules de calculs accessibles via une interface web. Une attention particulière sera portée à la documentation du projet, qui devra respecter les bonnes pratiques de programmation et de gestion de projet.
 
 ### 3.Structure
-Ce document est constitué d'un énoncé clair des objectifs du projet, des pré-requis au projet, ainsi que des priorités de développement fixés avec le client.
+
+Ce cahier des charges est structuré de manière logique pour couvrir tous les aspects du projet. Il commence par une introduction, qui présente le contexte et les objectifs, suivie d’une description technique détaillée, incluant un énoncé clair des objectifs du projet et des spécifications du serveur. La section des pré-requis du projet énumère les technologies (PHP, SQL, etc.) et les ressources (comme le Raspberry Pi 4) nécessaires. Nous y décrivons également les priorités de développement établies pour répondre efficacement aux attentes du client. Enfin, les fonctionnalités de la plateforme sont exposées en détail, avec une lecture approfondie du cahier des charges et une expression des exigences fonctionnelles et techniques.
 
 ### 4.Documents 
 Documents référencés : 0 pour l'instant
 
 ## II./ Enoncé
 
-L'objectif du projet est de développer une application web de calcul robuste permettant l’accueil de plusieurs utilisateurs,
-conformément aux besoins du client.  
-Les fonctionnalités souhaitées sont donc : la gestion d’informations liés aux utilisateurs, la capacité à réaliser des calculs fiables et performants.  
-Le site web doit être facile à prendre en main, les informations et outils doivent être disponibles et facilement accessibles aux utilisateurs.
-De plus, un texte explicatif et une vidéo de présentation doivent être réaliser pour mettre en valeur la plateforme.
+Le projet a pour ambition le développement d'une application web de calcul robuste capable d'accueillir plusieurs utilisateurs, répondant ainsi aux besoins spécifiques du client. Cette plateforme doit non seulement gérer efficacement les informations liées aux utilisateurs mais aussi assurer des calculs fiables et performants à travers différents modules spécialisés.
 
-Ici, la liste détaillés des attentes fonctionnelles évoqués par le client que doit atteindre notre solution :
+L'interface utilisateur constitue un aspect crucial du projet. Le site web doit être intuitif et facilement accessible, permettant une prise en main rapide par les différents utilisateurs. Pour faciliter cette appropriation, la plateforme doit être accompagnée d'un texte explicatif détaillé ainsi que d'une vidéo de présentation mettant en valeur ses fonctionnalités.
 
+Au cœur de l'application se trouvent plusieurs modules de calculs spécifiques qui seront définis ultérieurement selon les besoins du client. Ces modules devront être performants et produire des résultats fiables. L'application intègre un système complet de gestion des utilisateurs, permettant la création de comptes et l'authentification des utilisateurs. Une fois connecté, chaque utilisateur pourra effectuer des calculs dans les différents modules et sauvegarder ses résultats pour une consultation ultérieure.
 
-* L'application accueille différents modules de calculs comme : 
-  - [REPONSE CLIENT]
-  - [REPONSE CLIENT]
-  - [REPONSE CLIENT]
-  - [REPONSE CLIENT]
+La gestion des droits d'accès est structurée selon une hiérarchie claire comprenant quatre niveaux d'utilisateurs. Les visiteurs, au niveau le plus basique, peuvent uniquement accéder à la page d'accueil sans pouvoir utiliser les modules de calcul. Les utilisateurs inscrits disposent d'un accès complet aux modules et à leurs fonctionnalités. L'administrateur web possède des droits étendus lui permettant de gérer les comptes utilisateurs, notamment la consultation de la liste des inscrits, la suppression de comptes et la création de nouveaux comptes via des fichiers CSV. Au sommet de cette hiérarchie, l'administrateur système bénéficie d'un accès privilégié aux logs du système directement depuis l'interface web.
+
+L'infrastructure technique repose sur un Raspberry Pi qui hébergera l'ensemble de la solution. Cette configuration nécessite l'installation et la configuration d'un serveur web, d'un système de gestion de base de données MySQL, ainsi que la mise en place de mesures de sécurité appropriées, notamment pour les accès SSH. L'ensemble doit former une solution cohérente et sécurisée, capable de répondre aux exigences de performance et de fiabilité attendues par le client.
 
 
-* L'application doit permettre à l’utilisateur de créer ou de se connecter à son compte.
-
-
-* L'utilisateur peut effectuer des calculs dans un des modules puis enregistrer les résultats.
-
-
-* L'application doit enregistrer une liste des utilisateurs inscrits et un fichier log des connexions.
-
-
-* L'application doit gérer les différents utilisateurs et leur droit (administrateur système, administrateur web, utilisateur inscrit et visiteur).
-  * Le visiteur peut accéder à la page d’accueil mais ne pourra pas utiliser les modules présents sur la plateforme. 
-  
-  * L’administrateur web peut consulter les utilisateurs inscrits, supprimer des comptes, créer des comptes à partir de fichiers csv.
-  * L'administrateur système peut, depuis la plateforme web, accéder aux logs du système.
-
-
-Enfin, un serveur web, un SGBD tel que MySQL et des applications de sécurisation des accées ssh seront installés sur un 
-Raspberry Pi pour faire fonctionner l'application.
+*Pour le moment, nous ne disposons pas de consignes précises pour la mise en place des modules.*
 
 ## III./ Pré-requis
 
-Les connaissances que nous allons exploiter pour la réalisation de notre application Web sont différents langages de programmation tels que :
-* PHP
-* Python
-* SQL
-* HTML/CSS 
-* Langage R
+La réalisation de notre application web nécessite l'utilisation de plusieurs technologies et diverses ressources tant logicielles que matérielles. Notre développement s'appuiera sur un ensemble complet de langages de programmation pour répondre aux différents aspects du projet.
 
-Les ressources logicielles utilisées sont des IDE de la suite logicielle de JetBrains et Raspberry Pi OS
+Le développement backend sera principalement assuré par PHP et Python, deux langages puissants et complémentaires. PHP servira de base pour la création des fonctionnalités web dynamiques, tandis que Python pourra être utilisé pour des traitements plus complexes et l'analyse de données. La gestion des données sera assurée par SQL, permettant une interaction avec notre base de données.
 
-Les ressources matérielles seront les ordinateurs de l'IUT, un RaspberryPi et une carte SD.
+Pour la partie frontend, nous utiliserons HTML et CSS pour créer une interface utilisateur responsive. Ces technologies seront enrichies par l'utilisation du langage R, particulièrement adapté pour les calculs statistiques et la visualisation de données.
 
-## IV./ Priorités
+Sur le plan des ressources logicielles, notre équipe s'appuiera sur les environnement de développement (IDE) professionnels comme JetBrains, reconnus pour leur robustesse et leurs fonctionnalités avancées de développement. Le système d'exploitation Raspberry Pi OS sera déployé sur notre serveur, offrant un environnement stable et optimisé pour notre infrastructure.
 
-Les priorités éventuelles du développements à confirmés avec le client :
+Concernant les ressources matérielles, nous disposerons des ordinateurs de l'IUT pour le développement, complétés par un Raspberry Pi qui servira de serveur de production. Une carte SD sera utilisée pour le stockage du système et des données, formant ainsi une infrastructure complète et autonome pour notre application.
 
-1. La sécurité du site.
+## IV./ Priorités de développement
 
-2. La configuration du système de compte.
+Les priorités éventuelles du développement à confirmer avec le client :
 
-3. Le développement des modules de calculs.
+1. **Configuration du Serveur et Installation du Système**
+
+   Notre première priorité est la mise en place d'une infrastructure technique solide. Cela comprend la configuration complète du serveur Raspberry Pi, l'installation du système d'exploitation, la mise en place du serveur web et le déploiement de la base de données MySQL. Cette étape fondamentale doit garantir un environnement stable et performant pour notre application.
+
+2. **Développement des Modules de Calcul**
+
+   Au cœur de notre plateforme se trouvent les modules de calcul. Une fois les spécifications reçues du client, nous concentrerons nos efforts sur le développement de ces modules. Chacun devra être conçu avec une attention particulière portée à la performance et à la fiabilité des résultats, garantissant ainsi la qualité des calculs effectués.
+
+3. **Gestion des Utilisateurs et des Droits d'Accès**
+
+   La mise en place d'un système robuste de gestion des utilisateurs constitue notre troisième priorité. Ce système devra gérer efficacement les différents niveaux d'accès, du simple visiteur à l'administrateur système, en passant par l'utilisateur inscrit et l'administrateur web. La sécurité et le contrôle des accès sont essentiels pour préserver l'intégrité de la plateforme.
+
+4. **Conception de l'Interface Utilisateur**
+
+   L'interface utilisateur doit être intuitive et accessible pour tous les types d'utilisateurs. Nous développerons une interface responsive qui guidera naturellement les utilisateurs dans leur utilisation des différents modules. Une attention particulière sera portée à l'expérience utilisateur pour faciliter l'adoption de la plateforme.
+
+5. **Documentation et Support Utilisateur**
+
+   La création d'une documentation complète et claire est essentielle. Elle comprendra des guides d'utilisation, un texte explicatif détaillé et une vidéo de présentation. Ces ressources faciliteront non seulement l'utilisation de la plateforme mais serviront également de support pour l'évaluation du projet.
+
+6. **Sécurité de l'Application**
+
+   La sécurisation globale de l'application est une priorité. Cela inclut la protection des accès SSH, la sécurisation des communications entre le frontend et le backend, et la mise en place de mesures de protection des données. Ces éléments sont cruciaux pour garantir la confidentialité et l'intégrité du système.
+
+7. **Tests et Validation**
+
+   Enfin, une phase complète de tests et de validation sera menée avant la mise en production. Cette étape permettra de vérifier le bon fonctionnement de chaque module, la performance globale de l'application et la robustesse des mesures de sécurité mises en place. Cette validation finale est indispensable pour s'assurer que notre solution répond pleinement aux attentes du client.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
