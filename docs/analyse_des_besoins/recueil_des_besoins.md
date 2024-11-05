@@ -16,7 +16,7 @@ Le projet sera limité au réseau de l'IUT de Vélizy. Sa portée reste pédagod
 
 **RPI (Raspberry Pi)** : Ordinateur monocarte utilisé pour héberger le serveur web du projet et exécuter l'application développée.
 
-**Gitlab** : Plateforme de gestion de versions utilisée pour héberger le code source du projet et permettre le suivi des modifications.
+**Github** : Plateforme de gestion de versions utilisée pour héberger le code source du projet et permettre le suivi des modifications.
 
 **Administrateur web** : Personne responsable de la gestion des utilisateurs inscrits, des modules de calculs et de la maintenance des comptes via l'interface d'administration.
 
@@ -88,8 +88,8 @@ https://lucid.app/lucidchart/0396fa81-ce6c-4a1f-97a1-1d0d16478c6c/edit?viewport_
 | Acteur Principale  | Utilisateur                                                                                                                                 |                                                                          
 | Scénario nominal   | 1. L'utilisateur se connecte <br/> 2. Modifie son mot de passe <br/> 3. Valide sa modification <br/> |
 | Scénario alternatifs |                                                                                                                                             |
-| Scénario exceptionnel |                                                                                                                                             |
-| Pré-condition      | L'utilisateur a un compte                                                           |
+| Scénario exceptionnel | 1. L'utilisateur rentre le même mot de passe  <br/>  &nbsp; &nbsp; &nbsp; &nbsp; a. L'utilisateur se connecte <br/> &nbsp; &nbsp; &nbsp; &nbsp; b. Modifie son mot de passe <br/> &nbsp; &nbsp;                               &nbsp; &nbsp; c. Valide sa modification <br/> &nbsp; &nbsp; &nbsp; &nbsp; d. Renvoie une erreur lui indiquant que le mot de passe est le même    |
+| Pré-condition      | L'utilisateur a un compte                                                                                                            |
 
 ADMIN WEB : 
 
@@ -113,7 +113,7 @@ ADMIN WEB :
 | Scénario nominal   | 1. L'admin se connecte <br/> 2. Se rends sur la page des gestion des comptes <br/> 3. Crée un nouveau compte <br/> 4. Valide la création <br/> 5. Une confirmation est affiché |
 | Scénario alternatifs |1.Avec un fichier CSV <br/> &nbsp;&nbsp;&nbsp;&nbsp;a. L'admin se connecte <br/> &nbsp;&nbsp;&nbsp;&nbsp;b. Se rends sur la page des gestion des comptes <br/> &nbsp;&nbsp;&nbsp;&nbsp;c. Envoie son fichier csv au bon format <br/> &nbsp;&nbsp;&nbsp;&nbsp;d. Valide <br/> &nbsp;&nbsp;&nbsp;&nbsp;e. Une confirmation est affiché         |
 | Scénario exceptionnel |                                                                                                                                             |
-| Pré-condition      | L'utilisateur a un compte                                                           |
+| Pré-condition      |                                                                                                                                                |
 
 
 ## IV./ Chapitre 4 – La technologie employée
