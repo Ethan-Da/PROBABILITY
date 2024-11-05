@@ -38,16 +38,15 @@ L'infrastructure technique repose sur un Raspberry Pi qui hébergera l'ensemble 
 
 ## III./ Pré-requis
 
-Les connaissances que nous allons exploiter pour la réalisation de notre application Web sont différents langages de programmation tels que :
-* PHP
-* Python
-* SQL
-* HTML/CSS 
-* Langage R
+La réalisation de notre application web nécessite l'utilisation de plusieurs technologies et diverses ressources tant logicielles que matérielles. Notre développement s'appuiera sur un ensemble complet de langages de programmation pour répondre aux différents aspects du projet.
 
-Les ressources logicielles utilisées sont des IDE de la suite logicielle de JetBrains et Raspberry Pi OS
+Le développement backend sera principalement assuré par PHP et Python, deux langages puissants et complémentaires. PHP servira de base pour la création des fonctionnalités web dynamiques, tandis que Python pourra être utilisé pour des traitements plus complexes et l'analyse de données. La gestion des données sera assurée par SQL, permettant une interaction avec notre base de données.
 
-Les ressources matérielles seront les ordinateurs de l'IUT, un RaspberryPi et une carte SD.
+Pour la partie frontend, nous utiliserons HTML et CSS pour créer une interface utilisateur responsive. Ces technologies seront enrichies par l'utilisation du langage R, particulièrement adapté pour les calculs statistiques et la visualisation de données.
+
+Sur le plan des ressources logicielles, notre équipe s'appuiera sur les environnement de développement (IDE) professionnels comme JetBrains, reconnus pour leur robustesse et leurs fonctionnalités avancées de développement. Le système d'exploitation Raspberry Pi OS sera déployé sur notre serveur, offrant un environnement stable et optimisé pour notre infrastructure.
+
+Concernant les ressources matérielles, nous disposerons des ordinateurs de l'IUT pour le développement, complétés par un Raspberry Pi qui servira de serveur de production. Une carte SD sera utilisée pour le stockage du système et des données, formant ainsi une infrastructure complète et autonome pour notre application.
 
 ## IV./ Priorités
 
