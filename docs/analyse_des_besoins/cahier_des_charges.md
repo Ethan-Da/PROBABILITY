@@ -4,11 +4,9 @@
 
 ### 1.Contexte
 
-Dans le cadre de la seconde année de BUT informatique, le développement d’une application web, de A à Z, est proposé.
-Cette dernière est une plateforme de calcul possédant différents modules. 
-Ce cahier des charges est rédigé afin de s'assurer que l’application peut répondre aux besoins du client.
-On analyse les besoins définis dans l'énoncé afin de créer un cahier des charges fourni.
-Ce projet est à but pédagogique.
+Le projet s'inscrit dans le cadre de la seconde année de BUT informatique à l'IUT de Vélizy, durant les semestres 3 et 4 de l'année 2024. Il s'agit d'un projet transversal qui mobilise de nombreuses ressources du semestre, couvrant des domaines variés tels que le développement web (R301), le développement efficace (R302), l'analyse (R303), la qualité de développement (R304), la programmation système et l'architecture réseau (R305/R306), ainsi que d'autres aspects comme le SQL (R307), les probabilités (R308), la cryptographie (R309), le management des SI (R310/R311) et la communication professionnelle (R313).
+
+La plateforme que nous devons développer sera hébergée sur un serveur Raspberry Pi 4 (RPI4) fourni par l'IUT. Ce choix technique nous progète dans un monde professionnel car nous devrons nous-mêmes procéder à l'installation et à la configuration complète de l'environnement, incluant le système d'exploitation, le serveur web et l'ensemble des applications nécessaire pour notre plateforme.
  
 ### 2.Objectifs
 
