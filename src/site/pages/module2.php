@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de notes - Mon site web</title>
-    <link rel="stylesheet" href="../css/style.css">
+<?php include '../includes/header.php';
+?>
+
+<title>Module2</title>
 </head>
 <body>
 
-<?php include '../includes/header.php'; ?>
+<?php include '../includes/navbar.php'; ?>
+
 
 <div class="container">
     <div class="content">

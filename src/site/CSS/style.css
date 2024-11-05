@@ -180,12 +180,59 @@ label::selection{
 
 }
 
-.button{
+/* ****************************************** NAV BAR  ******************************************************** */
+.bouton-nav{
+    color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out;
+    -moz-transition: background-color 2s ease-out, color 2s ease-out;
+    -o-transition: background-color 2s ease-out, color 2s ease-out;
+    transition: background-color 2s ease-out, color 2s ease-out;
+}
+
+#bouton-nav0:hover {
+    color: black;
+    background-color: #b0d8f8;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#bouton-nav1:hover {
+    color: #000;
+    background-color: #a8d8e8;
+    border: solid #5baccd;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+#bouton-nav2:hover{
+    color: #000;
+    background-color: #d1e8bb;
+    border: solid #8d9f7c;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#bouton-nav3:hover {
+    color: #000;
+    background-color: #f1e7e7;
+    border: solid #e89393;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#bouton-nav4:hover {
+    color: #000;
+    background-color: #fffce5;
+    border: solid #c6aa54;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+/****************************************************************************************************/
+
+/*.button{
     -webkit-transition: background-color 2s ease-out;
     -moz-transition: background-color 2s ease-out;
     -o-transition: background-color 2s ease-out;
     transition: background-color 2s ease-out;
-
 
     background-color: #252525;
     border-radius: 1em;
@@ -219,5 +266,7 @@ label::selection{
         border: transparent;
         opacity: 0%;
     }
-}
+}*/
+
+
 
