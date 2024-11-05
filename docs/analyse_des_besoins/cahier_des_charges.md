@@ -10,8 +10,9 @@ La plateforme que nous devons développer sera hébergée sur un serveur Raspber
  
 ### 2.Objectifs
 
-L'objectif de ce document est d'avoir une vision précises des attentes du client et facilités la communication avec lui. 
-On presentera clairement les fonctionnalités voulus par le client.
+Ce document a pour vocation première de définir avec précision le projet et l'ensemble de ses fonctionnalités. Il servira de référence tout au long du développement, permettant d'assurer une communication claire entre les différents intervenants, qu'il s'agisse des professeurs ou des futurs utilisateurs. Dans un contexte de travail en équipe de cinq étudiants, selon nous, il est essentiel d'avoir une base documentaire solide qui guidera nos efforts de développement et servira de support pour l'évaluation finale du projet.
+
+Nous développerons de notre mieux pour avoir une plateforme web performante et sécurisée, qui offrira différents modules de calculs accessibles via une interface web. Une attention particulière sera portée à la documentation du projet, qui devra respecter les bonnes pratiques de programmation et de gestion de projet.
 
 ### 3.Structure
 Ce document est constitué d'un énoncé clair des objectifs du projet, des pré-requis au projet, ainsi que des priorités de développement fixés avec le client.
