@@ -5,11 +5,32 @@
         </a>
         <nav>
             <ul style="list-style-type: none; padding: 0; display: flex;">
-                <li style="margin-right: 20px;"><a href="index.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')">Accueil</a></li>
-                <li style="margin-right: 20px;"><a href="module1.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active1')" onmouseout="this.classList.remove('active1')">Module1</a></li>
-                <li style="margin-right: 20px;"><a href="module2.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active2')" onmouseout="this.classList.remove('active2')">Module2</a></li>
-                <li style="margin-right: 20px;"><a href="module3.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active3')" onmouseout="this.classList.remove('active3')">Module3</a></li>
-                <li style="margin-right: 20px;"><a href="module4.php" style="color: white; text-decoration: none;" onmouseover="this.classList.add('active4')" onmouseout="this.classList.remove('active4')">Module4</a></li>
+                <li style="margin-right: 20px;">
+                    <a href="index.php" style="color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -moz-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -o-transition: background-color 2s ease-out, color 2s ease-out;
+                                                transition: background-color 2s ease-out, color 2s ease-out;
+                                               "class="active">Accueil</a></li>
+                <li style="margin-right: 20px;  ">
+                    <a href="module1.php" style="color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -moz-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -o-transition: background-color 2s ease-out, color 2s ease-out;
+                                                transition: background-color 2s ease-out, color 2s ease-out;" class="active1">Module1</a></li>
+                <li style="margin-right: 20px;">
+                    <a href="module2.php" style="color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -moz-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -o-transition: background-color 2s ease-out, color 2s ease-out;
+                                                transition: background-color 2s ease-out, color 2s ease-out;" class="active2">Module2</a></li>
+                <li style="margin-right: 20px;">
+                    <a href="module3.php" style=" color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -moz-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -o-transition: background-color 2s ease-out, color 2s ease-out;
+                                                transition: background-color 2s ease-out, color 2s ease-out" class="active3">Module3</a></li>
+                <li style="margin-right: 20px;">
+                    <a href="module4.php" style="color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -moz-transition: background-color 2s ease-out, color 2s ease-out;
+                                               -o-transition: background-color 2s ease-out, color 2s ease-out;
+                                                transition: background-color 2s ease-out, color 2s ease-out;" class="active4">Module4</a></li>
             </ul>
         </nav>
     </div>
@@ -19,14 +40,14 @@
 </header>
 
 <style>
-    a.active {
-        color: #000;
+    .active:hover {
+        color: black;
         background-color: #b0d8f8;
         padding: 5px 10px;
         border-radius: 5px;
     }
 
-    a.active1 {
+    .active1:hover {
         color: #000;
         background-color: #a8d8e8;
         border: solid #5baccd;
@@ -35,7 +56,7 @@
         
     }
 
-    a.active2 {
+    .active2:hover{
         color: #000;
         background-color: #d1e8bb;
         border: solid #8d9f7c;
@@ -43,7 +64,7 @@
         border-radius: 5px;
     }
 
-    a.active3 {
+    .active3:hover {
         color: #000;
         background-color: #f1e7e7;
         border: solid #e89393;
@@ -51,7 +72,7 @@
         border-radius: 5px;
     }
 
-    a.active4 {
+    .active4:hover {
         color: #000;
         background-color: #fffce5;
         border: solid #c6aa54;
