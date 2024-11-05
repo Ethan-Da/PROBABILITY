@@ -40,7 +40,6 @@ https://lucid.app/lucidchart/0396fa81-ce6c-4a1f-97a1-1d0d16478c6c/edit?viewport_
 | Scénario alternatifs |                                                                                                                                                                                                 |
 | Scénario exceptionnel |                                                                                                                                                                                                 |
 | Post-Conditions     | Un compte utilisateur a été crée.                                                                                                                                                               |
-| Contraintes         |                                                                                                                                                                                                 |
 
 
 
@@ -55,7 +54,6 @@ https://lucid.app/lucidchart/0396fa81-ce6c-4a1f-97a1-1d0d16478c6c/edit?viewport_
 | Scénario exceptionnel|                                                                                                                                                                                                      |
 | Pré-condition      | Il existe un compte utilisateur correspondant aux informations du visiteur.                                                                                                                          |
 | Post-Conditions    | Le visiteur est désormais connectés en tant qu'utilisateur.                                                                                                                                          |
-| Contraintes        |                                                                                                                                                                                                      |
 
 
 | Cas d'utilisation :| Consulter son historique de calcul                              |
@@ -68,7 +66,7 @@ https://lucid.app/lucidchart/0396fa81-ce6c-4a1f-97a1-1d0d16478c6c/edit?viewport_
 | Scénario alternatifs |                                                                 |
 | Scénario exceptionnel |                                                                 |
 | Pré-condition      | L'utilisateur a déjà réalisé des calculs avec les modules       |
-| Contraintes        |                                                                 |
+
 
 | Cas d'utilisation :| Enregistrer une fiche de calcul                                                                                                             |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,7 +78,7 @@ https://lucid.app/lucidchart/0396fa81-ce6c-4a1f-97a1-1d0d16478c6c/edit?viewport_
 | Scénario alternatifs |                                                                                                                                             |
 | Scénario exceptionnel |                                                                                                                                             |
 | Pré-condition      | La fiche de calcul est désormais enregistrer dans l'historique de l'utilisateur.                                                            |
-| Contraintes        |                                                                                                                                             |
+
 
 | Cas d'utilisation :| Modification du mot de passe utilisateur                                                                                                             |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -92,8 +90,30 @@ https://lucid.app/lucidchart/0396fa81-ce6c-4a1f-97a1-1d0d16478c6c/edit?viewport_
 | Scénario alternatifs |                                                                                                                                             |
 | Scénario exceptionnel |                                                                                                                                             |
 | Pré-condition      | L'utilisateur a un compte                                                           |
-| Contraintes        |                                                                                                                                             |
 
+ADMIN WEB : 
+
+| Cas d'utilisation :| Supression de compte utilisateur                                                                                                              |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Description        | L'administrateur web veut supprimer un compte utilisateur                                                                         |
+| Portée             | Système ⬛                                                                                                                                   |
+| Niveau             | Utlisateur 🌊                                                                                                                               |
+| Acteur Principale  | Administrateur web                                                                                                                                 |                                                                          
+| Scénario nominal   | 1. L'admin se connecte <br/> 2. Se rends sur la page de gestion des comptes <br/> 3. Selectionne un compte a supprimer <br/> 4. Valide la suppression <br/> 5. Une confirmation est affiché 
+| Scénario alternatifs |                                                                                                                                             |
+| Scénario exceptionnel |                                                                                                                                             |
+| Pré-condition      | Il existe au moins un ou plus compte utilisateur                                                           |
+
+| Cas d'utilisation :| Créer compte(s) utilisateur                                                                                                        |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Description        | L'admin veux créer des comptes utilisateurs                                                                          |
+| Portée             | Système ⬛                                                                                                                                   |
+| Niveau             | Utlisateur 🌊                                                                                                                               |
+| Acteur Principale  | Administrateur Web                                                                                                                                 |                                                                          
+| Scénario nominal   | 1. L'admin se connecte <br/> 2. Se rends sur la page des gestion des comptes <br/> 3. Crée un nouveau compte <br/> 4. Valide la création <br/> 5. Une confirmation est affiché |
+| Scénario alternatifs |1.Avec un fichier CSV <br/> &nbsp;&nbsp;&nbsp;&nbsp;a. L'admin se connecte <br/> &nbsp;&nbsp;&nbsp;&nbsp;b. Se rends sur la page des gestion des comptes <br/> &nbsp;&nbsp;&nbsp;&nbsp;c. Envoie son fichier csv au bon format <br/> &nbsp;&nbsp;&nbsp;&nbsp;d. Valide <br/> &nbsp;&nbsp;&nbsp;&nbsp;e. Une confirmation est affiché         |
+| Scénario exceptionnel |                                                                                                                                             |
+| Pré-condition      | L'utilisateur a un compte                                                           |
 
 
 ## IV./ Chapitre 4 – La technologie employée
