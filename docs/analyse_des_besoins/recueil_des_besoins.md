@@ -115,6 +115,28 @@ ADMIN WEB :
 | Scénario exceptionnel |                                                                                                                                             |
 | Pré-condition      |                                                                                                                                                |
 
+|Cas d'utilisation :| Enregistrer un fichier log |
+|--------------------|-----------------------|
+|Description| Enresgitrement d'un fichier log décrivant une action spécifique prédéterminée dans le système |
+|Portée| Sous-partie 🔩 |
+|Niveau| Sous-fonction 🐟 |
+|Acteur Principal| Administrateur Web|
+|Scénario Nominal|1. Un visiteur accède au formulaire d'inscription du site</br>2. Le visiteur créer un nouveu compte</br>|
+|Scénario Alternatif|I.1. Un admistrateur Web se connecte au compte ***adminweb***</br>_2. L'administrateur supprime un compte<br>II.1. Un administrateur Web se connecte au compte ***adminweb***</br>_2. L'administrateur creer un compte à partir d'un fichier csv|
+|Scénario Exceptionnel||
+|Prérecquis||
+
+|Cas d'utilisation :| Se déconnecter |
+|--------------------|-----------------------|
+|**Description**| Un utilisateur veut se déconnecter de son compte|
+|**Portée**| Système ⬛ |
+|**Niveau**| Utilisateur 🌊|
+|**Acteur Principale**| utilisateur |
+|**Scénario Nominal**||
+|**Scénario alternatif**||
+|**Scénario Exceptionnel**||
+|**Prérecquis**||
+
 
 ## IV./ Chapitre 4 – La technologie employée
 
