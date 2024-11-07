@@ -121,7 +121,7 @@ ADMIN WEB :
 |**Portée**| Sous-partie 🔩 |
 |**Niveau**| Sous-fonction 🐟 |
 |**Acteur Principal**| Administrateur Web|
-|**Scénario Nominal**|1. Un visiteur accède au formulaire d'inscription du site</br>2. Le visiteur créer un nouveu compte</br>|
+|**Scénario Nominal**|1. Un visiteur accède au formulaire d'inscription du site</br>2. Le visiteur créer un nouveau compte</br>|
 |**Scénario Alternatif**|I.1. Un admistrateur Web se connecte au compte ***adminweb***</br>_2. L'administrateur supprime un compte<br>II.1. Un administrateur Web se connecte au compte ***adminweb***</br>_2. L'administrateur creer un compte à partir d'un fichier csv|
 |**Scénario Exceptionnel**||
 |**Prérecquis**||
@@ -133,6 +133,28 @@ ADMIN WEB :
 |**Niveau**| Utilisateur 🌊|
 |**Acteur Principale**| utilisateur |
 |**Scénario Nominal**||
+|**Scénario alternatif**||
+|**Scénario Exceptionnel**||
+|**Prérecquis**||
+
+|Cas d'utilisation :| Verifier la validité du contenu du formulaire de d'inscription |
+|--------------------|-----------------------|
+|**Description**| Un utilisateur veut vérifier que les informations d'inscription  qu'il a entré dans le formulaire sont correctes |
+|**Portée**| Sous-partie 🔩 |
+|**Niveau**| Utilisateur 🌊 |
+|**Acteur Principale**| utilisateur |
+|**Scénario Nominal**|1. L'utilisateur accède au formulaire d'inscription du site</br>2. L'utilisateur entre ses informations personelles pour se connecter </br>3. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
+|**Scénario alternatif**||
+|**Scénario Exceptionnel**||
+|**Prérecquis**||
+
+|Cas d'utilisation :| Verifier la validité du contenu du formulaire de connexion|
+|--------------------|-----------------------|
+|**Description**| Un utilisateur veut vérifier que les informations de connexion qu'il a entré dans le formulaire sont correctes |
+|**Portée**| Sous-partie 🔩 |
+|**Niveau**| Utilisateur 🌊 |
+|**Acteur Principale**| utilisateur |
+|**Scénario Nominal**|1. L'utilisateur accède au formulaire connexion du site</br>2. L'utilisateur entre ses informations personelles pour se connecter </br>3. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
 |**Scénario alternatif**||
 |**Scénario Exceptionnel**||
 |**Prérecquis**||
