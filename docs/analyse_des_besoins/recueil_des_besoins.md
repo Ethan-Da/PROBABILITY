@@ -183,13 +183,14 @@ Il existe des exigences techniques pour ce projet tel que :
 
 #### (a) Processus de développement
 1. **Qui sont les participants au projet ?**
-2. **Quelles valeurs devront être privilégiées ?**  
+   Les participants au projet sont : ARSENE Maxence, DANGEUL Ethan, CAMARA Blomkoum, LEBLOND Roméo et MAROUAN Hazim-Rayan.
+3. **Quelles valeurs devront être privilégiées ?**  
    Exemples : simplicité, disponibilité, rapidité, souplesse, etc.
-3. **Quels retours ou quelle visibilité sur le projet les utilisateurs et commanditaires souhaitent-ils ?**
-4. **Que peut-on acheter ? Que doit-on construire ? Qui sont nos concurrents ?**
-5. **Quelles sont les autres exigences du processus ?**  
+4. **Quels retours ou quelle visibilité sur le projet les utilisateurs et commanditaires souhaitent-ils ?**
+5. **Que peut-on acheter ? Que doit-on construire ? Qui sont nos concurrents ?**
+6. **Quelles sont les autres exigences du processus ?**  
    Exemples : tests, installation, etc.
-6. **À quelle dépendance le projet est-il soumis ?**
+7. **À quelle dépendance le projet est-il soumis ?**
 
 #### (b) Règles métier
 
