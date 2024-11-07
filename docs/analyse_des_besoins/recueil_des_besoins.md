@@ -183,14 +183,23 @@ Il existe des exigences techniques pour ce projet tel que :
 
 #### (a) Processus de développement
 1. **Qui sont les participants au projet ?**
+
    Les participants au projet sont : ARSENE Maxence, DANGEUL Ethan, CAMARA Blomkoum, LEBLOND Roméo et MAROUAN Hazim-Rayan.
+   
 3. **Quelles valeurs devront être privilégiées ?**  
    Exemples : simplicité, disponibilité, rapidité, souplesse, etc.
-4. **Quels retours ou quelle visibilité sur le projet les utilisateurs et commanditaires souhaitent-ils ?**
-5. **Que peut-on acheter ? Que doit-on construire ? Qui sont nos concurrents ?**
-6. **Quelles sont les autres exigences du processus ?**  
+
+   Pour le projet "Développement d’une application web de calcul", plusieurs valeurs fondamentales devront guider le développement afin d'assurer une solution adaptée aux besoins des utilisateurs.
+   Tout d’abord, la **simplicité** est cruciale : l’interface doit être intuitive, permettant une prise en main rapide et fluide pour naviguer aisément entre les différents modules de calcul.
+   La **disponibilité** est également essentielle pour garantir un accès constant à la plateforme, en minimisant les interruptions de service et en assurant une expérience fiable.
+
+Par ailleurs, la **rapidité** est primordiale pour offrir des calculs performants et immédiats, favorisant ainsi une utilisation sans délai. En raison de la gestion des utilisateurs et des droits d'accès, la **sécurité** s’avère être une priorité pour protéger les données et garantir des accès sûrs et contrôlés. Enfin, la **souplesse** du système est indispensable, afin que l'application puisse facilement évoluer pour intégrer de nouveaux modules ou fonctionnalités sans compromettre la stabilité existante. Ces valeurs guideront chaque étape du développement pour aboutir à une solution fiable et adaptable aux attentes des utilisateurs et du client.
+   
+5. **Quels retours ou quelle visibilité sur le projet les utilisateurs et commanditaires souhaitent-ils ?**
+6. **Que peut-on acheter ? Que doit-on construire ? Qui sont nos concurrents ?**
+7. **Quelles sont les autres exigences du processus ?**  
    Exemples : tests, installation, etc.
-7. **À quelle dépendance le projet est-il soumis ?**
+8. **À quelle dépendance le projet est-il soumis ?**
 
 #### (b) Règles métier
 
