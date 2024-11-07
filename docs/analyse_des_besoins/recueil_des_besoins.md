@@ -178,3 +178,27 @@ Il existe des exigences techniques pour ce projet tel que :
 - L'utilisation d'un serveur ***SQL***
 - Héberger les serveurs sur le ***RaspberryPi*** mis a disposition par l'IUT
 - Développez le site et ses modules en ***PHP***
+
+## V./ Chapitre 5 – Autres exigences 
+
+#### (a) Processus de développement
+1. **Qui sont les participants au projet ?**
+2. **Quelles valeurs devront être privilégiées ?**  
+   Exemples : simplicité, disponibilité, rapidité, souplesse, etc.
+3. **Quels retours ou quelle visibilité sur le projet les utilisateurs et commanditaires souhaitent-ils ?**
+4. **Que peut-on acheter ? Que doit-on construire ? Qui sont nos concurrents ?**
+5. **Quelles sont les autres exigences du processus ?**  
+   Exemples : tests, installation, etc.
+6. **À quelle dépendance le projet est-il soumis ?**
+
+#### (b) Règles métier
+
+#### (c) Performances
+
+#### (d) Opérations, sécurité, documentation
+
+#### (e) Utilisation et utilisabilité
+
+#### (f) Maintenance et portabilité
+
+#### (g) Questions non résolues ou reportées à plus tard
