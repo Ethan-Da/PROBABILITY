@@ -124,7 +124,7 @@ ADMIN WEB :
 |**Scénario Nominal**|1. Un visiteur accède au formulaire d'inscription du site</br>2. Le visiteur créer un nouveau compte</br>|
 |**Scénario Alternatif**|I.1. Un admistrateur Web se connecte au compte ***adminweb***</br>_2. L'administrateur supprime un compte<br>II.1. Un administrateur Web se connecte au compte ***adminweb***</br>_2. L'administrateur creer un compte à partir d'un fichier csv|
 |**Scénario Exceptionnel**||
-|**Prérequis**||
+|**Pré-condition**||
 
 |Cas d'utilisation :| Se déconnecter |
 |--------------------|-----------------------|
@@ -135,7 +135,7 @@ ADMIN WEB :
 |**Scénario Nominal**||
 |**Scénario alternatif**||
 |**Scénario Exceptionnel**||
-|**Prérequis**||
+|**Pré-condition**||
 
 |Cas d'utilisation :| Verifier la validité du contenu du formulaire de d'inscription |
 |--------------------|-----------------------|
@@ -146,7 +146,7 @@ ADMIN WEB :
 |**Scénario Nominal**|1. L'utilisateur accède au formulaire d'inscription du site</br>2. L'utilisateur entre ses informations personelles pour se connecter </br>3. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
 |**Scénario alternatif**||
 |**Scénario Exceptionnel**||
-|**Prérequis**||
+|**Pré-condition**||
 
 |Cas d'utilisation :| Verifier la validité du contenu du formulaire de connexion |
 |--------------------|-----------------------|
@@ -157,7 +157,18 @@ ADMIN WEB :
 |**Scénario Nominal**|1. L'utilisateur accède au formulaire d'inscription du site</br>2. L'utilisateur entre ses informations de connexions </br>2. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
 |**Scénario alternatif**||
 |**Scénario Exceptionnel**||
-|**Prérequis**||
+|**Pré-condition**||
+
+|Cas d'utilisation :| Utiliser un module de calcul |
+|--------------------|-----------------------|
+|**Description**| Un utilisateur veut utilliser un module de calcul|
+|**Portée**| Système ⬛ |
+|**Niveau**| Utilisateur 🌊|
+|**Acteur Principale**| utilisateur |
+|**Scénario Nominal**|1. Choisi le module de calcul qu'il veut utilisé <br/> 2. Rentre les données pour le calcul <br/> 3. Effectue le calcul|
+|**Scénario alternatif**|1. Il veut faire un calcul a partir d'un caclcul déja effectué <br/> &nbsp;&nbsp;&nbsp;&nbsp; a. Cherche dans son historique le calcul  <br/> &nbsp;&nbsp;&nbsp;&nbsp; b. Modifie les valeurs <br/> &nbsp;&nbsp;&nbsp;&nbsp; c. Effectue le calcul |
+|**Scénario Exceptionnel**||
+|**Pré-condition**|Possède un compte|
 
 
 ## IV./ Chapitre 4 – La technologie employée
