@@ -166,7 +166,7 @@ ADMIN WEB :
 |**Portée**| Sous-partie 🔩 |
 |**Niveau**| Utilisateur 🌊 |
 |**Acteur Principale**| utilisateur |
-|**Scénario Nominal**|1. L'utilisateur accède au formulaire d'inscription du site</br>2. L'utilisateur entre ses informations de connexions </br2. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
+|**Scénario Nominal**|1. L'utilisateur accède au formulaire d'inscription du site</br>2. L'utilisateur entre ses informations de connexions </br>2. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
 |**Scénario alternatif**||
 |**Scénario Exceptionnel**||
 |**Prérecquis**||
