@@ -132,10 +132,10 @@ ADMIN WEB :
 |**Portée**| Système ⬛ |
 |**Niveau**| Utilisateur 🌊|
 |**Acteur Principale**| utilisateur |
-|**Scénario Nominal**||
+|**Scénario Nominal**|1. L'utilisateur va sur son profil <br/> 2. Appuie sur le bouton pour se déconnecter|
 |**Scénario alternatif**||
 |**Scénario Exceptionnel**||
-|**Pré-condition**||
+|**Pré-condition**|Possède un compte|
 
 |Cas d'utilisation :| Verifier la validité du contenu du formulaire de d'inscription |
 |--------------------|-----------------------|
