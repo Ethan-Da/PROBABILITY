@@ -138,6 +138,18 @@ ADMIN WEB :
 |**Prérecquis**||
 
 
+|Cas d'utilisation :| Verifier la validité du contenu du formulaire de connexion |
+|--------------------|-----------------------|
+|**Description**| Un utilisateur veut vérifier que les informations qu'il a entré dans le formulaire sont correctes |
+|**Portée**| Sous-partie 🔩 |
+|**Niveau**| Utilisateur 🌊 |
+|**Acteur Principale**| utilisateur |
+|**Scénario Nominal**|1. L'utilisateur accède au formulaire d'inscription du site</br>2. L'utilisateur entre ses informations de connexions </br2. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
+|**Scénario alternatif**||
+|**Scénario Exceptionnel**||
+|**Prérecquis**||
+
+
 ## IV./ Chapitre 4 – La technologie employée
 
 Il existe des exigences techniques pour ce projet tel que :
@@ -145,4 +157,3 @@ Il existe des exigences techniques pour ce projet tel que :
 - L'utilisation d'un serveur ***SQL***
 - Héberger les serveurs sur le ***RaspberryPi*** mis a disposition par l'IUT
 - Développez le site et ses modules en ***PHP***
-
