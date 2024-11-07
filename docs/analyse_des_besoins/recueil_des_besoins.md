@@ -148,18 +148,6 @@ ADMIN WEB :
 |**Scénario Exceptionnel**||
 |**Prérequis**||
 
-|Cas d'utilisation :| Verifier la validité du contenu du formulaire de connexion|
-|--------------------|-----------------------|
-|**Description**| Un utilisateur veut vérifier que les informations de connexion qu'il a entré dans le formulaire sont correctes |
-|**Portée**| Sous-partie 🔩 |
-|**Niveau**| Utilisateur 🌊 |
-|**Acteur Principale**| utilisateur |
-|**Scénario Nominal**|1. L'utilisateur accède au formulaire connexion du site</br>2. L'utilisateur entre ses informations personelles pour se connecter </br>3. L'utilisateur clique sur le bouton de vérification du formulaire</br>|
-|**Scénario alternatif**||
-|**Scénario Exceptionnel**||
-|**Prérequis**||
-
-
 |Cas d'utilisation :| Verifier la validité du contenu du formulaire de connexion |
 |--------------------|-----------------------|
 |**Description**| Un utilisateur veut vérifier que les informations qu'il a entré dans le formulaire sont correctes |
