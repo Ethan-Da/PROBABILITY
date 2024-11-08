@@ -181,34 +181,38 @@ Il existe des exigences techniques pour ce projet tel que :
 
 ## V./ Chapitre 5 – Autres exigences 
 
-#### (a) Processus de développement
-1. **Qui sont les participants au projet ?**
+   Les participants au projet "Développement d’une application web de calcul" se composent d'ARSENE Maxence, DANGEUL Ethan, CAMARA Blomkoum, LEBLOND Roméo et MAROUAN Hazim-Rayan. Pour réaliser ce projet, nous nous baserons sur plusieurs valeurs fondamentales qui nous      guideront pour le développement de ce site web.
 
-   Les participants au projet sont : ARSENE Maxence, DANGEUL Ethan, CAMARA Blomkoum, LEBLOND Roméo et MAROUAN Hazim-Rayan.
+   Tout d’abord, la simplicité est cruciale : l’interface doit être intuitive, permettant une prise en main rapide et fluide pour naviguer aisément entre les différents modules de calcul. La disponibilité est également essentielle pour garantir un accès constant à la      plateforme. Par ailleurs, la rapidité est primordiale pour offrir des calculs performants et immédiats, favorisant ainsi une utilisation sans délai. En raison de la gestion des utilisateurs et des droits d'accès, la sécurité s’avère être une priorité pour protéger      les données et garantir des accès sûrs et contrôlés. Enfin, la souplesse du système est indispensable, afin que l'application puisse facilement évoluer pour intégrer de nouveaux modules ou fonctionnalités sans compromettre la stabilité existante. Ces valeurs            guideront chaque étape du développement pour aboutir à une solution fiable et adaptable aux attentes des utilisateurs et du client.
+
+   Les clients souhaitent une visibilité régulière sur l’avancement du projet. Ils attendent des rapports périodiques et des mises à jour sur les différentes phases de développement. 
    
-3. **Quelles valeurs devront être privilégiées ?**  
-   Exemples : simplicité, disponibilité, rapidité, souplesse, etc.
+   Pour mener à bien le projet, certains éléments peuvent être achetés tandis que d’autres devront être développés. En termes d’achats, l’équipe a besoin d'équipements de base pour le serveur, comme un Raspberry Pi 4 et ses accessoires, notamment une carte SD. En ce       qui concerne la conception, la plateforme web elle-même doit être développée, y compris l'infrastructure nécessaire pour l'hébergement, la gestion des utilisateurs et les modules de calcul spécifiques. Quant aux concurrents, ce sont nos camarades de classe qui          développeront eux aussi les modules de calculs et leur propre site web.
 
-   Pour le projet "Développement d’une application web de calcul", plusieurs valeurs fondamentales devront guider le développement afin d'assurer une solution adaptée aux besoins des utilisateurs.
-   Tout d’abord, la **simplicité** est cruciale : l’interface doit être intuitive, permettant une prise en main rapide et fluide pour naviguer aisément entre les différents modules de calcul.
-   La **disponibilité** est également essentielle pour garantir un accès constant à la plateforme, en minimisant les interruptions de service et en assurant une expérience fiable.
+   Le processus de développement impose plusieurs exigences techniques et opérationnelles. Tout d’abord, des tests réguliers doivent être effectués, incluant des tests unitaires et fonctionnels, pour garantir que chaque fonctionnalité de l'application fonctionne           correctement. L’installation de l’application doit être réalisée sur un Raspberry Pi 4 et elle doit être accessible via un réseau local. En outre, une documentation complète sera rédigée pour faciliter l’utilisation et la maintenance de la plateforme, pour les          clients, afin d'assurer une gestion efficace.
 
-Par ailleurs, la **rapidité** est primordiale pour offrir des calculs performants et immédiats, favorisant ainsi une utilisation sans délai. En raison de la gestion des utilisateurs et des droits d'accès, la **sécurité** s’avère être une priorité pour protéger les données et garantir des accès sûrs et contrôlés. Enfin, la **souplesse** du système est indispensable, afin que l'application puisse facilement évoluer pour intégrer de nouveaux modules ou fonctionnalités sans compromettre la stabilité existante. Ces valeurs guideront chaque étape du développement pour aboutir à une solution fiable et adaptable aux attentes des utilisateurs et du client.
-   
-5. **Quels retours ou quelle visibilité sur le projet les utilisateurs et commanditaires souhaitent-ils ?**
-6. **Que peut-on acheter ? Que doit-on construire ? Qui sont nos concurrents ?**
-7. **Quelles sont les autres exigences du processus ?**  
-   Exemples : tests, installation, etc.
-8. **À quelle dépendance le projet est-il soumis ?**
+   Le projet repose sur plusieurs dépendances qui influencent son bon fonctionnement. Il dépend d’abord de la fiabilité du serveur Raspberry Pi, qui doit être opérationnel et correctement configuré. La connexion réseau au sein de l'établissement joue aussi un rôle clé,    notamment pour assurer un accès fluide à la plateforme. Les technologies choisies, telles que PHP, MySQL, et les autres outils de développement, sont également des dépendances importantes. Enfin, l'équipe doit respecter les politiques de sécurité de l'IUT, notamment    en ce qui concerne l'accès à distance, ce qui peut affecter l'accès des utilisateurs et des administrateurs à la plateforme.
 
-#### (b) Règles métier
+   Les **règles métier** du projet "Développement d’une application web de calcul" visent à structurer les différentes opérations de calcul et les accès utilisateurs. L'application devra respecter les droits d'accès définis pour chaque niveau d’utilisateur afin de         garantir que les calculs sensibles ou avancés ne soient accessibles qu'aux personnes autorisées. De plus, la plateforme doit gérer efficacement les données d’entrée et de sortie des calculs en vérifiant leur validité avant exécution. Par exemple, si certaines       
+   formules nécessitent des valeurs spécifiques, l’application devra bloquer les saisies incorrectes et alerter l’utilisateur, assurant ainsi la fiabilité des calculs. Enfin, l'utilisateur pourra enregistrer chaque calcul dans un historique si il le désire. 
 
-#### (c) Performances
+   La **performance** de l'application est un élément essentiel, étant donné que les utilisateurs s'attendent à des calculs rapides et précis. Le serveur doit être capable de traiter les requêtes sans délai perceptible. Pour cela, l’application doit optimiser les algorithmes de calcul et minimiser l’utilisation des ressources du Raspberry Pi. Par ailleurs, l’application doit être capable de gérer plusieurs utilisateurs simultanément sans affecter ses performances. Des mécanismes de mise en cache ou d’optimisation de requêtes peuvent également être envisagés pour améliorer la rapidité d'exécution.
 
-#### (d) Opérations, sécurité, documentation
+En matière d’opérations, l’application doit garantir une disponibilité optimale et une gestion efficace des sessions utilisateurs. La sécurité est cruciale, surtout en raison de la gestion de niveaux d'accès multiples. Les données doivent être protégées contre les accès non autorisés, notamment via des mécanismes d'authentification robustes et une gestion des droits précise. Enfin, une documentation complète est essentielle pour les utilisateurs et les administrateurs de l’application.
 
-#### (e) Utilisation et utilisabilité
+L’application doit être **intuitive et simple** d’utilisation afin de répondre aux besoins d’utilisateurs ayant des compétences variées. Son interface utilisateur doit être conçue de manière simple, avec des menus et options bien agencés pour faciliter la navigation et l’accès aux fonctionnalités. Les calculs doivent être présentés de manière claire et accessible, avec des messages explicites pour guider l’utilisateur en cas d’erreur de saisie. L'objectif est de garantir que les utilisateurs peuvent exploiter l'application sans avoir de question préalable à se poser. C'est pour cela que nous identifierons les besoins du client tout en se posant les questions que l'utilisateur pourrait se poser lors de l'utilisation de l'application.
 
-#### (f) Maintenance et portabilité
+La **qualité logicielle** de l'application repose sur plusieurs indicateurs essentiels qui garantissent sa durabilité, sa flexibilité et sa performance. Tout d'abord, la capacité fonctionnelle est primordiale, car l'application doit remplir les besoins des utilisateurs de manière précise et complète. Cela implique que les fonctionnalités soient alignées avec les attentes et les règles métier définies, sans erreurs ni comportements inattendus, afin d'assurer un service fiable et utile.
 
-#### (g) Questions non résolues ou reportées à plus tard
+La facilité d’utilisation est également un critère majeur. L’interface utilisateur doit être intuitive et facile à naviguer pour que les utilisateurs puissent accomplir leurs tâches sans formation complexe. Une interface bien conçue réduit les erreurs et améliore l'efficacité et la satisfaction des utilisateurs, rendant l'application accessible même aux moins expérimentés.
+
+La fiabilité garantit que l'application fonctionne sans interruptions imprévues, même en cas de fortes charges de travail. Elle inclut aussi la gestion des erreurs : le logiciel doit être capable de détecter, signaler et, si possible, corriger les erreurs sans compromettre les données.
+
+En matière de performance, l’application doit offrir des temps de réponse rapides et rester performante même en cas d'accès simultané de plusieurs utilisateurs. Les algorithmes de calcul doivent être optimisés pour un traitement efficace des données, ce qui garantit une expérience fluide et sans délais inutiles, contribuant à la satisfaction des utilisateurs et du client.
+
+La **maintenabilité** est également un aspect central de la qualité logicielle. Elle garantit que le code est bien structuré et documenté, ce qui facilite les interventions des développeurs pour des corrections ou des améliorations. Une application facile à maintenir permet d’introduire de nouvelles fonctionnalités et de s’adapter à l’évolution des besoins, tout en minimisant le temps et les coûts de maintenance.
+
+Enfin, la **portabilité** est cruciale pour assurer que l'application puisse fonctionner dans différents environnements, au-delà du Raspberry Pi, tels que des serveurs Linux ou Windows. Cette adaptabilité garantit que l'application peut être utilisée dans divers contextes sans modifications majeures, augmentant ainsi sa valeur et sa flexibilité.
+
+
+
