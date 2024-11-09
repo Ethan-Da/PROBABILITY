@@ -1,4 +1,6 @@
-<?php
+<?php include '../includes/header.php';
+include '../includes/navbar.php';
+
 # Liste des questions
 $liste_questions = array(
     'question1' => array(
@@ -21,11 +23,13 @@ $entree = '';
 
 # Vérif du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    #si le bouton est cliqué
     if (isset($_POST['ok'])) {
         #Variable pour afficher le CATPCHA
         $affiche_captcha = true;
 
-        #Pour conserver les valeurs du filtre et du champ
+        #Pour garder les valeurs du filtre et du champ
         $filter = $_POST['filter'];
         $entree = $_POST['input'];
 
@@ -36,8 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['captcha']['id_question_posee'] = $id_question_posee;
     }
 
-    #Vérif de la réponse au CAPTCHA et du filtre
+    #Si le bouton de vérif de CAPTCHA est cliqué
     if (isset($_POST['submit_captcha'])) {
+
         $reponse = $_POST['captcha_reponse'];
         $id_question_posee = $_SESSION['captcha']['id_question_posee'];
 
@@ -78,86 +83,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <style>
-        /* Style général de la page */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #89CFF0, #FADADD);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        /* Conteneur du formulaire */
-        .form-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
-        }
-
-        /* Style du titre */
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        /* Champs de saisie et select */
-        input[type="text"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-
-        /* Focus sur les champs */
-        input[type="text"]:focus,
-        select:focus {
-            border-color: #89CFF0;
-            outline: none;
-        }
-
-        /* Bouton de connexion */
-        button {
-            background-color: #89CFF0;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #7BBEEB;
-        }
-
-        /* Message d'erreur */
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
-<body>
+<body class="body_form">
 
 <div class="form-container">
-    <h2>Vérification</h2>
+    <h2 class="form_h2">Vérification</h2>
 
     <!-- Afficher un message d'erreur si nécessaire -->
     <?php if ($error_message): ?>
@@ -167,16 +97,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Formulaire de vérification -->
     <form action="" method="POST">
         <label for="filter" text="Sélectionner un filtre">Choisir ce que vous voulez vérifier :</label>
-        <select name="filter" id="filter" required>
-            <option value="email" <?php echo ($filtre === 'email'); ?>>Email</option>
-            <option value="prenom" <?php echo ($filtre === 'prenom'); ?>>Prénom</option>
-            <option value="id" <?php echo ($filtre === 'id'); ?>>ID</option>
+        <select name="filter" id="filter" required class="form_select">
+            <option value="email">Email</option>
+            <option value="prenom" >Prénom</option>
+            <option value="id" >ID</option>
+
         </select>
 
         <label for="input" text="Champ d'entrée">Entrée à vérifier :</label>
-        <input type="text" name="input" id="input" value="<?php echo htmlspecialchars($entree); ?>" required>
+        <input type="text" name="input" id="input" class="form_input" value="<?php echo ($entree); ?>" required>
 
-        <button type="submit" name="ok" value="ok">Vérifier</button>
+
+        <button type="submit" name="ok" value="ok" class="form_button">Vérifier</button>
 
         <!-- Affichage du CAPTCHA si requis -->
         <?php if ($affiche_captcha): ?>
@@ -184,9 +116,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h3>Etes-vous un robot ?</h3>
                 Question : <?php echo $liste_questions[$_SESSION['captcha']['id_question_posee']]['question']; ?>
                 <br>
-                Réponse : <input type="text" name="captcha_reponse" value=""/>
+                <br>
+                Réponse : <input type="text" name="captcha_reponse" class="form_input" value=""/>
                 <br><br>
-                <button type="submit" name="submit_captcha">Soumettre le CAPTCHA</button>
+                <button type="submit" name="submit_captcha" class="form_button" >Soumettre le CAPTCHA</button>
             </div>
         <?php endif; ?>
     </form>
