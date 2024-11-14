@@ -12,7 +12,7 @@
 <div class="container">
     <h1>Module 3</h1>
     <div class="content">
-        <form action="Calcul.php" METHOD="post" class="form-damier">
+        <form action="calcul.php" METHOD="post" class="form-damier">
             <label for="E"> Espérance : </label>
             <input type="number" name="E" id="E">
             <label for="F"> Forme : </label>
