@@ -1,22 +1,23 @@
 <?php
 require_once "captcha.php";
-require_once "fonctMysql.php";
+require_once "Database.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     # login et mot de passe rentré, on vérifie dans la base de données si le compte existe
     # si oui on redirige sur le formulaire avec l'affichage du captcha
     # sinon on rdirige avec une erreur
-    if (isset($_GET["ok"])) {
-        if (isset($_GET["login"], $_GET["pass"])) {
-            $login = htmlspecialchars($_GET["login"]);
-            $pass = md5(htmlspecialchars($_GET["pass"]));
-            if (true) { ## Database::isValidAccount($login, $_pass)
+    if (isset($_POST["ok"])) {
+        if (isset($_POST["login"], $_POST["pass"])) {
+            $login = htmlspecialchars($_POST["login"]);
+            $pass = md5(htmlspecialchars($_POST["pass"]));
+            $connexionDB = new Database();
+            if ($connexionDB->isValidAccount($login,$pass)) {
                 $captcha = randomIdCaptcha();
-                header('Location: formConnexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
+                header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
             }else{
                 $error = 1;
-                header('Location: formConnexion.php?error=' . $error);
+                header('Location: connexion.php?error=' . $error);
             }
         }
     }
@@ -24,18 +25,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     # une fois le captcha réalisé, si il est correct on commence une nouvelle session
     # sinon on redirige avec une erreur
-    if (isset($_GET["submit_captcha"])) {
-        $captcha = $_GET["submit_captcha"];
-        $login = $_GET["login"];
-        $pass = $_GET["pass"];
-        if (captchaCorrect($captcha, $_GET["captcha_reponse"])) {
+    if (isset($_POST["submit_captcha"])) {
+        $captcha = $_POST["submit_captcha"];
+        $login = htmlspecialchars($_POST["login"]);
+        $pass = htmlspecialchars($_POST["pass"]);
+        if (captchaCorrect($captcha, $_POST["captcha_reponse"])) {
             session_start();
             $_SESSION["login"] = $login;
             $_SESSION["pass"] = $pass;
+            $connexionDB = new Database();
+            $connexionDB->updateLastConnectionLastIp($login);
+            error_log("Connexion valide ".date("Y-M-D H:i:s").", login : ". $login."\n", 3, 'connexions.log');
             header('Location: index.php');
         } else {
             $error = 2;
-            header('Location: formConnexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha . '&error=' . $error);
+            header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha . '&error=' . $error);
         }
     }
 }

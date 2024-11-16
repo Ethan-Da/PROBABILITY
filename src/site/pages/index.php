@@ -2,7 +2,10 @@
     <title>Proβability - Accueil</title>
 </head>
 <body>
-<?php include '../includes/navbar.php'; ?>
+<?php include '../includes/navbar.php';
+
+
+?>
 
 
 
@@ -15,6 +18,16 @@
         <h2>Bienvenue sur notre site !</h2>
         <p>Ce site vous permet d'accéder à différents
             modules pour effectuer des calculs complexes.</p>
+
+
+        <?php
+        session_start();
+        if (isset($_SESSION['login'])) {
+            echo($_SESSION['login']);
+        }else{
+            echo("pas de session");
+        } ?>
+
     </div>
 </div>
 
