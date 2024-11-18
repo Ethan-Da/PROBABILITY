@@ -202,6 +202,147 @@ label::selection{
 
 }
 
+ /* CSS Pour le Module 4 -> Module de calcul */
+
+
+/* CSS Pour le Module 4 -> Module de calcul */
+
+/* Style des sections supplémentaires */
+.detail-calcul {
+    display: flex;                      /* Utilisation de flexbox pour disposer les sections côte à côte */
+    justify-content: space-between;     /* Espacement entre les sections */
+    margin-bottom: 20px;                /* Marge en bas pour séparer des autres éléments */
+}
+
+.section-calc {
+    width: 48%;                         /* Largeur des sections pour qu'elles occupent environ la moitié de l'espace disponible */
+    background-color: #f9f9f9;         /* Couleur de fond des sections */
+    border: 1px solid #ddd;             /* Bordure des sections */
+    border-radius: 8px;                /* Coins arrondis des sections */
+    padding: 20px;                      /* Espacement interne des sections */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner un effet de profondeur */
+}
+
+.section-calc h3 {
+    margin-top: 0;                      /* Suppression de la marge supérieure pour les titres des sections */
+}
+
+.section-content {
+    min-height: 200px;                  /* Hauteur minimale pour les carrés vides */
+    border: 1px dashed #ccc;            /* Bordure en pointillés pour les carrés vides */
+    padding: 10px;                      /* Espacement interne des carrés vides */
+    border-radius: 4px;                 /* Coins arrondis des carrés vides */
+    margin-top: 10px;                   /* Marge en haut pour séparer du titre */
+}
+
+/* Style du formulaire de calcul */
+.calculation-form {
+    background-color: #e9f0ff;         /* Couleur de fond du formulaire */
+    border-radius: 1em;                /* Coins arrondis du formulaire */
+    padding: 20px;                     /* Espacement interne du formulaire */
+    margin-bottom: 20px;               /* Marge en bas pour séparer des autres éléments */
+}
+
+.input-group {
+    display: flex;                     /* Utilisation de flexbox pour disposer les champs de saisie */
+    flex-wrap: wrap;                    /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+    gap: 15px;                          /* Espacement entre les champs de saisie */
+    margin-bottom: 20px;                /* Marge en bas pour séparer des autres éléments */
+}
+
+.form-field {
+    flex: 1 1 45%;                     /* Largeur flexible des champs de saisie */
+    margin-bottom: 10px;               /* Marge en bas pour séparer des autres éléments */
+}
+
+.form-field label {
+    display: block;                    /* Affichage en bloc pour les étiquettes */
+    margin-bottom: 5px;                 /* Marge en bas pour séparer des champs de saisie */
+}
+
+.form-field  {
+    width: 100%;                        /* Largeur des champs de saisie */
+    padding: 10px;                      /* Espacement interne des champs de saisie */
+    border: 1px solid #ccc;             /* Bordure des champs de saisie */
+    border-radius: 4px;                /* Coins arrondis des champs de saisie */
+    box-sizing: border-box;            /* Inclure le padding et la bordure dans la largeur totale */
+}
+
+.method-selection {
+    margin-bottom: 20px;               /* Marge en bas pour séparer des autres éléments */
+}
+
+.method-selection select {
+    padding: 10px;                      /* Espacement interne de la sélection de la méthode */
+    border: 1px solid #ccc;            /* Bordure de la sélection de la méthode */
+    border-radius: 4px;                /* Coins arrondis de la sélection de la méthode */
+    width: 100%;                       /* Largeur de la sélection de la méthode */
+    box-sizing: border-box;            /* Inclure le padding et la bordure dans la largeur totale */
+}
+
+.results-table {
+    margin-bottom: 20px;               /* Marge en bas pour séparer des autres éléments */
+}
+
+.results-table table {
+    width: 100%;                       /* Largeur du tableau de résultats */
+    border-collapse: collapse;          /* Fusion des bordures du tableau */
+    margin-top: 10px;                   /* Marge en haut pour séparer du titre */
+}
+
+.results-table th, .results-table td {
+    border: 1px solid #ddd;            /* Bordure des cellules du tableau */
+    padding: 10px;                     /* Espacement interne des cellules du tableau */
+    text-align: center;                /* Alignement du texte au centre des cellules */
+}
+
+.results-table th {
+    background-color: #f4f4f4;          /* Couleur de fond des en-têtes du tableau */
+}
+
+.button-group {
+    display: flex;                     /* Utilisation de flexbox pour disposer les boutons */
+    justify-content: center;            /* Centrage des boutons */
+    gap: 10px;                          /* Espacement entre les boutons */
+}
+
+.btn-calcul, .btn-save, .btn-reset {
+    padding: 10px 20px;                 /* Espacement interne des boutons */
+    border: none;                       /* Suppression de la bordure des boutons */
+    border-radius: 4px;                /* Coins arrondis des boutons */
+    cursor: pointer;                   /* Changement du curseur en pointeur */
+}
+
+.btn-calcul {
+    background-color: #007bff;         /* Couleur de fond du bouton "Calcul" */
+    color: #fff;                        /* Couleur du texte du bouton "Calcul" */
+}
+
+.btn-calcul:hover {
+    background-color: #0056b3;         /* Couleur de fond du bouton "Calcul" au survol */
+}
+
+.btn-save {
+    background-color: #28a745;         /* Couleur de fond du bouton "Sauvegarder" */
+    color: #fff;                       /* Couleur du texte du bouton "Sauvegarder" */
+}
+
+.btn-save:hover {
+    background-color: #218838;         /* Couleur de fond du bouton "Sauvegarder" au survol */
+}
+
+.btn-reset {
+    background-color: #dc3545;         /* Couleur de fond du bouton "Annuler" */
+    color: #fff;                      /* Couleur du texte du bouton "Annuler" */
+}
+
+.btn-reset:hover {
+    background-color: #c82333;         /* Couleur de fond du bouton "Annuler" au survol */
+}
+
+/* Fin CSS Pour le Module 4 -> Module de calcul */
+
+
 /* ****************************************** NAV BAR  ******************************************************** */
 .bouton-nav{
     color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out,
