@@ -15,7 +15,7 @@
         $fichier_csv = 'notes.csv';
 
         if (file_exists($fichier_csv)) {
-            echo "<table class='table-notes'>";
+            echo "<table class='historique'>";
             echo "<tr><th>Nom</th><th>Prénom</th><th>Groupe</th><th>Note</th><th>Date</th><th>Heure</th></tr>";
             if (($handle = fopen($fichier_csv, 'r')) !== false) {
                 $first_row = true;

@@ -91,60 +91,60 @@ footer {
 
 
 /* Style du tableau de notes */
-table.table-notes {
+table.historique {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.table-notes th, .table-notes td {
+.historique th, .historique td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center; /* Centre le texte */
 }
 
-.table-notes th {
+.historique th {
     background-color: #5D5DFF;
     color: white;
 }
 
-.table-notes td {
+.historique td {
     font-size: 16px;
 }
 
 /* Largeur définie pour chaque colonne du tableau de notes */
-.table-notes th:nth-child(1), .table-notes td:nth-child(1) {
+.historique th:nth-child(1), .historique td:nth-child(1) {
     width: 15%;
 }
 
-.table-notes th:nth-child(2), .table-notes td:nth-child(2) {
+.historique th:nth-child(2), .historique td:nth-child(2) {
     width: 15%;
 }
 
-.table-notes th:nth-child(3), .table-notes td:nth-child(3) {
+.historique th:nth-child(3), .historique td:nth-child(3) {
     width: 10%;
 }
 
-.table-notes th:nth-child(4), .table-notes td:nth-child(4) {
+.historique th:nth-child(4), .historique td:nth-child(4) {
     width: 10%;
 }
 
-.table-notes th:nth-child(5) {
+.historique th:nth-child(5) {
     width: 30%;  /* Donne plus d'espace à la colonne Date */
 }
 
-.table-notes td:nth-child(5) {
+.historique td:nth-child(5) {
     width: 25%;  /* Ajustement pour la colonne Date */
 }
 
-.table-notes th:nth-child(6), .table-notes td:nth-child(6) {
+.historique th:nth-child(6), .historique td:nth-child(6) {
     width: 15%;
 }
 
 
 
 /* Style du tableau de damier */
-table.table-damier {
+table.table {
     border-color: transparent;
     border-collapse: collapse;
     margin-top: 20px;
@@ -152,13 +152,13 @@ table.table-damier {
     margin-right: auto;
 }
 
-.table-damier td {
+.table td {
     width: 40px; /* Largeur fixe des cellules */
     height: 40px; /* Hauteur fixe des cellules */
     border: 1px solid #000; /* Ajout d'une bordure pour mieux voir les cases */
 }
 
-.form-damier{
+.form{
     background-color: #e9f0ff;
     border-radius: 1em;
     padding: 20px;
@@ -407,50 +407,6 @@ label::selection{
 }
 
 
-
-
-
-/****************************************************************************************************/
-
-/*.button{
-    -webkit-transition: background-color 2s ease-out;
-    -moz-transition: background-color 2s ease-out;
-    -o-transition: background-color 2s ease-out;
-    transition: background-color 2s ease-out;
-
-    background-color: #252525;
-    border-radius: 1em;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) ;
-    letter-spacing: 0.075em;
-    padding: 1rem 2rem;
-    color : aliceblue;
-    font-weight: 750;
-}
-.button:hover{
-    background-color: #555555;
-    font-weight: 900;
-    transform-origin: bottom;
-    transform: rotate3d(1, 0, 0, 20deg);
-    box-shadow: inset 0 0 10px aliceblue;
-    cursor: pointer;
-
-}
-.button:focus{
-    animation: clicked .1s steps(60, end);
-}
-@keyframes clicked {
-    from{
-        transform: scale(100%);
-    }
-
-    to{
-        transform: scale(200%);
-        background-color: white;
-        color: white;
-        border: transparent;
-        opacity: 0%;
-    }
-}*/
 
 
 

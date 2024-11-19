@@ -11,7 +11,7 @@
 <div class="container">
     <div class="content">
         <h2>Générateur de Damier</h2>
-        <form method="POST" action="" class="form-damier">
+        <form method="POST" action="" class="form">
             <label for="longueur">Longueur du damier :</label>
             <input type="number" name="longueur" id="longueur" required><br><br>
 
@@ -39,7 +39,7 @@
             // Générer le damier
             echo"<div style='box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
                              display: inline-block;'>";
-            echo "<table class='table-damier' >";
+            echo "<table class='table' >";
             for ($i = 0; $i < $hauteur; $i++) {
                 echo "<tr>";
                 for ($j = 0; $j < $longueur; $j++) {
