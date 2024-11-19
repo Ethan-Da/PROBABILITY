@@ -8,7 +8,6 @@
 ?>
 
 
-
 <div class="container">
     <div class="logo-container">
         <img src="../images/logo.png" alt="Logo Proβability">
@@ -18,6 +17,7 @@
         <h2>Bienvenue sur notre site !</h2>
         <p>Ce site vous permet d'accéder à différents
             modules pour effectuer des calculs complexes.</p>
+
 
 
         <?php
@@ -35,3 +35,5 @@
 
 </body>
 </html>
+
+

@@ -40,7 +40,13 @@
     </div>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../includes/footer.php';
+/**
+if (!isset($_SESSION["login"])) {
+header("location:index.php");
+}
+ */
+?>
 
 </body>
 </html>
