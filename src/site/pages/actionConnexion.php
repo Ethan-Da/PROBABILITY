@@ -6,13 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     # login et mot de passe rentré, on vérifie dans la base de données si le compte existe
     # si oui on redirige sur le formulaire avec l'affichage du captcha
-    # sinon on rdirige avec une erreur
+    # sinon on redirige avec une erreur
     if (isset($_POST["ok"])) {
         if (isset($_POST["login"], $_POST["pass"])) {
-            $login = htmlspecialchars($_POST["login"]);
-            $pass = md5(htmlspecialchars($_POST["pass"]));
+            $login = $_POST["login"];
+            $pass = md5($_POST["pass"]);
             $connexionDB = new Database();
-            if ($connexionDB->isValidAccount($login,$pass)) {
+            if ($connexionDB->isValidAccount($login)) {
                 $captcha = randomIdCaptcha();
                 header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
             }else{
@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # sinon on redirige avec une erreur
     if (isset($_POST["submit_captcha"])) {
         $captcha = $_POST["submit_captcha"];
-        $login = htmlspecialchars($_POST["login"]);
-        $pass = htmlspecialchars($_POST["pass"]);
+        $login = $_POST["login"];
+        $pass = $_POST["pass"];
         if (captchaCorrect($captcha, $_POST["captcha_reponse"])) {
             session_start();
             $_SESSION["login"] = $login;

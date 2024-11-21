@@ -5,8 +5,6 @@
 #La séparation des droits par opération sur la base de données permet de sécuriser en quelque sorte l'accés a la base.
 #utilisation de rêquete préparé pour éviter les injections sql.
 
-
-
 class Database{
 
     private $database;
@@ -16,27 +14,23 @@ class Database{
         try{
             $this->database = mysqli_connect("localhost",$user,$pass,"probability_db");
         }catch(mysqli_sql_exception $e){
-            return !error_log("ERREUR 0 : Connexion à la base de données impossible", 3, 'erreurBD.log');
+            return !error_log("ERREUR 0 : Connexion à la base de données impossible $e \n", 3, 'erreurBD.log');
         }
         return $this->database;
     }
 
     //On sépare par type de requetes avec différent user dans la base de données.
 
-    //L'admin a les droits d'INSERT, d'UPDATE, et de SELECT sur toutes les tables de la base.
-    public function adminQuery($query, $type, $args){
-        if ($this->connexion("ADMIN", "??")){;
-            $stmt = mysqli_prepare($this->database, $query);
-            mysqli_stmt_bind_param($stmt, $type, ...$args);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-            return $result;
+    //L'admin a les droits d'INSERT, d'UPDATE, de SELECT et de DELETE sur toutes les tables de la base.
+    private function adminQuery($query){
+        if ($this->connexion("ADMIN_USER", "!*ADMIN*!")){
+            return mysqli_query($this->database, $query);
         }
         return false;
     }
 
     // ici la méthode utiliser par l'utilisateur lorsqu'il veut accéder à la base
-    public function userQuery($query, $types, $args){
+    private function userQuery($query, $types, $args){
 
         $typeQuery = mb_substr($query, 0, 6);
 
@@ -62,16 +56,15 @@ class Database{
             mysqli_stmt_bind_param($stmt, $types, ...$args);
             mysqli_stmt_execute($stmt);
             if ($typeQuery == "SELECT"){
-                $result = mysqli_stmt_get_result($stmt);
-                return $result;
+                return mysqli_stmt_get_result($stmt);
             }
             return true;
         }
         return false;
     }
 
-    public function isValidAccount($user, $pass){
-        $result = $this->userQuery("SELECT * FROM compte WHERE login = ? AND password = ?","ss",array($user, $pass));
+    public function isValidAccount($user){
+        $result = $this->userQuery("SELECT * FROM compte WHERE login = ?","s",array($user));
         if ($result){
             return mysqli_num_rows($result) > 0;
         }
@@ -93,9 +86,16 @@ class Database{
             $this->userQuery("INSERT INTO compte (login, password) VALUES (?,?)","ss",array($user,$pass));
             return true;
         }
-
-
-
+    }
+    public function getAllAccount(){
+        return $this->adminQuery("SELECT * FROM compte");
+    }
+    public function deleteAccount($user){
+        if ($user != 'admin'){
+            if ($this->connexion("ADMIN_USER", "!*ADMIN*!")){
+                $this->adminQuery("DELETE FROM compte WHERE login = '$user';");
+            }
+        }
     }
 
 
