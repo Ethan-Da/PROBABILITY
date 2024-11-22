@@ -11,7 +11,7 @@
 
     function  rectangles_gauche($esp, $lambda, $n, $b) {
         $proba_fin = [];
-        $intervalle = ($b / $n); //pas besoin de définir a car on commence toujours à 0
+        $intervalle = ($b / $n); // pas besoin de définir a car on commence toujours à 0
         $h = $b / $n;
         $proba = 0;
         for ($i = 1; $i <= $n; $i++) { // Commence à 1 pour éviter la division par zéro

@@ -1,4 +1,3 @@
-
 <?php require_once "fonction_loi_proba.php"; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.2.2/math.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

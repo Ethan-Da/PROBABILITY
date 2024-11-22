@@ -23,7 +23,7 @@
     </div>
 
     <div class="content">
-        <form action="Calcul.php" method="post" class="calculation-form">
+        <form action="calcul.php" method="post" class="calculation-form">
             <div class="input-group">
                 <div class="form-field">
                     <label for="E">Espérance :</label>
