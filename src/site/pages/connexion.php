@@ -34,7 +34,7 @@ require_once "captcha.php";
 
 
     <!-- FORMULAIRE DE CONNEXION-->
-    <form action="actionConnexion.php" method="POST">
+    <form action="actionConnexion.php" method="POST" class="formulaire">
 
         <!--Quand on affiche le captcha le login et le mot de passe on ne peut plus les modifier même dans l'url-->
         <label for="login">Login : </label>

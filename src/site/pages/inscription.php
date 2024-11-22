@@ -27,7 +27,7 @@ include "../includes/navbar.php";
         }
         ?>
 
-    <form action="actionInscription.php" method="POST">
+    <form action="actionInscription.php" method="POST" class="formulaire"
 
     <!--Quand on affiche le captcha le login et le mot de passe on ne peut plus les modifier même dans l'url-->
     <label for="login" >Login : </label>
