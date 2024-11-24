@@ -5,11 +5,23 @@
 <?php
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST["calcul-button"])) {
+        if (isset($_POST["submitCalcul"])) {
             $E = $_POST["E"];
             $F = $_POST["F"];
             $T = $_POST["T"];
-            $N = $_POST["N"];?>
+            $N = $_POST["N"];
+            echo "yes";
+
+
+            if ($E >= 0 && $F >= 0 && $T >= 0 && $N >= 1) {
+                header('Location: module3.php?E=' . $E . '&F=' . $F . '&T=' . $T . '&N=' . $N);
+            }
+
+        else{
+            header('Location: module3.php');
+        }
+        }
+    }?>
 
 <script>
             const xValues = [];
@@ -56,12 +68,9 @@
                 }
         });
 
- <?php if ($E >=0  && $F >=0 && $T >=0 && $N >=1) {
-                header('Location: module3.php?E=' . $E . '&F=' . $F . '&T=' . $T . '&N=' . $N);
-            }
- ?>
+
 
 
 
 </script>
-}
+
