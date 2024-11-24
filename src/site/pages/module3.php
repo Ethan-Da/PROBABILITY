@@ -1,6 +1,9 @@
 <?php include '../includes/header.php'; ?>
-<title>Module3</title>
+<head>
+    <title>Module3</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 <?php include '../includes/navbar.php';
 
@@ -21,8 +24,10 @@ if (isset($_GET['E'])) {
 
     <div class="detail-calcul">
         <div class="section-calc">
-            <h3>Détails des calculs</h3>
+            <h3>Détails des calculs BITE</h3>
             <div class="section-content">
+
+                <!--Affichage la formule de la fonction avec MathML-->
                 <math xmlns="http://www.w3.org/1998/Math/MathML" style="font-size: 1.25rem; padding-top: 30px">
                     <mi>f</mi>
                     <mo>(</mo>
@@ -91,14 +96,16 @@ if (isset($_GET['E'])) {
             </div>
         </div>
 
+        <!--Visualisation dynamique de la fonction de densité dans un canvas-->
         <div class="section-calc">
             <h3>Visualisation des courbes</h3>
             <div class="section-content">
-                <!-- Contenu de la visualisation des courbes -->
+                <canvas id="myChart"></canvas>
             </div>
         </div>
     </div>
 
+    <!--Formulaire pour rentrer les parametres de la fonction, et le méthode de calcul-->
     <div class="content">
         <form action="calcul.php" method="post" class="calculation-form">
             <div class="input-group">
@@ -123,15 +130,17 @@ if (isset($_GET['E'])) {
                 </div>
             </div>
 
+            <!-- Selection de la méthode de calcul-->
             <div class="method-selection">
                 <h3>Méthode de calcul</h3>
                 <select name="methode" id="methode-selection">
-                    <option value="trapeze">Méthode trapèzes</option>
-                    <option value="rectangle_median">Méthode rectangle médian</option>
-                    <option value="rectangle_gauche">Méthode rectangle gauche</option>
+                    <option value="trapeze" >Méthode trapèzes</option>
+                    <option value="rectangle_median" >Méthode rectangle médian</option>
+                    <option value="rectangle_gauche" >Méthode rectangle gauche</option>
                 </select>
             </div>
 
+            <!-- Affichage du résultat-->
             <div class="results-table">
                 <h3>Résultats</h3>
                 <table>
@@ -139,29 +148,75 @@ if (isset($_GET['E'])) {
                     <tr>
                         <th>Valeur</th>
                         <th>Forme</th>
-                        <th>X̄</th>
-                        <th>σ</th>
+                        <th>Esperance</th>
+                        <th>T</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td id="result-value">-</td>
-                        <td id="result-form"><?php echo"$F"; ?></td>
-                        <td id="result-esp"><?php echo"$E"; ?></td>
-                        <td id="result-sigma">-</td>
+                        <!-- Affichage des parametres et du resultat envoyés en POST-->
+                        <td id="result-value"><?php echo isset($_POST['proba_val']) ? $_POST['proba_val'] : '-'; ?></td>
+                        <td id="result-form"><?php echo isset($_POST['F']) ? $_POST['F'] : '-'; ?></td>
+                        <td id="result-esp"><?php echo isset($_POST['E']) ? $_POST['E'] : '-'; ?></td>
+                        <td id="result-sigma"><?php echo isset($_POST['T']) ? $_POST['T'] : '-'; ?></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="button-group">
-                <input type="reset" class="btn-reset" name="resetCalcul" value = "Annuler" >
-                <input type="submit" class="btn-calcul" name="submitCalcul" value="Calculer">
-                <input type="button" class="btn-save" name="saveCalcul" value = "Sauvegarder">
+                <button type="reset" class="btn-reset" id="btn-annuler">Annuler</button>
+                <button type="submit" class="btn-calcul" name="btn-calcul" id="btn-calcul">Calculer</button>
+                <button type="button" class="btn-save" id="btn-sauvegarder">Sauvegarder</button>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    // Récupération des données transmises via POST
+    // puis explode pour récuperer le tableau PHP et json_encode pour pouvoir les utiliser en Javascript
+    const xValues = <?php echo isset($_POST['xValues']) ? json_encode(explode(',', $_POST['xValues'])) : '[]'; ?>;
+    const yValues = <?php echo isset($_POST['yValues']) ? json_encode(explode(',', $_POST['yValues'])) : '[]'; ?>;
+
+    if (xValues.length > 0 && yValues.length > 0) {
+        // Création du graphique avec Chart.js
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: 'Courbe de la fonction',
+                    data: yValues,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'x'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'f(x)'
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        console.error("Aucune donnée reçue pour générer le graphique");
+    }
+</script>
+
 <?php include '../includes/footer.php';
 
 /**
