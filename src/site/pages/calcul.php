@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $xValues[] = $i * $intervalle;
             }
 
-            //Formulare caché pour pouvoir envoyer les données en POST
+            //Formulare caché pour pouvoir envoyer les données en POST(pas possible en GET car URL trop long)
             echo '<form id="redirectForm" action="module3.php" method="POST">';
 
             //implode pour mettre le tableau sous form de string et l'envoyer en POST
