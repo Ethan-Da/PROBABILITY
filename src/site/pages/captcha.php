@@ -1,6 +1,6 @@
 <?php
 
-#Séparation des fonctions en rapport avec le captcha du reste du code
+#Séparation des Fonctions en rapport avec le captcha du reste du code
 
 # Liste des questions
 $liste_questions = array(

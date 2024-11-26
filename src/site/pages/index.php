@@ -1,9 +1,11 @@
-<?php include '../includes/header.php'; ?>
-    <title>Proβability - Accueil</title>
+<?php
+session_start();
+
+include '../includes/header.php'; ?>
+<title>Proβability - Accueil</title>
 </head>
 <body>
 <?php include '../includes/navbar.php';
-
 
 ?>
 
@@ -21,7 +23,6 @@
 
 
         <?php
-        session_start();
         if (isset($_SESSION['login'])) {
             echo($_SESSION['login']);
         }else{
@@ -35,5 +36,3 @@
 
 </body>
 </html>
-
-

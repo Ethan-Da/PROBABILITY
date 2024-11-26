@@ -9,16 +9,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # sinon on redirige avec une erreur
     if (isset($_POST["ok"])) {
         if (isset($_POST["login"], $_POST["pass"])) {
+            session_start();
+            $_SESSION["login"] = $_POST["login"];
+            $_SESSION["pass"] = $_POST["pass"];
+            header("Location: index.php");
+            /**
             $login = $_POST["login"];
             $pass = md5($_POST["pass"]);
             $connexionDB = new Database();
-            if ($connexionDB->isValidAccount($login)) {
+            if ( $connexionDB->isValidAccount($login)) {
                 $captcha = randomIdCaptcha();
                 header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
             }else{
                 $error = 1;
                 header('Location: connexion.php?error=' . $error);
-            }
+
+            }*/
         }
     }
 

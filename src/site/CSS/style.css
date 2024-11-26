@@ -9,6 +9,7 @@ html, body {
     justify-content: space-between;
     padding: 0;
 }
+
 .background_indexe{
     background-size: 450px 450px;
     background-position: center;
@@ -88,26 +89,53 @@ footer {
 
 
 /***************************** Formulaire *******************************/
-.formulaire{
-    align-self: center;
+.form-container{
+    display: inline-block;
+    justify-content: center;
     align-content: center;
+    background-color: #666666;
+    text-align: center;
+    color: white;
+}
+.formulaire{
+    justify-self: center;
+    align-self: center;
+
 }
 
 input[type = text], input[type = password]{
     padding: 7.5px;
     border-radius: 1px 4px 4px;
-    transition: outline .1s ease-out;
-    -webkit-transition: outline .1s ease-out;
-    -moz-transition: outline .1s ease-out;
-    -o-transition: outline .1s ease-out;
+    border: transparent;
 }
 input[type = text]:focus, input[type = password]:focus{
     outline-color: darkorange;
     outline-style: groove ;
     outline-width: 2px;
+
 }
-
-
+.form_button{
+    height: 45px;
+    width: 100px;
+    border-radius: 10px;
+    border: transparent;
+    font-weight: bold;
+}
+.titre{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 25px;
+}
+.icone{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 70px;
+    text-decoration: none;
+    font-weight: bold;
+    text-overflow: clip;
+}
 
 
 /* Style du tableau de notes */
@@ -204,12 +232,10 @@ input[type = number]:focus{
     outline-color: darkorange;
     outline-style: groove ;
     outline-width: 2px;
-    background-color: #bbbbbb;
     box-shadow: inset 0 0 5px lightgray;
 
 }
 input[type = number]:hover{
-    background-color: #bbbbbb;
     cursor: text;
 }
 
@@ -222,7 +248,7 @@ label::selection{
 
 }
 
- /* CSS Pour le Module 4 -> Module de calcul */
+/* CSS Pour le Module 4 -> Module de calcul */
 
 
 /* CSS Pour le Module 4 -> Module de calcul */
@@ -367,22 +393,29 @@ label::selection{
 /* ****************************************** NAV BAR  ******************************************************** */
 .bouton-nav{
     color: white; text-decoration: none;  -webkit-transition: background-color 2s ease-out, color 2s ease-out,
-                                                                padding .05s ease-out,
-                                                                border .05s ease-out;
+padding .05s ease-out,
+border .05s ease-out;
     -moz-transition: background-color 0.75s ease-out, color 2s ease-out,
-                                                        padding .5s ease-out,
-                                                        border .05s ease-out;
+    padding .5s ease-out,
+    border .05s ease-out;
     -o-transition: background-color 0.75s ease-out, color 2s ease-out,
-                                                        padding .5s ease-out,
-                                                        border .05s ease-out;
+    padding .5s ease-out,
+    border .05s ease-out;
     transition: background-color 0.75s ease-out, color 2s ease-out,
-                                                    padding .5s ease-out,
-                                                    border .05s ease-out;
+    padding .5s ease-out,
+    border .05s ease-out;
     padding: 5px 10px;
     border-radius: 5px;
 
 }
 
+.bouton-nav-disabled{
+    color: #666666;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+    text-decoration: none;
+}
 
 #bouton-nav0:hover {
     color: black;

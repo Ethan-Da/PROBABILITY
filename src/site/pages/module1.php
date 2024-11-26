@@ -1,4 +1,7 @@
 <?php include '../includes/header.php';
+require_once '../Fonctions/fonctions.php';
+
+addSubscribedUserCheck();
 ?>
 
 <title>Module1</title>

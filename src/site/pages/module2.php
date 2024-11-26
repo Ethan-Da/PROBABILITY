@@ -1,5 +1,7 @@
 <?php include '../includes/header.php';
-?>
+require_once '../Fonctions/fonctions.php';
+
+//addSubscribedUserCheck();  Vérification des droits d'accès?>
 
 <title>Module2</title>
 </head>
