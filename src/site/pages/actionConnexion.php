@@ -10,9 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["ok"])) {
         if (isset($_POST["login"], $_POST["pass"])) {
             session_start();
+            $login = $_POST["login"];
+            $pass = md5($_POST["pass"]);
             $_SESSION["login"] = $_POST["login"];
             $_SESSION["pass"] = $_POST["pass"];
-            header("Location: index.php");
+            $captcha = randomIdCaptcha();
+            header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
             /**
             $login = $_POST["login"];
             $pass = md5($_POST["pass"]);
@@ -37,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pass = $_POST["pass"];
         if (captchaCorrect($captcha, $_POST["captcha_reponse"])) {
             session_start();
+            setcookie("cookieLogin", $login, time() + 3600, "/login", "", false, true);
+            setcookie("cookiePass", $pass, time() + 3600, "/login", "", false, true);
             $_SESSION["login"] = $login;
             $_SESSION["pass"] = $pass;
             $connexionDB = new Database();

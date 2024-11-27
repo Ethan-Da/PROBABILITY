@@ -10,7 +10,7 @@ include '../includes/header.php'; ?>
 ?>
 
 
-<div class="container">
+<div class="container" id="index-container">
     <div class="logo-container">
         <img src="../images/logo.png" alt="Logo Proβability">
 

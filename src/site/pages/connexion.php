@@ -76,7 +76,7 @@ require_once "captcha.php";
 
     <div style="padding: 15px">
         <p>Tu n'as pas de compte ?
-            <a href="inscription.php"> INSCRIS TOI !!</a>
+            <a href="inscription.php" style="color: #ffce33"> INSCRIS TOI !!</a>
         </p>
     </div>
 

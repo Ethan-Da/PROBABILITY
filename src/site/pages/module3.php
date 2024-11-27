@@ -1,17 +1,14 @@
-<<<<<<< HEAD
 <?php include '../includes/header.php';
 require_once '../Fonctions/fonctions.php';
 
 //addSubscribedUserCheck();  Vérification des droits d'accès?>
 
 <title>Module3</title>
-=======
 <?php include '../includes/header.php'; ?>
 <head>
     <title>Module3</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
->>>>>>> de7433a3e0f80f122d5081ce6ba90ffa6a4a78a4
-</head>
+
 
 <body>
 <?php include '../includes/navbar.php';
@@ -29,11 +26,15 @@ if (isset($_GET['E'])) {
 
 ?>
 <div class="container">
-    <h1 class="page-title">Module 3</h1>
+    <div class="titre" id="m3">
+        <h2a>{</h2a>
+        <h2b style="color: #ffdddd;">Module 3</h2b>
+        <h2c>}</h2c>
+    </div>
 
     <div class="detail-calcul">
         <div class="section-calc">
-            <h3>Détails des calculs BITE</h3>
+            <h3>Détails des calculs</h3>
             <div class="section-content">
 
                 <!--Affichage la formule de la fonction avec MathML-->
@@ -47,11 +48,10 @@ if (isset($_GET['E'])) {
                     <mi><?php echo"$F"; ?></mi>
                     <mo>)</mo>
                     <mo>=</mo>
-                    <mfrac>
+
                         <msqrt>
-                            <mi></mi>
-                        </msqrt>
-                        <msqrt>
+                            <mfrac>
+                            <mi><?php echo"$F"; ?></mi>
                             <mrow>
                                 <mi>2</mi>
                                 <mi>&#x03C0;</mi>
@@ -60,8 +60,9 @@ if (isset($_GET['E'])) {
                                     <mn>3</mn>
                                 </msup>
                             </mrow>
+                            </mfrac>
                         </msqrt>
-                    </mfrac>
+
                     <mi>exp</mi>
                     <mo>(</mo>
                     <msup>
@@ -115,27 +116,27 @@ if (isset($_GET['E'])) {
     </div>
 
     <!--Formulaire pour rentrer les parametres de la fonction, et le méthode de calcul-->
-    <div class="content">
+    <div class="content" id="module3-container">
         <form action="calcul.php" method="post" class="calculation-form">
             <div class="input-group">
                 <div class="form-field">
                     <label for="E">Espérance :</label>
-                    <input type="number" name="E" id="E" step="any" min="0" required>
+                    <input type="number" name="E" id="E" step="any" min="0" required id="input-num-m3">
                 </div>
 
                 <div class="form-field">
                     <label for="F">Forme :</label>
-                    <input type="number" name="F" id="F" step="any" min="0" required >
+                    <input type="number" name="F" id="F" step="any" min="0" required id="input-num-m3">
                 </div>
 
                 <div class="form-field">
                     <label for="T">Valeur t :</label>
-                    <input type="number" name="T" id="T" step="any" min="0" required>
+                    <input type="number" name="T" id="T" step="any" min="0" required id="input-num-m3">
                 </div>
 
                 <div class="form-field">
                     <label for="N">Nbr valeur :</label>
-                    <input type="number" name="N" id="N" min="0" required>
+                    <input type="number" name="N" id="N" min="0" required id="input-num-m3">
                 </div>
             </div>
 

@@ -26,8 +26,8 @@
     </div>
     
         <label for="logout" style="padding: 15px">Logout</label>
-        <div style="background-color: white; height: 80px; width: 80px; border-radius: 50%;" >
-            <a href="logout.php" class="icone" id="logout">';
+        <div class="icone"> >
+            <a href="logout.php" class="icone-text" id="logout">';
         echo $first;
         echo'</a>
         </div> 
