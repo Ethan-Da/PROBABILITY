@@ -1,5 +1,5 @@
 <?php include '../includes/header.php';
-require_once '../Fonctions/fonctions.php';
+require_once '../fonctions/fonctionsDroits.php';
 
 //addSubscribedUserCheck();  Vérification des droits d'accès?>
 
@@ -117,7 +117,7 @@ if (isset($_GET['E'])) {
 
     <!--Formulaire pour rentrer les parametres de la fonction, et le méthode de calcul-->
     <div class="content" id="module3-container">
-        <form action="calcul.php" method="post" class="calculation-form">
+        <form action="actions/calcul.php" method="post" class="calculation-form">
             <div class="input-group">
                 <div class="form-field">
                     <label for="E">Espérance :</label>

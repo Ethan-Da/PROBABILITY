@@ -6,7 +6,7 @@
 <?php
 include '../includes/navbar.php';
 
-require_once "captcha.php";
+require_once "../fonctions/captcha.php";
 
 ?>
 
@@ -37,7 +37,7 @@ require_once "captcha.php";
 
 
     <!-- FORMULAIRE DE CONNEXION-->
-    <form action="actionConnexion.php" method="POST" class="formulaire">
+    <form action="actions/actionConnexion.php" method="POST" class="formulaire">
 
         <!--Quand on affiche le captcha le login et le mot de passe on ne peut plus les modifier même dans l'url-->
         <label for="login" style="cursor: pointer">Login </label>

@@ -4,7 +4,7 @@
 </head>
 <body>
 <?php include '../includes/navbar.php';
-    require 'Database.php';
+    require '../fonctions/Database.php';
 /*if (!isset($_SESSION['login']) || $_SESSION['login'] != "login") {
     header("Location: index.php");
 }*/

@@ -1,5 +1,5 @@
 <?php
-require_once "fonction_loi_proba.php";
+require_once "../fonctions/fonction_loi_proba.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["btn-calcul"])) {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             //Formulare caché pour pouvoir envoyer les données en POST(pas possible en GET car URL trop long)
-            echo '<form id="redirectForm" action="module3.php" method="POST">';
+            echo '<form id="redirectForm" action="../module3.php" method="POST">';
 
             //implode pour mettre le tableau sous form de string et l'envoyer en POST
             echo '<input type="hidden" name="xValues" value="' . implode(',', $xValues) . '">';
