@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.1deb1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mar. 05 nov. 2024 à 20:11
--- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Nov 28, 2024 at 11:43 AM
+-- Server version: 10.11.6-MariaDB-0+deb12u1
+-- PHP Version: 8.2.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,77 +18,82 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `probability_db`
+-- Database: `probability_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `compte`
+-- Table structure for table `compte`
 --
 
 CREATE TABLE `compte` (
   `login` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `last_ip` varchar(15) DEFAULT NULL,
   `last_connection` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `compte`
+-- Dumping data for table `compte`
 --
 
 INSERT INTO `compte` (`login`, `password`, `last_ip`, `last_connection`) VALUES
-('test1', '5a105e8b9d40e1329780d62ea2265d', NULL, NULL);
+('admin', 'c83c6767c13e442ab88db6bec19c1f30', '192.168.24.4', '2024-11-28'),
+('ethan', '9b66b542c953da1245f6396af4fd3c2b', '192.168.24.4', '2024-11-28'),
+('Hazim', 'a91eb05915a6d820bcb9c3860f2a0646', '192.168.24.2', '2024-11-18'),
+('jsp', 'ec407cce6b649daa8e320157e5763976', '192.168.24.30', '2024-11-25');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `fiche_calcul`
+-- Table structure for table `fiche_calcul`
 --
 
 CREATE TABLE `fiche_calcul` (
   `id_fiche` int(11) NOT NULL,
-  `date` date NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
   `module` int(11) NOT NULL,
-  `calcul` varchar(255) NOT NULL,
+  `esperance` float NOT NULL,
+  `forme` float NOT NULL,
+  `T` float NOT NULL,
   `resultat` int(64) NOT NULL,
   `login` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `compte`
+-- Indexes for table `compte`
 --
 ALTER TABLE `compte`
   ADD PRIMARY KEY (`login`);
 
 --
--- Index pour la table `fiche_calcul`
+-- Indexes for table `fiche_calcul`
 --
 ALTER TABLE `fiche_calcul`
   ADD PRIMARY KEY (`id_fiche`),
   ADD KEY `FOREIGN_KEY_LOGIN` (`login`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `fiche_calcul`
+-- AUTO_INCREMENT for table `fiche_calcul`
 --
 ALTER TABLE `fiche_calcul`
   MODIFY `id_fiche` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `fiche_calcul`
+-- Constraints for table `fiche_calcul`
 --
 ALTER TABLE `fiche_calcul`
   ADD CONSTRAINT `FOREIGN_KEY_LOGIN` FOREIGN KEY (`login`) REFERENCES `compte` (`login`) ON DELETE CASCADE ON UPDATE CASCADE;

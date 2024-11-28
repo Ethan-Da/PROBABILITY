@@ -1,0 +1,32 @@
+# Privileges for `ADMIN_USER`@`localhost`
+
+GRANT USAGE ON *.* TO `ADMIN_USER`@`localhost` IDENTIFIED BY PASSWORD '*EBF9D9F6B4B2A0A55609713F58649E5896317CFF';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `probability\_db`.* TO `ADMIN_USER`@`localhost` WITH GRANT OPTION;
+
+
+# Privileges for `INSERT_USER`@`localhost`
+
+GRANT USAGE ON *.* TO `INSERT_USER`@`localhost` IDENTIFIED BY PASSWORD '*C5C7BBE7B78F4D4DD790734360CE1069FC371947';
+
+GRANT INSERT (`resultat`, `module`, `login`, `esperance`, `forme`, `T`) ON `probability_db`.`fiche_calcul` TO `INSERT_USER`@`localhost`;
+
+GRANT INSERT (`password`, `login`) ON `probability_db`.`compte` TO `INSERT_USER`@`localhost`;
+
+
+# Privileges for `SELECT_USER`@`localhost`
+
+GRANT USAGE ON *.* TO `SELECT_USER`@`localhost` IDENTIFIED BY PASSWORD '*5D9111342FB77817817B7CCE902EB445AC9271F5';
+
+GRANT SELECT ON `probability_db`.`fiche_calcul` TO `SELECT_USER`@`localhost`;
+
+GRANT SELECT (`password`, `login`) ON `probability_db`.`compte` TO `SELECT_USER`@`localhost`;
+
+
+# Privileges for `UPDATE_USER`@`localhost`
+
+GRANT USAGE ON *.* TO `UPDATE_USER`@`localhost` IDENTIFIED BY PASSWORD '*480AE3A9B63DF4996049DBDF3EE94604C2EECBB7';
+
+GRANT UPDATE ON `probability\_db`.* TO `UPDATE_USER`@`localhost`;
+
+GRANT SELECT (`last_ip`, `login`, `last_connection`), UPDATE (`password`) ON `probability_db`.`compte` TO `UPDATE_USER`@`localhost`;
