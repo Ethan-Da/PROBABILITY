@@ -19,7 +19,7 @@ function rectangles_gauche($esp, $lambda, $n, $b) {
 
     for ($i = 1; $i <= $n; $i++) {
         $x = $intervalle * $i;
-        $proba = $intervalle * inv_gauss($esp, $lambda, $x);
+        $proba = $intervalle * inv_gauss($esp, $lambda, $x); // On doit additioner la val de proba avec l'intervalle et la hauteur (inv_gauss)
         $proba_vals[] = $proba;
         $proba_fin += $proba;
     }

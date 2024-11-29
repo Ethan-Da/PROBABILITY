@@ -31,17 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             //les valeurs d'ordonnées pour la fonction de densité
             $yValues = array();
-            for ($i = 0; $i < 1000; $i++) {
-                $yValues[] = inv_gauss($E, $F, $i*0.01);
+            $xValues = [];
+            for ($i = 0; $i < $N ; $i++) {
+                $yValues[] = inv_gauss($E, $F, $i*10/$N);
+                $xValues[] = $i*10/$N ;
             }
             //la valeur résultat
             $proba_val = $resultat['proba_fin'];
 
             // valeurs de l'abscisse
-            $xValues = [];
+
             $intervalle = $T / $N;
             for ($i = 1; $i <= $N; $i++) {
-                $xValues[] = $i * $intervalle;
+
             }
 
             //Formulare caché pour pouvoir envoyer les données en POST(pas possible en GET car URL trop long)
