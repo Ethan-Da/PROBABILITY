@@ -30,7 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             //les valeurs d'ordonnées pour la fonction de densité
-            $yValues = $resultat['proba_vals'];
+            $yValues = array();
+            for ($i = 0; $i < 1000; $i++) {
+                $yValues[] = inv_gauss($E, $F, $i*0.01);
+            }
             //la valeur résultat
             $proba_val = $resultat['proba_fin'];
 

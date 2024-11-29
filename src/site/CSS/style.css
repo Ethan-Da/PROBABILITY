@@ -266,9 +266,9 @@ label::selection{
 
 /* Style des sections supplémentaires */
 .detail-calcul {
-    display: flex;                      /* Utilisation de flexbox pour disposer les sections côte à côte */
+    display: inline-block;                      /* Utilisation de flexbox pour disposer les sections côte à côte */
     justify-content: space-between;     /* Espacement entre les sections */
-    margin-bottom: 20px;                /* Marge en bas pour séparer des autres éléments */
+    width: 1500px;                /* Marge en bas pour séparer des autres éléments */
 }
 
 .section-calc {
@@ -285,12 +285,13 @@ label::selection{
 }
 
 .section-content {
-    min-height: 200px;                  /* Hauteur minimale pour les carrés vides */
+    /* Hauteur minimale pour les carrés vides */
     border: 1px dashed #ccc;            /* Bordure en pointillés pour les carrés vides */
     padding: 10px;                      /* Espacement interne des carrés vides */
     border-radius: 4px;                 /* Coins arrondis des carrés vides */
     margin-top: 10px;                   /* Marge en haut pour séparer du titre */
     background-color: white;
+    justify-content: flex-end;
 }
 
 
