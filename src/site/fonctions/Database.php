@@ -99,5 +99,12 @@ class Database{
     }
 
 
+    public function getAllFicheFrom($user){
+        return $this -> userQuery("SELECT (date, module, esperance, forme, T, resultat) FROM fiche_calcul WHERE login = ?","s",array($user));
+    }
+
+
+
+
 
 }
