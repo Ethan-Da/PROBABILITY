@@ -1,5 +1,5 @@
 <?php
-require_once "../fonctions/fonction_loi_proba.php";
+require_once "../../fonctions/fonction_loi_proba.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST["btn-calcul"])) {

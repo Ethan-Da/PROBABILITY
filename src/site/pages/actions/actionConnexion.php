@@ -1,6 +1,6 @@
 <?php
-require_once "captcha.php";
-require_once "../fonctions/Database.php";
+require_once "../../fonctions/captcha.php";
+require_once "../../fonctions/Database.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -9,25 +9,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # sinon on redirige avec une erreur
     if (isset($_POST["ok"])) {
         if (isset($_POST["login"], $_POST["pass"])) {
-            session_start();
-            $login = $_POST["login"];
-            $pass = md5($_POST["pass"]);
-            $_SESSION["login"] = $_POST["login"];
-            $_SESSION["pass"] = $_POST["pass"];
-            $captcha = randomIdCaptcha();
-            header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
-            /**
             $login = $_POST["login"];
             $pass = md5($_POST["pass"]);
             $connexionDB = new Database();
-            if ( $connexionDB->isValidAccount($login)) {
+            if ($connexionDB->isValidAccount($login)) {
                 $captcha = randomIdCaptcha();
-                header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
+                header('Location: ../connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
             }else{
                 $error = 1;
-                header('Location: connexion.php?error=' . $error);
+                header('Location: ../connexion.php?error=' . $error);
 
-            }*/
+            }
         }
     }
 
@@ -47,10 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $connexionDB = new Database();
             $connexionDB->updateLastConnectionLastIp($login);
             error_log("Connexion valide ".date("Y-M-D H:i:s").", login : ". $login."\n", 3, 'connexions.log');
-            header('Location: index.php');
+            header('Location: ../index.php');
         } else {
             $error = 2;
-            header('Location: connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha . '&error=' . $error);
+            header('Location: ../connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha . '&error=' . $error);
         }
     }
 }

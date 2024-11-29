@@ -1,6 +1,6 @@
 <?php
 
-require_once '../fonctions/Database.php';
+require_once '../../fonctions/Database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if($_POST['verifPass'] != $_POST['pass']){
             $error = 1;
-            header('Location: inscription.php?error=' . $error);
+            header('Location: ../inscription.php?error=' . $error);
         }
 
         else {
@@ -18,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION["login"] = $_POST['login'];
                 $_SESSION["pass"] = $_POST['pass'];
                 $connexionDB->updateLastConnectionLastIp($_POST['login']);
-                header('Location: index.php');
+                header('Location: ../index.php');
             } else {
                 $error = 2;
-                header('Location: inscription.php?error=' . $error);
+                header('Location: ../inscription.php?error=' . $error);
             }
         }
 

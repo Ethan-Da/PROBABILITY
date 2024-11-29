@@ -27,7 +27,7 @@
     
         <label for="logout" style="padding: 15px">Logout</label>
         <div class="icone"> >
-            <a href="logout.php" class="icone-text" id="logout">';
+            <a href="./actions/logout.php" class="icone-text" id="logout">';
         echo $first;
         echo'</a>
         </div> 
