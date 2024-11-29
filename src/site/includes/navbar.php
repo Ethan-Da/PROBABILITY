@@ -20,8 +20,10 @@
                 <li style="margin-right: 20px;">
                     <a href="module3.php" class="bouton-nav" id="bouton-nav3" title="Module3">Module3</a></li>
                 <li style="margin-right: 20px;">
-                    <a href="module4.php" style="" class="bouton-nav" id="bouton-nav4" title="Module4">Module4</a></li>
-            </ul>
+                    <a href="module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">Module4</a></li>
+                <li style="margin-right: 20px;">
+                    <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>  
+            </ul>   
         </nav>
     </div>
     
