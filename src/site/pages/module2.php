@@ -12,7 +12,11 @@ require_once '../fonctions/fonctionsDroits.php';
 
 <div class="container">
     <div class="content">
-        <h2>Tableau des notes</h2>
+        <div class="titre" id="m3">
+            <h2a style="color: #21bd23;">{</h2a>
+            <h2b style="color:#21bd23;">Tableau des notes</h2b>
+            <h2c style="color: #21bd23;">}</h2c>
+        </div>
         <?php
         $fichier_csv = 'notes.csv';
 

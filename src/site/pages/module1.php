@@ -13,7 +13,11 @@ addSubscribedUserCheck();
 
 <div class="container">
     <div class="content">
-        <h2>Générateur de Damier</h2>
+        <div class="titre" id="m3">
+            <h2a style="color: cornflowerblue;">{</h2a>
+            <h2b style="color:cornflowerblue;">Damier</h2b>
+            <h2c style="color: cornflowerblue;">}</h2c>
+        </div>
         <form method="POST" action="" class="form">
             <label for="longueur">Longueur du damier :</label>
             <input type="number" name="longueur" id="longueur" required><br><br>

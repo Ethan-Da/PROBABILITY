@@ -55,6 +55,8 @@ html, body {
     background-color: white;
 }
 
+/***************************** Style Page d'accueil *******************************/
+
 .eb-garamond-text {
     font-family: "EB Garamond", serif;
     font-optical-sizing: auto;
@@ -89,8 +91,7 @@ html, body {
 }
 
 
-
-/* Style du header */
+/***************************** Style du header *******************************/
 header {
     background-color: #666666;
     color: white;
@@ -186,8 +187,8 @@ input[type = text]:focus, input[type = password]:focus{
     color: #666666;
 }
 
+/***************************** Style de l'historique  *******************************/
 
-/* Style de l'historique */
 table.historique {
     width: 100%;
     border-collapse: collapse;
@@ -239,8 +240,8 @@ table.historique {
 }
 
 
+/***************************** Damier  *******************************/
 
-/* Style du tableau de damier */
 table.table {
     border-color: transparent;
     border-collapse: collapse;
@@ -294,10 +295,11 @@ label::selection{
 
 }
 
-/* CSS Pour le Module 4 -> Module de calcul */
 
 
-/* CSS Pour le Module 4 -> Module de calcul */
+/***************************** Module 4  *******************************/
+
+
 
 /* Style des sections supplémentaires */
 .detail-calcul {
