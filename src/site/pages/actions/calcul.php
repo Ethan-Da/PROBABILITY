@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $resultat = trapezes($E, $F, $N, $T);
                     break;
                 case 'rectangle_median':
-                    $resultat = rectangles_median($E, $F, $N, $T);
+                    $resultat = rectangles_median($E, $F, $T, $N);
                     break;
                 case 'rectangle_gauche':
-                    $resultat = rectangles_gauche($E, $F, $N, $T);
+                    $resultat = rectangles_gauche($E, $F, $T, $N);
                     break;
                 default:
                     echo "Méthode non valide.";
@@ -32,19 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //les valeurs d'ordonnées pour la fonction de densité
             $yValues = array();
             $xValues = [];
-            for ($i = 0; $i < $N ; $i++) {
-                $yValues[] = inv_gauss($E, $F, $i*10/$N);
-                $xValues[] = $i*10/$N ;
+            for ($i = 0; $i < $N+1 ; $i++) {
+                $yValues[] = inv_gauss($E, $F, $i*5/$N);
+                $xValues[] = $i*5/$N ;
             }
-            //la valeur résultat
-            $proba_val = $resultat['proba_fin'];
 
-            // valeurs de l'abscisse
-
-            $intervalle = $T / $N;
-            for ($i = 1; $i <= $N; $i++) {
-
-            }
 
             //Formulare caché pour pouvoir envoyer les données en POST(pas possible en GET car URL trop long)
             echo '<form id="redirectForm" action="../module3.php" method="POST">';
@@ -56,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '<input type="hidden" name="F" value="' . $F . '">';
             echo '<input type="hidden" name="T" value="' . $T . '">';
             echo '<input type="hidden" name="N" value="' . $N . '">';
-            echo '<input type="hidden" name="proba_val" value="' . $proba_val . '">';
+            echo '<input type="hidden" name="proba_val" value="' . $resultat . '">';
             echo '</form>';
 
             //execute automatiquement le formulaire avec submit()

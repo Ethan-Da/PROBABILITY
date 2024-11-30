@@ -185,6 +185,7 @@ if (isset($_GET['E'])) {
 
 <script>
     // Récupération des données transmises via POST
+    const T = '<?php echo $_POST['T'];?>';
     // puis explode pour récuperer le tableau PHP et json_encode pour pouvoir les utiliser en Javascript
     const xValues = <?php echo isset($_POST['xValues']) ? json_encode(explode(',', $_POST['xValues'])) : '[]'; ?>;
     const yValues = <?php echo isset($_POST['yValues']) ? json_encode(explode(',', $_POST['yValues'])) : '[]'; ?>;
@@ -199,10 +200,22 @@ if (isset($_GET['E'])) {
                 datasets: [{
                     label: 'Courbe de la fonction',
                     data: yValues,
+                    backgroundColor: 'rgba(75, 192, 192, 1)',
                     borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                    fill: false
-                }]
+                    borderWidth: 2,
+                    fill: false,
+                    radius: 0
+                },
+                {
+                    label: 'T',
+                    type: 'bar',
+                    data: [
+                        {x: T, y: 0.3}
+                    ],
+                    maxBarThickness: 2,
+                    backgroundColor: 'rgba(211,35,67,0.82)'
+                }
+                ]
             },
             options: {
                 responsive: true,
@@ -220,6 +233,7 @@ if (isset($_GET['E'])) {
                         }
                     }
                 }
+
             }
         });
 
