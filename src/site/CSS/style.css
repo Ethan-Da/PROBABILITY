@@ -42,10 +42,9 @@ html, body {
     text-align: center;
     position: relative;
     align-content: center;
-
 }
 
-*{
+* {
     box-sizing: border-box; /* S'assure que le padding et les marges sont pris en compte */
 }
 
@@ -53,8 +52,43 @@ html, body {
 .container {
     padding: 30px;
     margin: 20px auto;
-    background-color: #666666;
+    background-color: white;
 }
+
+.eb-garamond-text {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 457;
+    font-style: normal;
+}
+
+
+/* Style pour le message de bienvenue */
+.welcome-message {
+    font-size: 1.2em;
+    margin: 20px auto;
+    color: #ffffff; /* Couleur du texte */
+    background-color: rgb(255, 127, 0); /* Couleur de fond */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+}
+
+.none-connection-message {
+    font-size: 1.2em;
+    margin: 20px auto;
+    color: #ffffff; /* Couleur du texte */
+    background-color: orangered; /* Couleur de fond */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+}
+
+
 
 /* Style du header */
 header {
@@ -73,6 +107,7 @@ header {
     margin-top: 20px;
     font-size: 18px;
     line-height: 1.6;
+    color: #666666;
 }
 #index-container{
     color: white;
@@ -95,7 +130,7 @@ footer {
 }
 
 
-/***************************** Formulaire *******************************/
+/***************************** Formulaire Connexion *******************************/
 .form-container{
     display: inline-block;
     justify-content: center;
@@ -166,7 +201,7 @@ table.historique {
 }
 
 .historique th {
-    background-color: #5D5DFF;
+    background-color: #21bd23;
     color: white;
 }
 

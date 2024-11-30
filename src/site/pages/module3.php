@@ -24,9 +24,9 @@ if (isset($_GET['E'])) {
 ?>
 <div class="container">
     <div class="titre" id="m3">
-        <h2a>{</h2a>
-        <h2b style="color: #ffdddd;">Module 3</h2b>
-        <h2c>}</h2c>
+        <h2a style="color: #ffcccc;">{</h2a>
+        <h2b style="color: #ffcccc;">Module 3</h2b>
+        <h2c style="color: #ffcccc;">}</h2c>
     </div>
 
     <!--Formulaire pour rentrer les parametres de la fonction, et le méthode de calcul-->
