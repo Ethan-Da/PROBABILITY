@@ -66,6 +66,7 @@ if (isset($_GET['E'])) {
             </div>
 
             <div class="button-group">
+                <button type="reset" class="btn-reset" id="btn-annuler">Annuler</button>
                 <button type="submit" class="btn-calcul" name="btn-calcul" id="btn-calcul">Calculer</button>
             </div>
         </form>
@@ -191,68 +192,80 @@ if (isset($_GET['E'])) {
 </div>
 
 <script>
-    // Récupération des données transmises via POST
-    const T = '<?php echo $_POST['T'];?>';
-    // puis explode pour récuperer le tableau PHP et json_encode pour pouvoir les utiliser en Javascript
-    const xValues = <?php echo isset($_POST['xValues']) ? json_encode(explode(',', $_POST['xValues'])) : '[]'; ?>;
-    const yValues = <?php echo isset($_POST['yValues']) ? json_encode(explode(',', $_POST['yValues'])) : '[]'; ?>;
+    // Création de la fonction pour revenir au formulaire avec btn-retour
+    document.addEventListener('DOMContentLoaded', function() {
+        // Récupération des données transmises via POST
+        const T = '<?php echo $_POST['T'];?>';
+        // puis explode pour récuperer le tableau PHP et json_encode pour pouvoir les utiliser en Javascript
+        const xValues = <?php echo isset($_POST['xValues']) ? json_encode(explode(',', $_POST['xValues'])) : '[]'; ?>;
+        const yValues = <?php echo isset($_POST['yValues']) ? json_encode(explode(',', $_POST['yValues'])) : '[]'; ?>;
 
-    if (xValues.length > 0 && yValues.length > 0) {
-        // Création du graphique avec Chart.js
-        const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: xValues,
-                datasets: [{
-                    label: 'Courbe de la fonction',
-                    data: yValues,
-                    backgroundColor: 'rgba(75, 192, 192, 1)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2,
-                    fill: false,
-                    radius: 0
-                },
-                {
-                    label: 'T',
-                    type: 'bar',
-                    data: [
-                        {x: T, y: 0.3}
-                    ],
-                    maxBarThickness: 2,
-                    backgroundColor: 'rgba(211,35,67,0.82)'
-                }
-                ]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'x'
-                        }
+        if (xValues.length > 0 && yValues.length > 0) {
+            // Création du graphique avec Chart.js
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        label: 'Courbe de la fonction',
+                        data: yValues,
+                        backgroundColor: 'rgba(75, 192, 192, 1)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false,
+                        radius: 0
                     },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'f(x)'
+                        {
+                            label: 'T',
+                            type: 'bar',
+                            data: [
+                                {x: T, y: 0.3}
+                            ],
+                            maxBarThickness: 2,
+                            backgroundColor: 'rgba(211,35,67,0.82)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'x'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'f(x)'
+                            }
                         }
                     }
+
                 }
+            });
 
-            }
+            // Afficher les sections après le calcul
+            document.getElementById('detail-calcul').style.display = 'block';
+            document.getElementById('results-table').style.display = 'block';
+
+            // Masquer le formulaire après le calcul
+            document.getElementById('calculation-form').style.display = 'none';
+        } else {
+            console.error("Aucune donnée reçue pour générer le graphique");
+        }
+
+        // Fonction pour revenir au formulaire
+        document.getElementById('btn-retour').addEventListener('click', function () {
+            document.getElementById('calculation-form').style.display = 'block';
+            document.getElementById('detail-calcul').style.display = 'none';
+            document.getElementById('results-table').style.display = 'none';
         });
+    });
 
-        // Afficher les sections après le calcul
-        document.getElementById('detail-calcul').style.display = 'block';
-        document.getElementById('results-table').style.display = 'block';
 
-        // Masquer le formulaire après le calcul
-        document.getElementById('calculation-form').style.display = 'none';
-    } else {
-        console.error("Aucune donnée reçue pour générer le graphique");
-    }
 </script>
 
 <?php include '../includes/footer.php';

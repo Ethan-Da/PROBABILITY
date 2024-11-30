@@ -382,7 +382,7 @@ label::selection{
     gap: 10px;                          /* Espacement entre les boutons */
 }
 
-.btn-calcul, .btn-save, .btn-reset {
+.btn-calcul, .btn-save, .btn-reset, .btn-retour {
     padding: 10px 20px;                 /* Espacement interne des boutons */
     border: none;                       /* Suppression de la bordure des boutons */
     border-radius: 4px;                /* Coins arrondis des boutons */
@@ -409,14 +409,14 @@ label::selection{
     background-color: #218838;         /* Couleur de fond du bouton "Sauvegarder" au survol */
 }
 
-.btn-reset {
+.btn-reset, .btn-retour {
     font-weight: bold;
 
     background-color: #dc3545;         /* Couleur de fond du bouton "Annuler" */
     color: #fff;                      /* Couleur du texte du bouton "Annuler" */
 }
 
-.btn-reset:hover {
+.btn-reset:hover, .btn-retour:hover {
     background-color: #c82333;         /* Couleur de fond du bouton "Annuler" au survol */
 }
 
