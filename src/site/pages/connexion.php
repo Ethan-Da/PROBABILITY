@@ -5,23 +5,19 @@
 
 <?php
 include '../includes/navbar.php';
-
 require_once "../fonctions/captcha.php";
-
 ?>
 
-
 <body class="body_form">
-<div class="form-container">
-    <div class="titre" >
+<div class="form-container" style="background-color: #666666">
+    <div class="titre">
         <h2a>{</h2a>
-        <h2b style="color: orange;">Connexion</h2b>
+        <h2b>Connexion</h2b>
         <h2c>}</h2c>
     </div>
 
     <!-- GESTION DES ERREURS-->
     <?php
-
     if (isset($_GET["error"])) {
         switch ($_GET["error"]) {
             case 1:
@@ -35,53 +31,37 @@ require_once "../fonctions/captcha.php";
     }
     ?>
 
-
     <!-- FORMULAIRE DE CONNEXION-->
     <form action="actions/actionConnexion.php" method="POST" class="formulaire">
-
-        <!--Quand on affiche le captcha le login et le mot de passe on ne peut plus les modifier même dans l'url-->
-        <label for="login" style="cursor: pointer">Login </label>
+        <label for="login">Login</label>
         <input type="text" name="login" id="login" <?php if (isset($_GET['login'])) {
-            echo "value=" . $_GET['login'] . " readonly";
+            echo "value=" . htmlspecialchars($_GET['login']) . " readonly";
         } ?> required/>
 
-        <label for="pass" style="cursor: pointer">Mot de passe </label>
+        <label for="pass">Mot de passe</label>
         <input type="password" name="pass" id="pass" <?php if (isset($_GET['pass'])) {
-            echo "value=" . $_GET['pass'] . " readonly";
+            echo "value=" . htmlspecialchars($_GET['pass']) . " readonly";
         } ?> required/>
-        <br>
-        <br>
 
         <button type="submit" name="ok" value="ok" class="form_button">Se connecter</button>
 
         <!-- Affichage du CAPTCHA si requis -->
         <?php if (isset($_GET['captcha'])):
-        $captcha = $_GET['captcha']; ?>
-
-        <div>
-            <h3>Etes-vous un robot ?</h3>
-            Question : <?php echo recupQuestionCaptcha($captcha); ?>
-            <br>
-            <br>
-            <label for="captcha_reponse">Réponse : </label>
-            <input type="text" name="captcha_reponse" class="form_input" value=""/>
-            <br><br>
-            <button type="submit" name="submit_captcha" <?php echo "value = $captcha"; ?> class="form_button">Soumettre
-                le CAPTCHA
-            </button>
-        </div>
+            $captcha = htmlspecialchars($_GET['captcha']); ?>
+            <div class="captcha-container">
+                <h3>Etes-vous un robot ?</h3>
+                <p>Question : <?php echo recupQuestionCaptcha($captcha); ?></p>
+                <label for="captcha_reponse">Réponse : </label>
+                <input type="text" name="captcha_reponse" class="form_input" value=""/>
+                <button type="submit" name="submit_captcha" value="<?php echo $captcha; ?>" class="form_button">Soumettre le CAPTCHA</button>
+            </div>
+        <?php endif; ?>
     </form>
-<?php endif; ?>
 
-
-    <div style="padding: 15px">
-        <p>Tu n'as pas de compte ?
-            <a href="inscription.php" style="color: #ffce33"> INSCRIS TOI !!</a>
-        </p>
+    <div class="inscription-link-container">
+        <p>Tu n'as pas de compte ? <a href="inscription.php" class="inscription-link">INSCRIS TOI !!</a></p>
     </div>
-
 </div>
 </body>
-
 
 <?php include '../includes/footer.php'; ?>
