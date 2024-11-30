@@ -1,16 +1,18 @@
 
-<?php include '../includes/header.php'; ?>
+<?php include '../includes/header.php';
+require '../fonctions/Database.php';
+require '../fonctions/fonctionsDroits.php';?>
 <title>Mes fiches de calcul</title>
 </head>
 <body>
 <?php include '../includes/navbar.php';
-    require '../fonctions/Database.php';
-    require '../fonctions/fonctionsDroits.php';
+
 
 addSubscribedUserCheck();
 ?>
 
 <?php
+
     $login = $_SESSION['login'];
 
     $connexionDb = new Database();

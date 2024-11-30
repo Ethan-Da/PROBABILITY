@@ -22,13 +22,14 @@
                 <li style="margin-right: 20px;">
                     <a href="module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">Module4</a></li>
                 <li style="margin-right: 20px;">
-                    <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>  
+                    <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>      
+                    
             </ul>   
         </nav>
     </div>
     
         <label for="logout" style="padding: 15px">Logout</label>
-        <div class="icone"> >
+        <div class="icone">
             <a href="./actions/logout.php" class="icone-text" id="logout">';
         echo $first;
         echo'</a>

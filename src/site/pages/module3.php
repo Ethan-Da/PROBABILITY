@@ -66,9 +66,7 @@ if (isset($_GET['E'])) {
             </div>
 
             <div class="button-group">
-                <button type="reset" class="btn-reset" id="btn-annuler">Annuler</button>
                 <button type="submit" class="btn-calcul" name="btn-calcul" id="btn-calcul">Calculer</button>
-                <button type="button" class="btn-save" id="btn-sauvegarder">Sauvegarder</button>
             </div>
         </form>
     </div>
@@ -157,7 +155,12 @@ if (isset($_GET['E'])) {
     </div>
 
     <!-- Affichage du résultat-->
-    <?php if (isset($_POST['proba_val'])): ?>
+    <?php if (isset($_POST['proba_val'])):
+        $resultat = $_POST['proba_val'];
+        $F =  $_POST['F'];
+        $E =  $_POST['E'];
+        $T =  $_POST['T'];
+        error_log("Utilisation du module 3, le ".date("d-m-Y H:i:s").", login : ". $_SESSION['login']."\n", 3, './logs/activites.log');?>
         <div class="results-table" id="results-table" style="display: none;">
             <h3>Résultats</h3>
             <table>
@@ -172,13 +175,17 @@ if (isset($_GET['E'])) {
                 <tbody>
                 <tr>
                     <!-- Affichage des parametres et du resultat envoyés en POST-->
-                    <td id="result-value"><?php echo $_POST['proba_val']; ?></td>
-                    <td id="result-form"><?php echo $_POST['F']; ?></td>
-                    <td id="result-esp"><?php echo $_POST['E']; ?></td>
-                    <td id="result-sigma"><?php echo $_POST['T']; ?></td>
+                    <td id="result-value"><?php echo $resultat; ?></td>
+                    <td id="result-form"><?php echo $F; ?></td>
+                    <td id="result-esp"><?php echo $E; ?></td>
+                    <td id="result-sigma"><?php echo $T; ?></td>
                 </tr>
                 </tbody>
             </table>
+            <div class="button-group">
+                <button type="button" class="btn-retour" id="btn-retour">Retour</button>
+                <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFiche.php?resultat=$resultat&F=$F&E=$E&T=$T&module=3'>Sauvegarder</a>" ?>
+            </div>
         </div>
     <?php endif; ?>
 </div>

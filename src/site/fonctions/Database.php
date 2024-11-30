@@ -98,13 +98,16 @@ class Database{
         }
     }
 
-
     public function getAllFicheFrom($user){
-        return $this -> userQuery("SELECT (date, module, esperance, forme, T, resultat) FROM fiche_calcul WHERE login = ?","s",array($user));
+        return $this -> userQuery("SELECT date, module, esperance, forme, T, resultat FROM fiche_calcul WHERE login = ?","s",array($user));
     }
 
 
-
+    public function saveFiche($M, $E, $F, $T, $resultat, $login){
+        return $this-> userQuery("INSERT INTO `fiche_calcul` (`id_fiche`, `date`, `module`, `esperance`, `forme`, `T`, `resultat`, `login`) 
+                                        VALUES (NULL, current_timestamp(),?, ?, ?, ?, ?, ?);",
+                                        "idddds",array($M, $E, $F, $T, $resultat, $login));
+    }
 
 
 }
