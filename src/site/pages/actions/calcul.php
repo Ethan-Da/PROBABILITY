@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $resultat = [];
             switch ($methode) {
                 case 'trapeze':
-                    $resultat = trapezes($E, $F, $N, $T);
+                    $resultat = trapezes($E, $F, $T, $N);
                     break;
                 case 'rectangle_median':
                     $resultat = rectangles_median($E, $F, $T, $N);
