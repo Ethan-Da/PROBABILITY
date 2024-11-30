@@ -91,16 +91,17 @@ if (isset($_GET['E'])) {
                     <mo>=</mo>
                     <msqrt>
                         <mfrac>
-                            <mi><?php echo"$F"; ?></mi>
+                            <mi><?php echo "$F"; ?></mi>
                             <mrow>
-                                <mi>2</mi>
+                                <mn>2</mn>
                                 <mi>&#x03C0;</mi>
-                                <mi>x</mi>
                                 <msup>
+                                    <mi>x</mi>
                                     <mn>3</mn>
                                 </msup>
                             </mrow>
                         </mfrac>
+                    </msqrt>
                     </msqrt>
                     <mi>exp</mi>
                     <mo>(</mo>
@@ -129,6 +130,11 @@ if (isset($_GET['E'])) {
                         <mn>2</mn>
                     </msup>
                     <mo>)</mo>
+                    <mo>,</mo>
+                    <mspace width="0.5em"></mspace>
+                    <mi>x</mi>
+                    <mo>&gt;</mo>
+                    <mn>0</mn>
                 </math>
                 <div style=" padding-top: 50px">
                     <mi>P</mi>
