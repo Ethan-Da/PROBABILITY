@@ -15,10 +15,10 @@ $E = "&#x03BC";
 $F = "&#x03BB";
 $T = "T";
 
-if (isset($_GET['E'])) {
-    $E = $_GET['E'];
-    $F = $_GET['F'];
-    $T = $_GET['T'];
+if (isset($_POST['E'])) {
+    $E = $_POST['E'];
+    $F = $_POST['F'];
+    $T = $_POST['T'];
 }
 
 ?>
@@ -36,21 +36,29 @@ if (isset($_GET['E'])) {
                 <div class="form-field">
                     <label for="E">Espérance :</label>
                     <input type="number" name="E" id="E" step="any" min="0.01" max="1000" required id="input-num-m3">
+                    <p style="font-size: 0.8rem"> > 0 <br> Représente la moyenne
+                    </p>
                 </div>
 
                 <div class="form-field">
                     <label for="F">Forme :</label>
                     <input type="number" name="F" id="F" step="any" min="0.01" max="100" required id="input-num-m3">
+                    <p style="font-size: 0.8rem"> > 0 <br> Centre la courbe sur la moyenne
+                    </p>
                 </div>
 
                 <div class="form-field">
                     <label for="T">Valeur t :</label>
                     <input type="number" name="T" id="T" step="any" min="0" max="10000" required id="input-num-m3">
+                    <p style="font-size: 0.8rem"> > 0 <br> P(X < T)
+                    </p>
                 </div>
 
                 <div class="form-field">
                     <label for="N">Nbr valeur :</label>
                     <input type="number" name="N" id="N" min="100" max="10000"required id="input-num-m3">
+                    <p style="font-size: 0.8rem"> > 0 <br> Le nombre de valeurs sur l'intervalle
+                    </p>
                 </div>
             </div>
 
@@ -214,16 +222,7 @@ if (isset($_GET['E'])) {
                         borderWidth: 2,
                         fill: false,
                         radius: 0
-                    },
-                        {
-                            label: 'T',
-                            type: 'bar',
-                            data: [
-                                {x: T, y: 0.3}
-                            ],
-                            maxBarThickness: 2,
-                            backgroundColor: 'rgba(211,35,67,0.82)'
-                        }
+                    }
                     ]
                 },
                 options: {
