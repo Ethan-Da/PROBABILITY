@@ -22,8 +22,13 @@
                 <li style="margin-right: 20px;">
                     <a href="module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">Module4</a></li>
                 <li style="margin-right: 20px;">
-                    <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>      
-                    
+                    <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>';
+        if ($_SESSION["login"] == "admin"){
+            echo '<li style="margin-right: 20px;">
+                    <a href="gestionCompte.php" class="bouton-nav" id="bouton-nav0" title="Gestion des comptes">Gestion Comptes</a></li>';
+        }
+
+        echo '           
             </ul>   
         </nav>
     </div>

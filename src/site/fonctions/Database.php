@@ -48,7 +48,7 @@ class Database{
                 $pass = "!*UPDATE*!";
                 break;
             default:
-                return error_log("ERREUR : Mauvais type de requete, (INSERT, UPDATE ou SELECT) \n", 3, 'erreurBD.log');
+                return error_log("ERREUR : Mauvais type de requete, (INSERT, UPDATE ou SELECT) \n", 3, '../pages/logs/erreurBD.log');
         }
 
         if ($this->connexion($user, $pass)){
@@ -99,7 +99,7 @@ class Database{
     }
 
     public function getAllFicheFrom($user){
-        return $this -> userQuery("SELECT date, module, esperance, forme, T, resultat FROM fiche_calcul WHERE login = ?","s",array($user));
+        return $this -> userQuery("SELECT date, module, esperance, forme, T, resultat, id_fiche FROM fiche_calcul WHERE login = ?","s",array($user));
     }
 
 
@@ -107,6 +107,10 @@ class Database{
         return $this-> userQuery("INSERT INTO `fiche_calcul` (`id_fiche`, `date`, `module`, `esperance`, `forme`, `T`, `resultat`, `login`) 
                                         VALUES (NULL, current_timestamp(),?, ?, ?, ?, ?, ?);",
                                         "idddds",array($M, $E, $F, $T, $resultat, $login));
+    }
+
+    public function deleteFiche($id_fiche){
+        return $this->adminQuery("DELETE FROM `fiche_calcul` WHERE `fiche_calcul`.`id_fiche` = $id_fiche;");
     }
 
 

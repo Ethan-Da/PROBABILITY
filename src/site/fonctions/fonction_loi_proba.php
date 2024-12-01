@@ -47,6 +47,18 @@ function trapezes($esp, $lambda,$b,$n) {
     return $proba;
 }
 
+function valeursXY($N,$E,$F)
+{
+    $yValues = [];
+    $xValues = [];
+    for ($i = 0; $i < $N+1 ; $i++) {
+        $yValues[] = inv_gauss($E, $F, $i*($E+$E/2)/$N);
+        $xValues[] = $i*($E+$E/2)/$N ;
+    }
+
+    return array($xValues,$yValues);
+}
+
 
 
 

@@ -30,12 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             //les valeurs d'ordonnées pour la fonction de densité
-            $yValues = array();
-            $xValues = [];
-            for ($i = 0; $i < $N+1 ; $i++) {
-                $yValues[] = inv_gauss($E, $F, $i*5/$N);
-                $xValues[] = $i*5/$N ;
-            }
+
+            $valeurs = valeursXY($N, $E, $F);
+            $xValues = $valeurs[0];
+            $yValues = $valeurs[1];
 
             //Formulare caché pour pouvoir envoyer les données en POST(pas possible en GET car URL trop long)
             echo '<form id="redirectForm" action="../module3.php" method="POST">';

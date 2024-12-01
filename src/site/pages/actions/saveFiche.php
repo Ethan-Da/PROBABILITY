@@ -10,8 +10,12 @@ if (isset($_GET["module"])) {
     $T = $_GET["T"];
     $login = $_SESSION["login"];
     $connexionDB = new Database();
-    $connexionDB-> saveFiche($M, $E, $F, $T,$resultat, $login);
-    header("location: ../gestionFiche.php");
+    if ($connexionDB-> saveFiche($M, $E, $F, $T,$resultat, $login)){
+        header("location: ../gestionFiche.php");
+    }else{
+        header("location: ../module3.php");
+    }
+
         
 }else{
     echo"pas de M";
