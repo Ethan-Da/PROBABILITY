@@ -3,6 +3,7 @@
 require '../fonctions/Database.php';
 require '../fonctions/fonctionsDroits.php';
 require '../fonctions/fonction_loi_proba.php';
+include '../includes/profil.php'
 ?>
 
 <title>Mes fiches de calcul</title>
@@ -15,12 +16,13 @@ addSubscribedUserCheck();
 ?>
 
 <?php
+    $login = $_SESSION['login'];
     $connexionDb = new Database();
     if(isset($_POST['idFiche'])){
         $connexionDb->deleteFiche($_POST['idFiche']);
+    }else {
+        echo "<p class='none-connection-message eb-garamond-text'>Vous ne diposez pas de fiche, $login</p>";
     }
-
-    $login = $_SESSION['login'];
 
     echo "<div class='container'>
             <div class='titre'>
@@ -70,8 +72,6 @@ addSubscribedUserCheck();
             </table>";
         }
 
-    }else{
-        echo "pas de fiche pour $login";
     }
 
     echo "</div>";
