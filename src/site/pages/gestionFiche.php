@@ -10,7 +10,7 @@ include '../includes/profil.php'
 </head>
 <body>
 <?php include '../includes/navbar.php';
-
+include '../includes/profil.php';
 
 addSubscribedUserCheck();
 ?>
