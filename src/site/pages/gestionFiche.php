@@ -20,9 +20,11 @@ addSubscribedUserCheck();
     $connexionDb = new Database();
     if(isset($_POST['idFiche'])){
         $connexionDb->deleteFiche($_POST['idFiche']);
-    }else {
-        echo "<p class='none-connection-message eb-garamond-text'>Vous ne diposez pas de fiche, $login</p>";
     }
+
+
+
+
 
     echo "<div class='container'>
             <div class='titre'>
@@ -72,10 +74,12 @@ addSubscribedUserCheck();
             </form>
             </div></td>";
         }
-
+        echo "</table>";
+        echo "</div>";
+    }else{
+        echo "<p class='none-connection-message eb-garamond-text'>Vous ne diposez pas de fiche, $login</p>";
     }
-    echo "</table>";
-    echo "</div>";
+
 ?>
 
 
