@@ -2,7 +2,7 @@
 session_start();
 function addAdminCheck(){
             if (isset($_SESSION["login"])){
-                if ($_SESSION["login"] == "adminweb" && $_SESSION["password"] == "admin"){
+                if ($_SESSION["login"] == "admin"){
                     
                 }
                 else{

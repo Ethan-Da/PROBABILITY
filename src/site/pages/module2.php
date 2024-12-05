@@ -1,7 +1,7 @@
 <?php include '../includes/header.php';
 require_once '../fonctions/fonctionsDroits.php';
 
-//addSubscribedUserCheck();  Vérification des droits d'accès?>
+addSubscribedUserCheck(); // Vérification des droits d'accès?>
 
 <title>Module2</title>
 </head>
@@ -48,11 +48,7 @@ include '../includes/profil.php'?>
 </div>
 
 <?php include '../includes/footer.php';
-/**
-if (!isset($_SESSION["login"])) {
-header("location:index.php");
-}
- */
+
 ?>
 
 </body>
