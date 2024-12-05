@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $valeurs = valeursXY($N, $E, $F);
             $xValues = $valeurs[0];
             $yValues = $valeurs[1];
+            $ecartType = ecartType($E,$F);
 
             //Formulare caché pour pouvoir envoyer les données en POST(pas possible en GET car URL trop long)
             echo '<form id="redirectForm" action="../module3.php" method="POST">';
@@ -45,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '<input type="hidden" name="F" value="' . $F . '">';
             echo '<input type="hidden" name="T" value="' . $T . '">';
             echo '<input type="hidden" name="N" value="' . $N . '">';
+            echo '<input type="hidden" name="ET" value="' . $ecartType . '">';
             echo '<input type="hidden" name="proba_val" value="' . $resultat . '">';
             echo '</form>';
 
