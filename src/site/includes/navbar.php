@@ -2,7 +2,6 @@
     <?php
 
     if(isset($_SESSION["login"])){
-        $first = mb_substr($_SESSION["login"], 0, 1);
         echo '
          <header style="background-color: #666666; padding: 10px 20px; display: flex; align-items: center;">
     <div style="display: flex; align-items: center; justify-content: flex-start; width: 100%;">
@@ -32,13 +31,9 @@
             </ul>   
         </nav>
     </div>
-    
-        <label for="logout" style="padding: 15px">Logout</label>
-        <div class="icone">
-            <a href="./actions/logout.php" class="icone-text" id="logout">';
-        echo $first;
-        echo'</a>
-        </div> 
+    <div class="profil-container">
+        <button id="button" class="profil-button">Profil</button>
+    </div> 
         ';
     }
     else{
