@@ -28,6 +28,9 @@ if (isset($_POST['E'])) {
         <h2b style="color: #ffcccc;">Module 3</h2b>
         <h2c style="color: #ffcccc;">}</h2c>
     </div>
+    <div>
+        <span>Loi de probabilité inverse gaussienne</span>
+    </div>
 
     <!--Formulaire pour rentrer les parametres de la fonction, et le méthode de calcul-->
     <div class="content" id="module3-container">
@@ -57,7 +60,7 @@ if (isset($_POST['E'])) {
                 <div class="form-field">
                     <label for="N">Nbr valeur :</label>
                     <input type="number" name="N" id="N" min="100" max="10000"required id="input-num-m3">
-                    <p style="font-size: 0.8rem"> > 0 <br> Le nombre de valeurs sur l'intervalle
+                    <p style="font-size: 0.8rem"> > 100 <br> Le nombre de valeurs sur l'intervalle
                     </p>
                 </div>
             </div>
