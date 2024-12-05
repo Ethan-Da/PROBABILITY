@@ -70,12 +70,11 @@ addSubscribedUserCheck();
             <input type='hidden' name='idFiche' value=$idFiche>
             <input type='submit' name='supprimerFiche' value='Supprimer la fiche'>
             </form>
-            </div></td>
-            </table>";
+            </div></td>";
         }
 
     }
-
+    echo "</table>";
     echo "</div>";
 ?>
 
