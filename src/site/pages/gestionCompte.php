@@ -3,11 +3,14 @@
 <title>Proβability - Accueil</title>
 </head>
 <body>
-<?php include '../includes/navbar.php';
-    require '../fonctions/Database.php';
-/*if (!isset($_SESSION['login']) || $_SESSION['login'] != "login") {
-    header("Location: index.php");
-}*/
+<?php
+require '../fonctions/Database.php';
+require '../fonctions/fonctionsDroits.php';
+
+include '../includes/navbar.php';
+
+addAdminCheck();
+
 ?>
 
 
@@ -52,4 +55,4 @@
 
 </body>
 <?php include '../includes/footer.php'; ?>
-</html>
+

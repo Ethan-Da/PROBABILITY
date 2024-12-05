@@ -23,10 +23,10 @@ addSubscribedUserCheck();
     $login = $_SESSION['login'];
 
     echo "<div class='container'>
-            <div class='content'>
+            <div class='titre'>
         <h2>Historique calcul</h2>
         <p></p>
-    </div>";
+         </div>";
 
     if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
         echo "<table class='historique'>";
@@ -78,4 +78,6 @@ addSubscribedUserCheck();
 
 
 </body>
+
+
 <?php include '../includes/footer.php'; ?>
