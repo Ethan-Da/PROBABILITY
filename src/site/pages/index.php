@@ -10,7 +10,8 @@ include '../includes/header.php';
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<?php include '../includes/navbar.php'; ?>
+<?php include '../includes/navbar.php';
+include '../includes/profil.php'?>
 
 <?php
 if (isset($_SESSION['login'])) {

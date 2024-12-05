@@ -10,6 +10,7 @@ require_once '../fonctions/fonctionsDroits.php';
 </head>
 <body>
 <?php include '../includes/navbar.php';
+include '../includes/profil.php';
 
 $E = "&#x03BC";
 $F = "&#x03BB";

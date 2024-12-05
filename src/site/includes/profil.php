@@ -1,11 +1,16 @@
 <?php
-$first = mb_substr($_SESSION["login"], 0, 1);
+if (isset($_SESSION["login"])){
+    $first = mb_substr($_SESSION["login"], 0, 1);
+}
+else{
+    $first = "?";
+}
 ?>
 
 <div id="profil" class="hidden">
     <div class="icone">
             <?php echo $first?>
-        </a>
+        <a href="../pages/actions/logout.php">Logout</a>
     </div>
     <button id="close-button">close</button>
 </div>

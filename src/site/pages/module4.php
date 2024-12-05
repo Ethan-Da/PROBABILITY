@@ -1,5 +1,6 @@
 <?php include '../includes/header.php';
 require_once '../fonctions/fonctionsDroits.php';
+include '../includes/profil.php'
 
 //addSubscribedUserCheck();  Vérification des droits d'accès
 ?>

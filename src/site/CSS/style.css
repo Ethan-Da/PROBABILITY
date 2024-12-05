@@ -11,6 +11,8 @@ html, body {
 }
 
 
+/***************************** Profil User *******************************/
+
 .profil-container{
     align-content: center;
 
@@ -79,26 +81,104 @@ html, body {
     text-overflow: clip;
 }
 
-.background_indexe{
+
+/***************************** Profil User *******************************/
+
+/***************************** Profil User *******************************/
+
+.background_indexe {
     background-size: 450px 450px;
     background-position: center;
     background-image: url("../images/003303LG-W-900x900.jpg");
     background-repeat: repeat;
-    animation: abackground  15s linear infinite ;
-    -webkit-animation: abackground  15s linear infinite;
+    animation: abackground 15s linear infinite;
+    -webkit-animation: abackground 15s linear infinite;
     -moz-animation: abackground 15s linear infinite;
     -o-animation: abackground 15s linear infinite;
 }
+
 @keyframes abackground {
     0% {
         background-position: bottom;
-
     }
-    100%{
+    100% {
         background-position: top;
-
     }
 }
+
+/* Styles for the profile container */
+#profil {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+}
+
+#profil.visible {
+    display: block;
+}
+
+#profil .icone {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+#profil .icone a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+#profil .icone a:hover {
+    color: #007bff;
+}
+
+#profil #close-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px auto;
+    cursor: pointer;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+#profil #close-button:hover {
+    background-color: #0056b3;
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}
+
+/* Visible class */
+.visible {
+    display: block;
+}
+
+
+/***************************** Header *******************************/
+header {
+    background-color: #666666;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
+}
+
+/***************************** Container *******************************/
 
 /* Conteneur principal */
 .container {
@@ -115,61 +195,6 @@ html, body {
 
 * {
     box-sizing: border-box; /* S'assure que le padding et les marges sont pris en compte */
-}
-
-/* Conteneur principal */
-.container {
-    padding: 30px;
-    margin: 20px auto;
-    background-color: white;
-}
-
-/***************************** Style Page d'accueil *******************************/
-
-.eb-garamond-text {
-    font-family: "EB Garamond", serif;
-    font-optical-sizing: auto;
-    font-weight: 457;
-    font-style: normal;
-}
-
-
-/* Style pour le message de bienvenue */
-.welcome-message {
-    font-size: 1.2em;
-    margin: 20px auto;
-    color: #ffffff; /* Couleur du texte */
-    background-color: rgb(255, 127, 0); /* Couleur de fond */
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    width: 80%;
-    max-width: 800px;
-}
-
-.none-connection-message {
-    font-size: 1.2em;
-    margin: 20px auto;
-    color: #ffffff; /* Couleur du texte */
-    background-color: orangered; /* Couleur de fond */
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    width: 80%;
-    max-width: 800px;
-}
-
-
-/***************************** Header *******************************/
-header {
-    background-color: #666666;
-    color: white;
-    padding: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
 }
 
 /* Style du contenu */
@@ -203,7 +228,39 @@ footer {
 
 /***************************** Formulaire Connexion / Inscription *******************************/
 
-/***************************** Formulaire Inscription *******************************/
+
+.eb-garamond-text {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 457;
+    font-style: normal;
+}
+
+
+/* Style pour le message de bienvenue */
+.welcome-message {
+    font-size: 1.2em;
+    margin: 20px auto;
+    color: #ffffff; /* Couleur du texte */
+    background-color: rgb(255, 127, 0); /* Couleur de fond */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+}
+
+.none-connection-message {
+    font-size: 1.2em;
+    margin: 20px auto;
+    color: #ffffff; /* Couleur du texte */
+    background-color: orangered; /* Couleur de fond */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+}
 
 /* Style pour le conteneur principal */
 .form-container {

@@ -7,7 +7,8 @@ require_once '../fonctions/fonctionsDroits.php';
 </head>
 <body>
 
-<?php include '../includes/navbar.php'; ?>
+<?php include '../includes/navbar.php';
+include '../includes/profil.php'?>
 
 
 <div class="container">
