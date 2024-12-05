@@ -17,7 +17,7 @@ function rectangles_gauche($esp, $lambda, $b,$n) {
         $x = $intervalle * $i;
         $proba += $intervalle * inv_gauss($esp, $lambda, $x); // On doit additioner la val de proba avec l'intervalle et la hauteur (inv_gauss)
     }
-    return $proba;
+    return round($proba,3);
 }
 
 
@@ -30,7 +30,7 @@ function  rectangles_median($esp, $lambda, $b, $n) {
         $x = ($i + 0.5) * $intervalle;
         $proba += $intervalle * inv_gauss($esp, $lambda, $x);
     }
-    return $proba;
+    return round($proba, 3);
 }
 
 function trapezes($esp, $lambda,$b,$n) {
@@ -43,7 +43,7 @@ function trapezes($esp, $lambda,$b,$n) {
         $a+=$intervalle;
     }
 
-    return $proba;
+    return round($proba,3);
 }
 
 function valeursXY($N,$E,$F)
@@ -60,7 +60,7 @@ function valeursXY($N,$E,$F)
 
 function ecartType($esp, $F){
     $variance = pow($esp,3)/$F;
-    return sqrt($variance);
+    return round(sqrt($variance),2);
 }
 
 
