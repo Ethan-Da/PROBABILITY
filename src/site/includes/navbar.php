@@ -13,13 +13,13 @@
                 <li style="margin-right: 20px;">
                     <a href="index.php" class="bouton-nav" id="bouton-nav0" title="Accueil">Accueil</a></li>
                 <li style="margin-right: 20px;  ">
-                    <a href="module1.php" class="bouton-nav" id="bouton-nav1" title="Module1">Module1</a></li>
+                    <a href="module1.php" class="bouton-nav" id="bouton-nav1" title="Module1">Damier</a></li>
                 <li style="margin-right: 20px;">
-                    <a href="module2.php"  class="bouton-nav" id="bouton-nav2" title="Module2">Module2</a></li>
+                    <a href="module2.php"  class="bouton-nav" id="bouton-nav2" title="Module2">Notes</a></li>
                 <li style="margin-right: 20px;">
-                    <a href="module3.php" class="bouton-nav" id="bouton-nav3" title="Module3">Module3</a></li>
+                    <a href="module3.php" class="bouton-nav" id="bouton-nav3" title="Module3">Calcul Proba</a></li>
                 <li style="margin-right: 20px;">
-                    <a href="module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">Module4</a></li>
+                    <a href="module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">A venir</a></li>
                 <li style="margin-right: 20px;">
                     <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>';
         if ($_SESSION["login"] == "admin"){
