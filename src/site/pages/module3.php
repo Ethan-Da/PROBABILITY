@@ -172,6 +172,7 @@ if (isset($_POST['E'])) {
         $F =  $_POST['F'];
         $E =  $_POST['E'];
         $T =  $_POST['T'];
+        $ecartType = $_POST['ET'];
         error_log("Utilisation du module 3, le ".date("d-m-Y H:i:s").", login : ". $_SESSION['login']."\n", 3, './logs/activites.log');?>
         <div class="results-table" id="results-table" style="display: none;">
             <h3>Résultats</h3>
@@ -182,6 +183,7 @@ if (isset($_POST['E'])) {
                     <th>Forme</th>
                     <th>Esperance</th>
                     <th>T</th>
+                    <th>Ecart Type</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -190,13 +192,14 @@ if (isset($_POST['E'])) {
                     <td id="result-value"><?php echo $resultat; ?></td>
                     <td id="result-form"><?php echo $F; ?></td>
                     <td id="result-esp"><?php echo $E; ?></td>
-                    <td id="result-sigma"><?php echo $T; ?></td>
+                    <td id="result-T"><?php echo $T; ?></td>
+                    <td id="result-ET"><?php echo $ecartType; ?></td>
                 </tr>
                 </tbody>
             </table>
             <div class="button-group">
                 <button type="button" class="btn-retour" id="btn-retour">Retour</button>
-                <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFiche.php?resultat=$resultat&F=$F&E=$E&T=$T&module=3'>Sauvegarder</a>" ?>
+                <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFiche.php?resultat=$resultat&F=$F&E=$E&T=$T&ET=$ecartType&module=3'>Sauvegarder</a>" ?>
             </div>
         </div>
     <?php endif; ?>

@@ -8,9 +8,10 @@ if (isset($_GET["module"])) {
     $E = $_GET["E"];
     $F = $_GET["F"];
     $T = $_GET["T"];
+    $ET = $_GET["ET"];
     $login = $_SESSION["login"];
     $connexionDB = new Database();
-    if ($connexionDB-> saveFiche($M, $E, $F, $T,$resultat, $login)){
+    if ($connexionDB-> saveFiche($M, $E, $F, $T,$ET,$resultat, $login)){
         header("location: ../gestionFiche.php");
     }else{
         header("location: ../module3.php");
@@ -18,5 +19,5 @@ if (isset($_GET["module"])) {
 
         
 }else{
-    echo"pas de M";
+    echo"vous ne venez pas d'un module";
 }

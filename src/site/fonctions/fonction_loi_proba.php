@@ -18,7 +18,6 @@ function rectangles_gauche($esp, $lambda, $b,$n) {
         $proba += $intervalle * inv_gauss($esp, $lambda, $x); // On doit additioner la val de proba avec l'intervalle et la hauteur (inv_gauss)
     }
     return $proba;
-
 }
 
 
@@ -59,7 +58,10 @@ function valeursXY($N,$E,$F)
     return array($xValues,$yValues);
 }
 
-
+function ecartType($esp, $F){
+    $variance = pow($esp,3)/$F;
+    return sqrt($variance);
+}
 
 
 ?>

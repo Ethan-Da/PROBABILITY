@@ -30,7 +30,7 @@ addSubscribedUserCheck();
 
     if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
         echo "<table class='historique'>";
-        echo "<tr><th>Date</th><th>module</th><th>Esperance</th><th>Forme</th><th>T</th><th>Résultat</th><th>Actions</th></tr>";
+        echo "<tr><th>Date</th><th>module</th><th>Esperance</th><th>Forme</th><th>T</th><th>Ecart Type</th><th>Résultat</th><th>Actions</th></tr>";
         while ($row = $allFiche->fetch_assoc()) {
             echo "<tr>";
             foreach ($row as $attribut=>$value) {
@@ -48,6 +48,7 @@ addSubscribedUserCheck();
             $E = $row['esperance'];
             $F = $row['forme'];
             $T = $row['T'];
+            $ET = $row['EcartT'];
             $resultat = $row['resultat'];
             $xValues = implode(',',valeursXY(100, $E, $F)[0]);
             $yValues = implode(',',valeursXY(100, $E, $F)[1]);
@@ -58,6 +59,7 @@ addSubscribedUserCheck();
             <input type='hidden' name='E' value=$E>
             <input type='hidden' name='F' value=$F>
             <input type='hidden' name='T' value=$T>
+            <input type='hidden' name='ET' value=$ET>
             <input type='hidden' name='N' value=100>
             <input type='hidden' name='proba_val' value=$resultat>
             <input type='submit' name='consulterCourbe' value='Consulter la courbe'>
