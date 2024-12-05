@@ -10,6 +10,75 @@ html, body {
     padding: 0;
 }
 
+
+.profil-container{
+    align-content: center;
+
+}
+.profil-button{
+    font-weight: bold;
+    text-align: left;
+    border-radius: 10px;
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 15px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#profil{
+    height: 350px;
+    width: 300px;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    align-self: end;
+    align-content: center;
+    text-align: center;
+    position: fixed;
+    transition: right .5s ease-out;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    z-index: 1;
+    top: 150px;
+}
+#profil.hidden{
+    right: -300px;
+}
+#profil.visible{
+    right: 0;
+}
+.profil-button{
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+}
+
+#close-button{
+    cursor: pointer;
+    background-color: white;
+    color: orange;
+    font-weight: bold;
+}
+
+.icone{
+    background: aliceblue;
+    color: orange;
+    font-weight: bold;
+    border-radius: 25px ;
+    height: 25px;
+    width: 25px;
+    align-self: center;
+    text-align: center;
+    text-overflow: clip;
+}
+
 .background_indexe{
     background-size: 450px 450px;
     background-position: center;
