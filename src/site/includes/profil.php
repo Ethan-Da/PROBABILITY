@@ -1,18 +1,45 @@
 <?php
 if (isset($_SESSION["login"])){
     $first = mb_substr($_SESSION["login"], 0, 1);
+    $connecte = true;
 }
 else{
     $first = "?";
+    $connecte = false;
 }
 ?>
 
 <div id="profil" class="hidden">
-    <div class="icone">
-            <?php echo $first?>
-        <a href="../pages/actions/logout.php">Logout</a>
-    </div>
-    <button id="close-button">close</button>
+    <?php
+    if ($connecte){
+        echo'
+                <table style="display: block;">
+                    <tr style="display: inline-block"><div class="icone">'.$first.'</div><p>'.$_SESSION['login'].'</p></tr>
+                    <br>
+                    <br> 
+                    <tr><a href="../pages/actions/logout.php">Logout</a></tr>
+                    <br>
+                    <br>
+                    <tr><button id="close-button">close</button></tr>
+                </table>
+            ';
+    }
+    else{
+        echo'
+            <table style="display: block;">
+                    <tr style="display: inline-block"><div class="icone">';echo $first;echo'</div><p>Visiteur</p></tr>
+                    <br>
+                    <br> 
+                    <tr><a href="../pages/connexion.php">Connection</a></tr>
+                    <br>
+                    <tr><a href="../pages/inscription.php">Inscription</a></tr>
+                    <br>
+                    <br>
+                    <tr><button id="close-button">close</button></tr>
+                </table>';
+    }
+    ?>
+
 </div>
 
 <script>

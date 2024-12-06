@@ -8,8 +8,23 @@ include '../includes/header.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script>
+        function checkResize(){
+            var body = document.getElementById("body");
+            var sizes = body.getBoundingClientRect();
+            var width = sizes.width;
+            if (width < 600){
+                div = document.getElementById('logo-container').innerHTML="";
+                document.getElementById('logo-container').innerHTML = "<img src='../images/logo2.png' alt='Logo Proβability'>";
+            }
+            else {
+                div = document.getElementById('logo-container').innerHTML="";
+                document.getElementById('logo-container').innerHTML = "<img src='../images/logo.png' alt='Logo Proβability'>";
+            }
+        }
+    </script>
 </head>
-<body>
+<body id="body" onresize="checkResize()">
 <?php include '../includes/navbar.php';
 include '../includes/profil.php'?>
 
@@ -22,8 +37,8 @@ if (isset($_SESSION['login'])) {
 ?>
 
 <div class="container" id="index-container">
-    <div class="logo-container">
-        <img src="../images/logo.png" alt="Logo Proβability">
+    <div id="logo-container" class="logo-container">
+        <img  src="../images/logo.png" alt="Logo Proβability">
     </div>
     <div class="content">
         <h2>Bienvenue sur notre site !</h2>

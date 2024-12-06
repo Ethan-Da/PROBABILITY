@@ -57,11 +57,9 @@
                     <a href="module4.php" style="" class="bouton-nav-disabled">Module4</a></li>
             </ul>
         </nav>
-    </div>
-
-        <label for="login" style="padding: 15px">Login</label>
-        <div style="background-color: white; height: 80px; width: 80px; border-radius: 50%;">
-            <a href="connexion.php" style="display: block; width: 100%; height: 100%;" id="login"></a>
+        </div>
+        <div class="profil-container">
+            <button id="button" class="profil-button">Profil</button>
         </div> ';
     }
 

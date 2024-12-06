@@ -1,3 +1,7 @@
+/* Responsive */
+
+@media only screen and (max-width: 600px) {
+}
 
 /* Fond dégradé sur toute la page */
 html, body {
@@ -48,6 +52,7 @@ html, body {
     border-top-left-radius: 20px;
     z-index: 1;
     top: 150px;
+    display: block;
 }
 #profil.hidden{
     right: -300px;
@@ -67,18 +72,21 @@ html, body {
     background-color: white;
     color: orange;
     font-weight: bold;
-}
+    vertical-align: bottom;
 
+}
 .icone{
+    margin: 0 auto;
     background: aliceblue;
     color: orange;
     font-weight: bold;
     border-radius: 25px ;
-    height: 25px;
-    width: 25px;
-    align-self: center;
     text-align: center;
     text-overflow: clip;
+    font-size: 55px ;
+    width: 50px;
+    height: 50px;
+    position: relative;
 }
 
 
@@ -167,7 +175,7 @@ footer {
     font-size: 1.2em;
     margin: 20px auto;
     color: #ffffff; /* Couleur du texte */
-    background-color: rgb(255, 127, 0); /* Couleur de fond */
+    background-color: orange; /* Couleur de fond */
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -252,7 +260,7 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-    border-color: darkorange;
+    border-color: orange;
     outline: none;
 }
 

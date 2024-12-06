@@ -1,0 +1,64 @@
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('lockshot')
+#4 {main} 
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('lockshot')
+#4 {main} 
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('lockshot')
+#4 {main} 
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('lockshot')
+#4 {main} 
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('lockshot')
+#4 {main} 
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('a')
+#4 {main} 
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('zergzegzegzergh...')
+#4 {main} 
+ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
+#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(102): Database->userQuery('SELECT date, mo...', 's', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\gestionFiche.php(31): Database->getAllFicheFrom('hazim')
+#4 {main} 
