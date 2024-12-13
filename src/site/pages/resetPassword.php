@@ -1,4 +1,5 @@
 <?php
+/*
 require_once '../fonctions/Database.php';
 
 
@@ -42,3 +43,4 @@ if(isset($_POST["password"])) {
     <input type="submit" name="submit" value ="Mettre à jour le mot de passe">
 
 </form>
+*/

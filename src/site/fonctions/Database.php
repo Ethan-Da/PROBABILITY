@@ -87,6 +87,8 @@ class Database{
             return true;
         }
     }
+    
+    /*
 
     //fonction pour ajoute le mail de l'utilisateur qui veut reset son password
     public function addNewResetPassword($code, $email){
@@ -115,6 +117,7 @@ class Database{
     public function deleteEmail($email,$code) {
         return $this->userQuery("UPDATE resetPasswords SET email = '' WHERE code = ?", "s", array($email,$code));
     }
+    */
 
 
 

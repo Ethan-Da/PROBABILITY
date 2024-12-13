@@ -58,7 +58,7 @@ require_once "../fonctions/captcha.php";
         <?php endif; ?>
     </form>
 
-    <a href="requestReset.php">Mot de passe oublié?</a>
+    <!--<a href="requestReset.php">Mot de passe oublié?</a> -->
 
     <div class="inscription-link-container">
         <p>Tu n'as pas de compte ? <a href="inscription.php" class="inscription-link">INSCRIS TOI !!</a></p>

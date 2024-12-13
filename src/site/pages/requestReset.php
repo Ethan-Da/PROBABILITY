@@ -1,4 +1,5 @@
 <?php
+/*
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -71,3 +72,5 @@ if (isset($_POST['email'])) {
     <br>
     <input type="submit" name="submit" value="Réinitialiser le mot de passe">
 </form>
+
+*/
