@@ -1,8 +1,8 @@
 <?php
 session_start();
-function addAdminCheck(){
+function addAdminWebCheck(){
             if (isset($_SESSION["login"])){
-                if ($_SESSION["login"] == "admin"){
+                if ($_SESSION["login"] == "adminweb"){
                     
                 }
                 else{
@@ -13,6 +13,21 @@ function addAdminCheck(){
                 header('location:index.php?error=1');
                 exit();
             }
+}
+
+function addAdminSysCheck(){
+    if (isset($_SESSION["login"])){
+        if ($_SESSION["login"] == "adminsys"){
+
+        }
+        else{
+            header('location:index.php');
+        }
+    }
+    else{
+        header('location:index.php?error=1');
+        exit();
+    }
 }
 
 
