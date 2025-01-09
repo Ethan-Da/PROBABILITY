@@ -37,7 +37,7 @@
         <br><br>
 
         <label for="pass" style="cursor: pointer">Mot de passe</label>
-        <input type="password" name="pass" id="pass" maxlength="11" minlength="2" required />
+        <input type="password" name="pass" id="pass" required />
         <br><br>
 
         <label for="verifPass" style="cursor: pointer">Vérifier le mot de passe</label>

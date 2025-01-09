@@ -1,0 +1,8 @@
+ERREUR 0 : Connexion à la base de données impossibleERREUR 0 : Connexion à la base de données impossibleERREUR 0 : Connexion à la base de données impossibleERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
+ in U:\sae\git\PROBABILITY\src\site\pages\Database.php:15
+Stack trace:
+#0 U:\sae\git\PROBABILITY\src\site\pages\Database.php(15): mysqli_connect('localhost', 'UPDATE_USER', '!*UPDATE*!', 'probability_db')
+#1 U:\sae\git\PROBABILITY\src\site\pages\Database.php(54): Database->connexion('UPDATE_USER', '!*UPDATE*!')
+#2 U:\sae\git\PROBABILITY\src\site\pages\Database.php(77): Database->userQuery('UPDATE compte S...', 'sss', Array)
+#3 U:\sae\git\PROBABILITY\src\site\pages\actionConnexion.php(48): Database->updateLastConnectionLastIp('tt')
+#4 {main} 

@@ -278,11 +278,3 @@ Stack trace:
 #2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(109): Database->userQuery('INSERT INTO `fi...', 'idddds', Array)
 #3 U:\sae\git\PROBABILITY\src\site\pages\actions\saveFiche.php(13): Database->saveFiche('3', '5', '5', '5', '0.6641175901004...', 'hazim')
 #4 {main} 
-ERREUR 0 : Connexion à la base de données impossible mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée.
- in U:\sae\git\PROBABILITY\src\site\fonctions\Database.php:15
-Stack trace:
-#0 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(15): mysqli_connect('localhost', 'SELECT_USER', '!*SELECT*!', 'probability_db')
-#1 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(54): Database->connexion('SELECT_USER', '!*SELECT*!')
-#2 U:\sae\git\PROBABILITY\src\site\fonctions\Database.php(67): Database->userQuery('SELECT * FROM c...', 's', Array)
-#3 U:\sae\git\PROBABILITY\src\site\pages\actions\actionConnexion.php(15): Database->isValidAccount('admin')
-#4 {main} 

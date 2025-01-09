@@ -25,9 +25,9 @@ html, body {
     font-weight: bold;
     text-align: left;
     border-radius: 10px;
-    background-color: #e69138;
+    background-color: orange;
     border: none;
-    color: black;
+    color: white;
     padding: 15px 45px;
     text-align: center;
     text-decoration: none;
@@ -60,7 +60,12 @@ html, body {
 #profil.visible{
     right: 0;
 }
-
+.profil-button{
+    cursor: pointer;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+}
 
 #close-button{
     cursor: pointer;
@@ -422,6 +427,7 @@ label::selection{
 /***************************** Module 4  *******************************/
 
 
+
 /* Style des sections supplémentaires */
 .detail-calcul {
     display: inline-block;                      /* Utilisation de flexbox pour disposer les sections côte à côte */
@@ -499,7 +505,7 @@ label::selection{
     width: 100%;                       /* Largeur de la sélection de la méthode */
     box-sizing: border-box;            /* Inclure le padding et la bordure dans la largeur totale */
     cursor: pointer;
-    background-color: #cd2929;
+    background-color: #ff7777;
     font-weight: bold;
     color: white;
 }
@@ -549,21 +555,18 @@ label::selection{
 
 .btn-calcul {
     font-weight: bold;
-    outline-width: 3px;
-    outline-style: groove;
-    outline-color: #0000ff ;
-    background-color: white ;         /* Couleur de fond du bouton "Calcul" */
-    color: #0000ff;                        /* Couleur du texte du bouton "Calcul" */
+    background-color: #007bff;         /* Couleur de fond du bouton "Calcul" */
+    color: #fff;                        /* Couleur du texte du bouton "Calcul" */
 }
 
 .btn-calcul:hover {
-    border-style: double;
+    background-color: #0056b3;         /* Couleur de fond du bouton "Calcul" au survol */
 }
 
 .btn-save {
     font-weight: bold;
-    background-color: white ;         /* Couleur de fond du bouton "Sauvegarder" */
-    color: #28a745;                       /* Couleur du texte du bouton "Sauvegarder" */
+    background-color: #28a745;         /* Couleur de fond du bouton "Sauvegarder" */
+    color: #fff;                       /* Couleur du texte du bouton "Sauvegarder" */
 }
 
 .btn-save:hover {
@@ -572,19 +575,16 @@ label::selection{
 
 .btn-reset, .btn-retour {
     font-weight: bold;
-    outline-width: 3px;
-    outline-style: groove;
-    outline-color: #dc3545 ;
-    background-color: white;         /* Couleur de fond du bouton "Annuler" */
-    color: #dc3545;                      /* Couleur du texte du bouton "Annuler" */
+
+    background-color: #dc3545;         /* Couleur de fond du bouton "Annuler" */
+    color: #fff;                      /* Couleur du texte du bouton "Annuler" */
 }
 
 .btn-reset:hover, .btn-retour:hover {
-    border-style: double;
+    background-color: #c82333;         /* Couleur de fond du bouton "Annuler" au survol */
 }
 
 /* Fin CSS Pour le Module 4 -> Module de calcul */
-
 
 
 /* ****************************************** NAV BAR  ******************************************************** */
