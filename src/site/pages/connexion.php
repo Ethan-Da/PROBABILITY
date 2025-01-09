@@ -33,12 +33,12 @@ require_once "../fonctions/captcha.php";
 
     <!-- FORMULAIRE DE CONNEXION-->
     <form action="actions/actionConnexion.php" method="POST" class="formulaire">
-        <label for="login">Login</label>
+        <label for="login" style="cursor: pointer">Login</label>
         <input type="text" name="login" id="login" <?php if (isset($_GET['login'])) {
             echo "value=" . htmlspecialchars($_GET['login']) . " readonly";
         } ?> required/>
 
-        <label for="pass">Mot de passe</label>
+        <label for="pass" style="cursor: pointer">Mot de passe</label>
         <input type="password" name="pass" id="pass" <?php if (isset($_GET['pass'])) {
             echo "value=" . htmlspecialchars($_GET['pass']) . " readonly";
         } ?> required/>
@@ -51,7 +51,7 @@ require_once "../fonctions/captcha.php";
             <div class="captcha-container">
                 <h3>Etes-vous un robot ?</h3>
                 <p>Question : <?php echo recupQuestionCaptcha($captcha); ?></p>
-                <label for="captcha_reponse">Réponse : </label>
+                <label for="captcha_reponse" style="cursor: pointer">Réponse : </label>
                 <input type="text" name="captcha_reponse" class="form_input" value=""/>
                 <button type="submit" name="submit_captcha" value="<?php echo $captcha; ?>" class="form_button">Soumettre le CAPTCHA</button>
             </div>
