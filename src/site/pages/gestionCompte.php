@@ -18,17 +18,40 @@ addAdminCheck();
 <div class="container">
     <?php
         $database = new Database();
-        $allAccount = $database->getAllAccount();
+
 
         if(isset($_POST['supprimerCompte'])) {
             $database->deleteAccount($_POST['login']);
             header("Location: gestionCompte.php");
         }
 
+        if(isset($_POST['creerCompte'])) {
+            $database->addNewAccount($_POST['login'], $_POST['pass']);
+            header("Location: gestionCompte.php");
+        }
+
+        if (isset($_POST['creerCompteCSV'])){
+            $tmpName = $_FILES['csv']['tmp_name'];
+            $csvAsArray = array_map('str_getcsv', file($tmpName));
+            echo "Comptes ajoutés";
+            foreach($csvAsArray as $row) {
+                foreach($row as $column => $value) {
+                    $strArray = explode(";",$value);
+                    $database->addNewAccount($strArray[0], $strArray[1]);
+                }
+            }
+        }
+
+        $allAccount = $database->getAllAccount();
+
         echo "<form action='gestionCompte.php' method='post'>
+            <input type='text' name='login' placeholder='login'>
+            <input type='text' name='pass' placeholder='mdp'>
             <input type='submit' name='creerCompte' value='Ajouter un nouveau compte'>
-            <input type='submit' name='creerCompteCSV' value='Ajouter plusieurs comptes avec un fichier csv'>
-            </form>";
+            </form>
+            <form action='gestionCompte.php' method='post' enctype='multipart/form-data'>
+            <input type='file' name='csv' value='' />
+            <input type='submit' name='creerCompteCSV' value='Ajouter plusieurs comptes avec un fichier csv' /></form>";
 
         echo "<table class='historique'>";
         echo "<tr><th>Login</th><th>Mot de passe</th><th>Ip utilisé</th><th>Dernière connexion</th><th>Action</th></tr>";

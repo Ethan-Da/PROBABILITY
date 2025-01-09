@@ -2,7 +2,6 @@
 session_start();
 include '../includes/header.php';
 ?>
-<head>
 <title>Proβability - Accueil</title>
     <!-- Police d'écirture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -14,7 +14,7 @@ class Database{
         try{
             $this->database = mysqli_connect("localhost",$user,$pass,"probability_db");
         }catch(mysqli_sql_exception $e){
-            return !error_log("ERREUR 0 : Connexion à la base de données impossible $e \n", 3, 'erreurBD.log');
+            //return !error_log("ERREUR 0 : Connexion à la base de données impossible $e \n", 3, 'erreurBD.log');
         }
         return $this->database;
     }
@@ -48,7 +48,7 @@ class Database{
                 $pass = "!*UPDATE*!";
                 break;
             default:
-                return error_log("ERREUR : Mauvais type de requete, (INSERT, UPDATE ou SELECT) \n", 3, '../pages/logs/erreurBD.log');
+                //return error_log("ERREUR : Mauvais type de requete, (INSERT, UPDATE ou SELECT) \n", 3, '../pages/logs/erreurBD.log');
         }
 
         if ($this->connexion($user, $pass)){
