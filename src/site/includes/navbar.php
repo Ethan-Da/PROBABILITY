@@ -23,7 +23,7 @@
                         <a href="module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">A venir</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
                         <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>';
-            if ($_SESSION["login"] == "admin"){
+            if ($_SESSION["login"] == "adminweb"){
                 echo '<li class="nav-item" style="margin-right: 20px;">
                         <a href="gestionCompte.php" class="bouton-nav" id="bouton-nav0" title="Gestion des comptes">Gestion Comptes</a></li>';
             }
