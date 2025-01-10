@@ -174,7 +174,7 @@ if (isset($_POST['E'])) {
         $E =  $_POST['E'];
         $T =  $_POST['T'];
         $ecartType = $_POST['ET'];
-        logUseModule("success", "3");
+        //logUseModule("success", "3");
         ?>
         <div class="results-table" id="results-table" style="display: none;">
             <h3>Résultats</h3>
