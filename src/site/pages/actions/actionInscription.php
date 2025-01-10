@@ -18,12 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_start();
                 $_SESSION["login"] = $_POST['login'];
                 $_SESSION["pass"] = $_POST['pass'];
-                logSignIn("success");
+                //logSignIn("success");
                 $connexionDB->updateLastConnectionLastIp($_POST['login']);
                 header('Location: ../index.php');
             } else {
                 $error = 2;
-                logSignIn("failure");
+                //logSignIn("failure");
                 header('Location: ../inscription.php?error=' . $error);
             }
         }

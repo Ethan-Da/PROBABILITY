@@ -29,7 +29,7 @@ function logViewHistory($succes){
     fclose($fcsv);
 }
 
-function logDeleteChart($succes){
+function logDeleteFiche($succes){
     $fcsv = fopen("../logs/activites.csv", "w");
     $array = [$_SERVER['REMOTE_ADDR'],date("Y-m-d H:i:s") ,$_SESSION['login'],"Suppression d'une fiche de calcul",$succes];
     fputcsv($fcsv, $array);

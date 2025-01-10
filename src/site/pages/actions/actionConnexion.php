@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION["pass"] = $pass;
             $connexionDB = new Database();
             $connexionDB->updateLastConnectionLastIp($login);
-            logConnec("success");
+            //logConnec("success");
             header('Location: ../index.php');
         } else {
             $error = 2;
