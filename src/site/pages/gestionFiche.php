@@ -19,7 +19,7 @@ addSubscribedUserCheck();
 <?php
     $login = $_SESSION['login'];
     $connexionDb = new Database();
-    logViewHistory("success");
+    //logViewHistory("success");
     if(isset($_POST['idFiche'])){
         //logDeleteFiche("success");
         $connexionDb->deleteFiche($_POST['idFiche']);
