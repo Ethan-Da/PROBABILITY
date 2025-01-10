@@ -30,7 +30,7 @@ else{
                     <tr style="display: inline-block"><div class="icone">';echo $first;echo'</div><p>Visiteur</p></tr>
                     <br>
                     <br> 
-                    <tr><a href="../pages/connexion.php">Connection</a></tr>
+                    <tr><a href="../pages/connexion.php">Connexion</a></tr>
                     <br>
                     <tr><a href="../pages/inscription.php">Inscription</a></tr>
                     <br>
@@ -48,14 +48,22 @@ else{
         const closeBtn = document.getElementById('close-button');
         const sidePanel = document.getElementById('profil');
 
-        openBtn.addEventListener('click', function() {
+        openBtn.addEventListener('click', openClick);
+        closeBtn.addEventListener('click', closeClick);
+
+        function openClick(){
             sidePanel.classList.remove('hidden');
             sidePanel.classList.add('visible');
+            openBtn.removeEventListener('click', openClick);
+            openBtn.addEventListener('click', closeClick);
+        }
 
-        });
-        closeBtn.addEventListener('click', function() {
+        function closeClick(){
             sidePanel.classList.remove('visible');
             sidePanel.classList.add('hidden');
-        });
+            openBtn.removeEventListener('click', closeClick);
+            openBtn.addEventListener('click', openClick);
+        }
     });
+
 </script>
