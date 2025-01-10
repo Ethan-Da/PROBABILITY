@@ -3,7 +3,8 @@
 <title>Inscription</title>
 </head>
 
-<?php include "../includes/navbar.php"; ?>
+<?php include "../includes/navbar.php";
+include "../includes/profil.php"?>
 
 <body class="body_form">
 <div class="form-container">

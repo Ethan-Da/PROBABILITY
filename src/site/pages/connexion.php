@@ -5,6 +5,7 @@
 
 <?php
 include '../includes/navbar.php';
+include '../includes/profil.php';
 require_once "../fonctions/captcha.php";
 ?>
 
@@ -44,7 +45,6 @@ require_once "../fonctions/captcha.php";
         } ?> required/>
 
         <button type="submit" name="ok" value="ok" class="form_button">Se connecter</button>
-
         <!-- Affichage du CAPTCHA si requis -->
         <?php if (isset($_GET['captcha'])):
             $captcha = htmlspecialchars($_GET['captcha']); ?>
@@ -53,7 +53,7 @@ require_once "../fonctions/captcha.php";
                 <p>Question : <?php echo recupQuestionCaptcha($captcha); ?></p>
                 <label for="captcha_reponse" style="cursor: pointer">Réponse : </label>
                 <input type="text" name="captcha_reponse" class="form_input" value=""/>
-                <button type="submit" name="submit_captcha" value="<?php echo $captcha; ?>" class="form_button">Soumettre le CAPTCHA</button>
+                <button type="submit" name="submit_captcha"  value="<?php echo $captcha; ?>" class="form_button">Soumettre le CAPTCHA</button>
             </div>
         <?php endif; ?>
     </form>
