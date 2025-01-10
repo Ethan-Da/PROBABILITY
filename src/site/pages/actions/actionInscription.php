@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../fonctions/Database.php';
+require_once '../../fonctions/fonctionsLogs.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -17,10 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_start();
                 $_SESSION["login"] = $_POST['login'];
                 $_SESSION["pass"] = $_POST['pass'];
+                logSignIn("success");
                 $connexionDB->updateLastConnectionLastIp($_POST['login']);
                 header('Location: ../index.php');
             } else {
                 $error = 2;
+                logSignIn("failure");
                 header('Location: ../inscription.php?error=' . $error);
             }
         }

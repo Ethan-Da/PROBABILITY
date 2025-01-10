@@ -1,6 +1,7 @@
 <?php
 require_once "../../fonctions/captcha.php";
 require_once "../../fonctions/Database.php";
+require_once "../../fonctions/fonctionsLogs.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -38,10 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION["pass"] = $pass;
             $connexionDB = new Database();
             $connexionDB->updateLastConnectionLastIp($login);
-            error_log("Connexion, le ".date("d-m-Y H:i:s").", login : ". $login."\n", 3, '../logs/activites.log');
+            logConnec("success");
             header('Location: ../index.php');
         } else {
             $error = 2;
+            logConnec("failure");
             header('Location: ../connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha . '&error=' . $error);
         }
     }

@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION["pass"] = $pass;
             $connexionDB = new Database();
             $connexionDB->updateLastConnectionLastIp($login);
-            error_log("Connexion, le ".date("d-m-Y H:i:s").", login : ". $login."\n", 3, '../logs/activites.log');
+            error_log("Connexion, le ".date("d-m-Y H:i:s").", login : ". $login."\n", 3, '../logs/activites.csv');
             header('Location: ../index.php');
         } else {
             $error = 2;

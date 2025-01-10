@@ -173,7 +173,7 @@ if (isset($_POST['E'])) {
         $E =  $_POST['E'];
         $T =  $_POST['T'];
         $ecartType = $_POST['ET'];
-        error_log("Utilisation du module 3, le ".date("d-m-Y H:i:s").", login : ". $_SESSION['login']."\n", 3, './logs/activites.log');?>
+        error_log("Utilisation du module 3, le ".date("d-m-Y H:i:s").", login : ". $_SESSION['login']."\n", 3, './logs/activites.csv');?>
         <div class="results-table" id="results-table" style="display: none;">
             <h3>Résultats</h3>
             <table>

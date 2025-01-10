@@ -3,6 +3,7 @@
 require '../fonctions/Database.php';
 require '../fonctions/fonctionsDroits.php';
 require '../fonctions/fonction_loi_proba.php';
+require '../fonctions/fonctionsLogs.php';
 include '../includes/profil.php'
 ?>
 
@@ -18,12 +19,11 @@ addSubscribedUserCheck();
 <?php
     $login = $_SESSION['login'];
     $connexionDb = new Database();
+    logViewHistory("success");
     if(isset($_POST['idFiche'])){
+        logDeleteFiche("success");
         $connexionDb->deleteFiche($_POST['idFiche']);
     }
-
-
-
 
 
     echo "<div class='container'>
