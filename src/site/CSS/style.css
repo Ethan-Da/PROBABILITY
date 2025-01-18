@@ -36,6 +36,44 @@ html, body {
     margin: 4px 2px;
     cursor: pointer;
 }
+.profil-button:hover{
+    animation: 1s background-button infinite;
+}
+@keyframes background-button {
+    0%{
+        background-color: red;
+    }
+    10%{
+        background-color: orange;
+    }
+    20%{
+        background-color: yellow;
+    }
+    30%{
+        background-color:lawngreen;
+    }
+    40%{
+        background-color: deepskyblue;
+    }
+    50%{
+        background-color: blue;
+    }
+    60%{
+        background-color: indigo;
+    }
+    70%{
+        background-color:purple;
+    }
+    80%{
+        background-color: deeppink;
+    }
+    90%{
+        background-color: fuchsia;
+    }
+    100%{
+    background-color: #ff005c;
+    }
+}
 
 #profil{
     height: 350px;
