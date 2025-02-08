@@ -30,15 +30,16 @@ include "../includes/profil.php"?>
     ?>
 
     <!-- FORMULAIRE D'INSCRIPTION-->
-    <form action="actions/actionInscription.php" method="POST" class="formulaire">
+    <!-- FORMULAIRE D'INSCRIPTION-->
+    <form action="actions/actionInscription.php" method="POST" class="formulaire" >
 
         <!--Quand on affiche le captcha le login et le mot de passe on ne peut plus les modifier même dans l'url-->
         <label for="login" style="cursor: pointer">Login</label>
-        <input type="text" name="login" id="login" required />
+        <input type="text" name="login" id="login" minlength="3" maxlength="11" required title="Le login dois contenir au moins 3 caractères"/>
         <br><br>
 
         <label for="pass" style="cursor: pointer">Mot de passe</label>
-        <input type="password" name="pass" id="pass" maxlength="11" minlength="2" required />
+        <input type="password" name="pass" id="pass" minlength="12" maxlength="15" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,}" title="Le mot de passe doit contenir au moins 12 caractères, incluant des majuscules, des minuscules, des chiffres et des caractères spéciaux" />
         <br><br>
 
         <label for="verifPass" style="cursor: pointer">Vérifier le mot de passe</label>
@@ -47,6 +48,7 @@ include "../includes/profil.php"?>
 
         <button type="submit" name="ok" value="ok" class="form_button">S'inscrire</button>
     </form>
+
 </div>
 </body>
 
