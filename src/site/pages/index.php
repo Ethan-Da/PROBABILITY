@@ -31,7 +31,7 @@ include '../includes/profil.php'?>
 
 <?php
 if (isset($_SESSION['login'])) {
-    echo '<p class="welcome-message eb-garamond-text"> Je te souhaite la bienvenue sur le meilleur site de calcul,  ' . htmlspecialchars($_SESSION['login']) . '</p>';
+    echo '<p class="welcome-message eb-garamond-text"> Je te souhaite la bienvenue sur le MEILLEUR site de calcul,  ' . htmlspecialchars($_SESSION['login']) . '</p>';
 } else {
     echo '<p class="none-connection-message eb-garamond-text">Est-ce que tu veux accéder à toutes les fonctionnalités du sites ? Si oui, Connecte toi !</p>';
 }

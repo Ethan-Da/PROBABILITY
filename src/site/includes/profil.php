@@ -14,7 +14,7 @@ if (isset($_SESSION["login"])){
     <?php if ($connecte): ?>
         <div class="profile-header">
             <div class="profile-icon"><?php echo $first; ?></div>
-            <p class="profile-name"><?php echo $_SESSION['login']; ?></p>
+            <h1 class="profile-name"><?php echo $_SESSION['login']; ?></h1>
         </div>
         <a href="../pages/actions/logout.php" class="profile-link">Logout</a>
         <button id="close-button">close</button>

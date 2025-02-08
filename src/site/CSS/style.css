@@ -197,7 +197,8 @@ footer {
 .welcome-message {
     font-size: 1.2em;
     margin: 20px auto;
-    color: #ffffff; /* Couleur du texte */
+    opacity: 1;
+    color: rgb(0, 0, 0); /* Couleur du texte */
     background-color: orange; /* Couleur de fond */
     padding: 10px;
     border-radius: 5px;

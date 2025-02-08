@@ -17,7 +17,7 @@
             <nav>
                 <ul class = "nav-menu" style="list-style-type: none; padding: 0; display: flex;">
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="../pages/index.php" class="bouton-nav" id="bouton-nav0" title="Accueil">Accueil</a></li>
+                        <a href="../pages/index.php" class="bouton-nav" id="bouton-nav0" title="Header Accueil">Accueil</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
                         <a href="../pages/module3.php" class="bouton-nav" id="bouton-nav3" title="Module3">Calcul Proba</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
