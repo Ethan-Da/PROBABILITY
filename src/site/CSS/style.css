@@ -217,7 +217,7 @@ footer {
     text-align: center;
     width: 80%;
     max-width: 800px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Ombre pour un effet de profondeur */
 }
 
 /* Style pour le conteneur principal */
@@ -248,16 +248,28 @@ footer {
 }
 
 .titre h2b {
-    color: orange;
-    margin: 0 10px;
+    color: #ffa500; /* Orange vif */
+    background-color: #333333; /* Fond sombre pour un meilleur contraste */
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 /* Style pour les messages d'erreur */
 .error-message {
-    color: red;
-    font-weight: bold;
-    margin-bottom: 20px;
+    color: #ff0000; /* Rouge vif pour attirer l'attention */
+    font-size: 23px;
+    text-align: center;
+    position: fixed;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%); /* Centre le message horizontalement */
+    background-color: #ffffff; /* Fond blanc pour contraster avec le texte rouge */
+    padding: 20px 30px; /* Espace intérieur pour plus de lisibilité */
+    border-radius: 10px; /* Bordures arrondies pour un look moderne */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Ombre pour un effet de profondeur */
+    border: 2px solid #ff0000; /* Bordure rouge pour encadrer le message */
 }
+
 
 /* Style pour le formulaire */
 .formulaire {
@@ -295,19 +307,22 @@ input[type="text"]:focus, input[type="password"]:focus {
     width: 150px;
     border-radius: 10px;
     border: none;
-    background-color: #ffce33;
+    background-color: orange;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .form_button:hover {
-    background-color: #e6b800;
+    background-color: #fdae27;
 }
 
 /* Style pour le lien d'inscription */
 .inscription-link {
-    color: #ffce33;
+    color: #ffa500; /* Orange vif */
+    background-color: #333333; /* Fond sombre pour un meilleur contraste */
+    padding: 5px 10px;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
 }

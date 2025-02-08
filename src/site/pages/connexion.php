@@ -7,6 +7,18 @@
 include '../includes/navbar.php';
 include '../includes/profil.php';
 require_once "../fonctions/captcha.php";
+
+if (isset($_GET["error"])) {
+    switch ($_GET["error"]) {
+        case 1:
+            $error_msg = "Mauvais identifiant ou mot de passe";
+            break;
+        case 2:
+            $error_msg = "Réponse incorrecte au CAPTCHA, Réessayez.";
+            break;
+    }
+    echo "<h1 class='error-message'> $error_msg </h1>";
+}
 ?>
 
 <body class="body_form">
@@ -18,19 +30,6 @@ require_once "../fonctions/captcha.php";
     </div>
 
     <!-- GESTION DES ERREURS-->
-    <?php
-    if (isset($_GET["error"])) {
-        switch ($_GET["error"]) {
-            case 1:
-                $error_msg = "Mauvais identifiant ou mot de passe";
-                break;
-            case 2:
-                $error_msg = "Réponse incorrecte au CAPTCHA, Réessayez.";
-                break;
-        }
-        echo "<p class='error-message'> $error_msg </p>";
-    }
-    ?>
 
     <!-- FORMULAIRE DE CONNEXION-->
     <form action="actions/actionConnexion.php" method="POST" class="formulaire">
@@ -45,6 +44,7 @@ require_once "../fonctions/captcha.php";
         } ?> required/>
 
         <button type="submit" name="ok" value="ok" class="form_button">Se connecter</button>
+
         <!-- Affichage du CAPTCHA si requis -->
         <?php if (isset($_GET['captcha'])):
             $captcha = htmlspecialchars($_GET['captcha']); ?>
@@ -58,10 +58,10 @@ require_once "../fonctions/captcha.php";
         <?php endif; ?>
     </form>
 
-    <!--<a href="requestReset.php">Mot de passe oublié?</a> -->
+
 
     <div class="inscription-link-container">
-        <p>Tu n'as pas de compte ? <a href="inscription.php" class="inscription-link">INSCRIS TOI !!</a></p>
+        <p>Tu n'as pas de compte ? <a href="inscription.php" class="inscription-link">INSCRIS TOI !!!</a></p>
     </div>
 </div>
 </body>
