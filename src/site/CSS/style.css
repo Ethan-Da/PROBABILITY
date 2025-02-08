@@ -603,7 +603,7 @@ label::selection{
 }
 
 .btn-calcul:hover {
-    border-style: double;
+    background-color: #adf6aa;
 }
 
 .btn-save {
@@ -626,7 +626,7 @@ label::selection{
 }
 
 .btn-reset:hover, .btn-retour:hover {
-    border-style: double;
+    background-color: #c5c5c5;
 }
 
 /* Fin CSS Pour le Module 4 -> Module de calcul */

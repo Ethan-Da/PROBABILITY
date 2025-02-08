@@ -26,12 +26,13 @@ if (isset($_POST['E'])) {
 ?>
 <div class="container">
     <div class="titre" id="m3">
-        <h2a style="color: #ffcccc;">{</h2a>
-        <h2b style="color: #ffcccc;">Calcul Proba</h2b>
-        <h2c style="color: #ffcccc;">}</h2c>
+        <h2a style="color: #ff0000;">{</h2a>
+        <h2b style="color: #ff0000; background-color: white;">Calcul Proba</h2b>
+        <h2c style="color: #ff0000;">}</h2c>
     </div>
+
     <div>
-        <span>Loi de probabilité inverse gaussienne</span>
+        <h2>Loi de probabilité inverse gaussienne</h2>
     </div>
 
     <!--Formulaire pour rentrer les parametres de la fonction, et le méthode de calcul-->
@@ -62,7 +63,7 @@ if (isset($_POST['E'])) {
                 <div class="form-field">
                     <label for="N">Nbr valeur :</label>
                     <input type="number" name="N" id="N" min="100" max="10000"required id="input-num-m3">
-                    <p style="font-size: 0.8rem"> > 100 <br> Le nombre de valeurs sur l'intervalle
+                    <p style="font-size: 0.8rem"> ≥ 100 <br> Le nombre de valeurs sur l'intervalle
                     </p>
                 </div>
             </div>
@@ -70,11 +71,13 @@ if (isset($_POST['E'])) {
             <!-- Selection de la méthode de calcul-->
             <div class="method-selection">
                 <h3>Méthode de calcul</h3>
+                <label for="methode-selection" style="cursor: pointer;">Sélectionnez une méthode :</label>
                 <select name="methode" id="methode-selection">
-                    <option value="trapeze" >Méthode trapèzes</option>
-                    <option value="rectangle_median" >Méthode rectangle médian</option>
-                    <option value="rectangle_gauche" >Méthode rectangle gauche</option>
+                    <option value="trapeze">Méthode trapèzes</option>
+                    <option value="rectangle_median">Méthode rectangle médian</option>
+                    <option value="rectangle_gauche">Méthode rectangle gauche</option>
                 </select>
+
             </div>
 
             <div class="button-group">

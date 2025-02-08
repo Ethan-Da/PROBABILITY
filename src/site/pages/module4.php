@@ -12,14 +12,14 @@ addSubscribedUserCheck();  //Vérification des droits d'accès
 <?php include '../includes/navbar.php'; ?>
 
 
-<div class="container">
-    <div class="content">
+<div class="container" style="background-color: #666666 ">
+    <div class="content" style="">
         <div class="titre" id="m3">
-        <h2a style="color: goldenrod;">{</h2a>
-        <h2b style="color: goldenrod;">Module 4</h2b>
-        <h2c style="color: goldenrod;">}</h2c>
+            <h2a style="color: #00ffff;">{</h2a>
+            <h2b style="color: #00ffff; background-color: #666666">Module 4</h2b>
+            <h2c style="color: #00ffff;">}</h2c>
         </div>
-    <p class="eb-garamond-text" style="color: goldenrod; font-size: 20px;">Des choses extraordinaires se passeront dans ce module.</p>
+        <p class="eb-garamond-text" style="color: #00ffff; font-size: 20px; opacity: 1;">Des choses extraordinaires se passeront dans ce module.</p>
     </div>
 </div>
 
