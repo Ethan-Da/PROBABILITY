@@ -2,6 +2,8 @@
 session_start();
 include '../includes/header.php';
 ?>
+<html lang="fr">
+<head>
 <title>Proβability - Accueil</title>
     <!-- Police d'écirture -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,8 +41,8 @@ if (isset($_SESSION['login'])) {
     <div id="logo-container" class="logo-container">
         <img  src="../images/logo.png" alt="Logo Proβability">
     </div>
-    <div class="content">
-        <h2>Bienvenue sur notre site !</h2>
+    <div class="content eb-garamond-text" >
+        <h1>Bienvenue sur notre site !</h1>
         <p>Ce site vous permet d'accéder à différents modules pour effectuer des calculs complexes.</p>
     </div>
 </div>

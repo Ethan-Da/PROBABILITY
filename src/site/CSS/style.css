@@ -23,11 +23,10 @@ html, body {
 }
 .profil-button{
     font-weight: bold;
-    text-align: left;
     border-radius: 10px;
-    background-color: #e69138;
+    background-color: orange;
     border: none;
-    color: black;
+    color: rgba(0, 0, 0, 0.71);
     padding: 15px 45px;
     text-align: center;
     text-decoration: none;
@@ -36,44 +35,7 @@ html, body {
     margin: 4px 2px;
     cursor: pointer;
 }
-.profil-button:hover{
-    animation: 1s background-button infinite;
-}
-@keyframes background-button {
-    0%{
-        background-color: red;
-    }
-    10%{
-        background-color: orange;
-    }
-    20%{
-        background-color: yellow;
-    }
-    30%{
-        background-color:lawngreen;
-    }
-    40%{
-        background-color: deepskyblue;
-    }
-    50%{
-        background-color: blue;
-    }
-    60%{
-        background-color: indigo;
-    }
-    70%{
-        background-color:purple;
-    }
-    80%{
-        background-color: deeppink;
-    }
-    90%{
-        background-color: fuchsia;
-    }
-    100%{
-    background-color: #ff005c;
-    }
-}
+
 
 #profil{
     height: 350px;
@@ -92,6 +54,7 @@ html, body {
     top: 150px;
     display: block;
 }
+
 #profil.hidden{
     right: -300px;
 }
@@ -99,38 +62,65 @@ html, body {
     right: 0;
 }
 
-
-#close-button{
+#close-button {
     cursor: pointer;
-    background-color: white;
-    color: orange;
+    background-color: #ffc07d;
+    color: #000000;
     font-weight: bold;
     vertical-align: bottom;
+    border: 2px solid #666666;
+    padding: 8px 16px;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
 
 }
-.icone{
-    margin: 0 auto;
-    background: aliceblue;
-    color: orange;
-    font-weight: bold;
-    border-radius: 25px ;
-    text-align: center;
-    text-overflow: clip;
-    font-size: 55px ;
-    width: 50px;
-    height: 50px;
-    position: relative;
+
+.profile-panel {
+    padding: 20px;
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    border-radius: 8px;
+
 }
 
+.profile-icon {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.71);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
 
+.profile-name {
+    font-size: 1.2em;
+    margin: 0;
+    color: #000000;
+}
+
+.profile-link {
+    display: block;
+    padding: 8px 12px;
+    margin: 8px 0;
+    color: rgb(7, 7, 7);  /* Couleur de "Connexion et Inscription*/
+    text-decoration: none;
+    border-radius: 4px;
+    background: rgb(255, 255, 255); /* Fond blanc  */
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
 /***************************** Profil User *******************************/
 
-.background_indexe{
-    background-size: 450px 450px;
-    background-position: center;
-    background-repeat: repeat;
 
-}
 
 /***************************** Header *******************************/
 header {
@@ -219,13 +209,15 @@ footer {
 .none-connection-message {
     font-size: 1.2em;
     margin: 20px auto;
-    color: #ffffff; /* Couleur du texte */
-    background-color: orangered; /* Couleur de fond */
+    color: #4A4A4A;
+    background-color: #FFF;
+    border: 2px solid orange;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     width: 80%;
     max-width: 800px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Style pour le conteneur principal */
@@ -730,11 +722,11 @@ border .05s ease-out;
     margin-left: 5rem;
 }
 
-.nav-link {  
+.nav-link {
     font-size: 2rem;
     font-weight: 400;
     color: #fff;
-    
+
 }
 
 .nav-link:hover {
@@ -743,7 +735,7 @@ border .05s ease-out;
 
 .nav-logo {
     font-size: 3rem;
-    font-weight: 500;   
+    font-weight: 500;
     color: #fff;
 }
 

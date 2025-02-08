@@ -1,4 +1,5 @@
-    <script>
+
+<script>
         function checkNavResize(){
             var navElem = document.getElementsByTagName("li");
         }
@@ -9,32 +10,27 @@
         echo '
          <header style="background-color: #666666; padding: 10px 20px; display: flex; align-items: center;">
     <div style="display: flex; align-items: center; justify-content: flex-start; width: 100%;">
-        <a href="index.php" title="Accueil">
-            <img src="../images/logo2.png" alt="Logo" style="height: 80px; margin-right: 20px;">
+        <a href="../index.php" title="Accueil">
+            <img src="../images/logo2.png" alt="Logo Probability {β}" style="height: 80px; margin-right: 20px;">
         </a>
         <div id="nav" class="resp-navbar" onresize="checkNavResize">
             <nav>
                 <ul class = "nav-menu" style="list-style-type: none; padding: 0; display: flex;">
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="index.php" class="bouton-nav" id="bouton-nav0" title="Accueil">Accueil</a></li>
+                        <a href="../pages/index.php" class="bouton-nav" id="bouton-nav0" title="Accueil">Accueil</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="module3.php" class="bouton-nav" id="bouton-nav3" title="Module3">Calcul Proba</a></li>
+                        <a href="../pages/module3.php" class="bouton-nav" id="bouton-nav3" title="Module3">Calcul Proba</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">A venir</a></li>
+                        <a href="../pages/module4.php" class="bouton-nav" id="bouton-nav4" title="Module4">A venir</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>';
+                        <a href="../pages/gestionFiche.php" class="bouton-nav" id="bouton-nav0" title="Fiche de Calcul">Historique</a></li>';
             if ($_SESSION["login"] == "adminweb"){
                 echo '<li class="nav-item" style="margin-right: 20px;">
-                        <a href="gestionCompte.php" class="bouton-nav" id="bouton-nav0" title="Gestion des comptes">Gestion Comptes</a></li>';
+                        <a href="../pages/gestionCompte.php" class="bouton-nav" id="bouton-nav0" title="Gestion des comptes">Gestion Comptes</a></li>';
             }
 
             echo '           
-                </ul>
-                <button class="menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>   
+                </ul> 
             </nav>
         </div>
     </div>
@@ -47,24 +43,24 @@
         echo '
         <header style="background-color: #666666; padding: 10px 20px; display: flex; align-items: center;">
     <div style="display: flex; align-items: center; justify-content: flex-start; width: 100%;">
-        <a href="index.php">
-            <img src="../images/logo2.png" alt="Logo" style="height: 80px; margin-right: 20px;">
+        <a href="../index.php">
+            <img src="../images/logo2.png" alt="Logo Probability {β}" style="height: 80px; margin-right: 20px;">
         </a>
         <div id="nav" onresize="checkNavResize" class="resp-navbar">
             <nav>
                 <ul class = "nav-menu" style="list-style-type: none; padding: 0; display: flex;">
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="index.php" class="bouton-nav" id="bouton-nav0">Accueil</a></li>
+                        <a href="../pages/index.php" class="bouton-nav" id="bouton-nav0">Accueil</a></li>
                     <li class="nav-item" style="margin-right: 20px;  ">
-                        <a href="module1.php" class="bouton-nav-disabled">Module1</a></li>
+                        <a href="../pages/module1.php" class="bouton-nav-disabled">Module1</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="module2.php"  class="bouton-nav-disabled">Module2</a></li>
+                        <a href="../pages/module2.php"  class="bouton-nav-disabled">Module2</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="module3.php" class="bouton-nav-disabled">Module3</a></li>
+                        <a href="../pages/module3.php" class="bouton-nav-disabled">Module3</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="module4.php" style="" class="bouton-nav-disabled">Module4</a></li>
+                        <a href="../pages/module4.php" style="" class="bouton-nav-disabled">Module4</a></li>
                 </ul>
-                    <button class="menu">
+                    <button class="menu" aria-label="Menu principal">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
