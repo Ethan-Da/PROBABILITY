@@ -456,11 +456,11 @@ table.historique {
 .detail-calcul {
     display: inline-block;                      /* Utilisation de flexbox pour disposer les sections côte à côte */
     justify-content: space-between;     /* Espacement entre les sections */
-    width: 1500px;                /* Marge en bas pour séparer des autres éléments */
+    width: 100%;                /* Marge en bas pour séparer des autres éléments */
 }
 
 .section-calc {
-    width: 48%;                         /* Largeur des sections pour qu'elles occupent environ la moitié de l'espace disponible */
+    width: 100%;                         /* Largeur des sections pour qu'elles occupent environ la moitié de l'espace disponible */
     background-color: #f9f9f9;         /* Couleur de fond des sections */
     border: 1px solid #ddd;             /* Bordure des sections */
     border-radius: 8px;                /* Coins arrondis des sections */
