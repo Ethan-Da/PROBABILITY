@@ -545,7 +545,7 @@ label::selection{
     width: 100%;                       /* Largeur de la sélection de la méthode */
     box-sizing: border-box;            /* Inclure le padding et la bordure dans la largeur totale */
     cursor: pointer;
-    background-color: #cd2929;
+    background-color: #DC143C;
     font-weight: bold;
     color: white;
 }
@@ -576,9 +576,13 @@ label::selection{
 }
 
 .results-table th {
-    background-color: #ff7777; /* Couleur de fond des en-têtes du tableau */
-    color: white;
+    background-color: #DC143C; /* Couleur de fond des en-têtes du tableau */
+    color: #ffffff; /* Couleur du texte */
+    padding: 10px; /* Espace intérieur pour plus de lisibilité */
+    border: 1px solid #cccccc; /* Bordure pour délimiter les en-têtes */
+    text-align: left; /* Alignement du texte */
 }
+
 
 .button-group {
     display: flex;                     /* Utilisation de flexbox pour disposer les boutons */
@@ -599,34 +603,37 @@ label::selection{
     outline-style: groove;
     outline-color: #0000ff ;
     background-color: white ;         /* Couleur de fond du bouton "Calcul" */
-    color: #0000ff;                        /* Couleur du texte du bouton "Calcul" */
+    color: black;                        /* Couleur du texte du bouton "Calcul" */
 }
 
 .btn-calcul:hover {
-    background-color: #adf6aa;
+    background-color: #7aa2fa;
 }
 
 .btn-save {
     font-weight: bold;
     background-color: white ;         /* Couleur de fond du bouton "Sauvegarder" */
-    color: #28a745;                       /* Couleur du texte du bouton "Sauvegarder" */
+    color: black;                       /* Couleur du texte du bouton "Sauvegarder" */
+    outline-width: 3px;
+    outline-style: groove;
+    outline-color: #5fba2b;
 }
 
 .btn-save:hover {
-    background-color: #218838;         /* Couleur de fond du bouton "Sauvegarder" au survol */
+    background-color: #b1ffc0;         /* Couleur de fond du bouton "Sauvegarder" au survol */
 }
 
 .btn-reset, .btn-retour {
     font-weight: bold;
     outline-width: 3px;
     outline-style: groove;
-    outline-color: #dc3545 ;
+    outline-color: #ff0000;
     background-color: white;         /* Couleur de fond du bouton "Annuler" */
-    color: #dc3545;                      /* Couleur du texte du bouton "Annuler" */
+    color: black;                      /* Couleur du texte du bouton "Annuler" */
 }
 
 .btn-reset:hover, .btn-retour:hover {
-    background-color: #ff7777;
+    background-color: #fd9b9b;
 }
 
 /* Fin CSS Pour le Module 4 -> Module de calcul */
