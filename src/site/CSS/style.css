@@ -272,6 +272,7 @@ footer {
 }
 
 
+
 /* Style pour le formulaire */
 .formulaire {
     display: flex;
@@ -282,19 +283,22 @@ footer {
 /* Style pour les labels */
 label {
     font-weight: bold;
+    margin-top: 15px;
     margin-bottom: 5px;
     cursor: pointer;
+    align-self: flex-start;
 }
+
 
 /* Style pour les champs de saisie */
 input[type="text"], input[type="password"] {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
     width: 100%;
     max-width: 300px;
     transition: border-color 0.3s ease;
+    font-size: 16px;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
@@ -310,13 +314,49 @@ input[type="text"]:focus, input[type="password"]:focus {
     border: none;
     background-color: orange;
     font-weight: bold;
+    color: #070707;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 20px;
 }
+
 
 .form_button:hover {
     background-color: #fdae27;
 }
+
+/* Conteneur spécifique pour les champs mot de passe */
+.password-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Bouton pour afficher/masquer le mot de passe */
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: rgba(0, 0, 0, 0.82);
+    background-color: orange;
+    border-radius: 3px;
+
+}
+
+/* Messages d'aide */
+small {
+    font-size: 12px;
+    color: #ffffff;
+    align-self: flex-start;
+    margin-top: 5px;
+    max-width: 300px;
+}
+
 
 /* Style pour le lien d'inscription */
 .inscription-link {
@@ -405,62 +445,6 @@ table.historique {
 
 .historique th:nth-child(6), .historique td:nth-child(6) {
     width: 15%;
-}
-
-
-/***************************** Damier  *******************************/
-
-table.table {
-    border-color: transparent;
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.table td {
-    width: 40px; /* Largeur fixe des cellules */
-    height: 40px; /* Hauteur fixe des cellules */
-    border: 1px solid #000; /* Ajout d'une bordure pour mieux voir les cases */
-}
-
-.form{
-    background-color: #e9f0ff;
-    border-radius: 1em;
-    padding: 20px;
-
-}
-input[type=number]{
-    outline-width: 1px ;
-    outline-style: inset;
-    outline-color: lightgray;
-
-
-    border: 10px gray;
-    background-color: aliceblue;
-    border-radius: 0.5em;
-    height: 45px;
-    width: 90px
-}
-input[type=number]:focus, #input-num-m3{
-    outline-color: #ff8888;
-    outline-style: groove ;
-    outline-width: 2px;
-    box-shadow: inset 0 0 5px lightgray;
-}
-
-input[type = number]:hover{
-    cursor: text;
-}
-
-
-label{
-    font-weight: bold;
-}
-label::selection{
-    background-color: #666666;
-    color:aliceblue;
-
 }
 
 

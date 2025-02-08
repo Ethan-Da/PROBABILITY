@@ -34,14 +34,23 @@ if (isset($_GET["error"])) {
     <!-- FORMULAIRE DE CONNEXION-->
     <form action="actions/actionConnexion.php" method="POST" class="formulaire">
         <label for="login" style="cursor: pointer">Login</label>
+
         <input type="text" name="login" id="login" <?php if (isset($_GET['login'])) {
             echo "value=" . htmlspecialchars($_GET['login']) . " readonly";
         } ?> required/>
 
+
         <label for="pass" style="cursor: pointer">Mot de passe</label>
+
+        <div class="password-container">
         <input type="password" name="pass" id="pass" <?php if (isset($_GET['pass'])) {
             echo "value=" . htmlspecialchars($_GET['pass']) . " readonly";
         } ?> required/>
+            <button type="button" class="toggle-password" aria-label="Afficher/Masquer le mot de passe" onclick="togglePassword('pass')">
+                👁
+            </button>
+        </div>
+
 
         <button type="submit" name="ok" value="ok" class="form_button">Se connecter</button>
 
@@ -63,7 +72,23 @@ if (isset($_GET["error"])) {
     <div class="inscription-link-container">
         <p>Tu n'as pas de compte ? <a href="inscription.php" class="inscription-link">INSCRIS TOI !!!</a></p>
     </div>
+
 </div>
+
+<script>
+    function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        const type = input.type === 'password' ? 'text' : 'password';
+        input.type = type;
+
+        // Mise à jour du label pour l'accessibilité
+        const button = input.nextElementSibling;
+        button.setAttribute('aria-label',
+            `${type === 'password' ? 'Afficher' : 'Masquer'} le mot de passe`
+        );
+    }
+</script>
+
 </body>
 
 <?php include '../includes/footer.php'; ?>
