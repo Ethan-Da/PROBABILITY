@@ -626,7 +626,7 @@ label::selection{
 }
 
 .btn-reset:hover, .btn-retour:hover {
-    background-color: #c5c5c5;
+    background-color: #ff7777;
 }
 
 /* Fin CSS Pour le Module 4 -> Module de calcul */
@@ -665,9 +665,6 @@ border .05s ease-out;
     background-color: #b0d8f8;
     padding: 10px 15px;
     border-radius: 5px;
-}
-#bouton-nav0:b{
-    background: white;
 }
 
 

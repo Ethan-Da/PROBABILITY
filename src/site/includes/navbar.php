@@ -52,9 +52,9 @@
                     <li class="nav-item" style="margin-right: 20px;">
                         <a href="../pages/index.php" class="bouton-nav" id="bouton-nav0">Accueil</a></li>
                     <li class="nav-item" style="margin-right: 20px;  ">
-                        <a href="../pages/module1.php" class="bouton-nav-disabled">Module1</a></li>
+                        <a href="../pages/module3.php" class="bouton-nav-disabled">Module1</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="../pages/module2.php"  class="bouton-nav-disabled">Module2</a></li>
+                        <a href="../pages/module4.php"  class="bouton-nav-disabled">Module2</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
                         <a href="../pages/module3.php" class="bouton-nav-disabled">Module3</a></li>
                     <li class="nav-item" style="margin-right: 20px;">

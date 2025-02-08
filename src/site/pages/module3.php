@@ -4,7 +4,7 @@ require_once '../fonctions/fonctionsLogs.php';
 
 addSubscribedUserCheck();  //Vérification des droits d'accès?>
 
-<title>>Calcul Proba</title>
+<title>Calcul Proba</title>
 <head>
     <title>Calcul Proba</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
