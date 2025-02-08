@@ -25,7 +25,7 @@ include "../includes/profil.php"?>
                 $error_msg = "Login déjà existant";
                 break;
         }
-        echo "<p class='error-message'> $error_msg </p>";
+        echo "<h1 class='error-message'> $error_msg </h1>";
     }
     ?>
 

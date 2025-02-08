@@ -198,7 +198,7 @@ footer {
     font-size: 1.2em;
     margin: 20px auto;
     opacity: 1;
-    color: rgb(0, 0, 0); /* Couleur du texte */
+    color: #3c3c3c; /* Couleur du texte */
     background-color: orange; /* Couleur de fond */
     padding: 10px;
     border-radius: 5px;
@@ -257,18 +257,18 @@ footer {
 
 /* Style pour les messages d'erreur */
 .error-message {
-    color: #ff0000; /* Rouge vif pour attirer l'attention */
-    font-size: 23px;
+    color: #e10c0c; /* Rouge vif pour attirer l'attention */
+    font-size: 17px;
     text-align: center;
     position: fixed;
-    top: 13%;
+    top: 14%;
     left: 50%;
     transform: translateX(-50%); /* Centre le message horizontalement */
     background-color: #ffffff; /* Fond blanc pour contraster avec le texte rouge */
     padding: 20px 30px; /* Espace intérieur pour plus de lisibilité */
     border-radius: 10px; /* Bordures arrondies pour un look moderne */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Ombre pour un effet de profondeur */
-    border: 2px solid #ff0000; /* Bordure rouge pour encadrer le message */
+    border: 2px solid #e10c0c; /* Bordure rouge pour encadrer le message */
 }
 
 
