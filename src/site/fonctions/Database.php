@@ -1,5 +1,5 @@
 <?php
-
+#require_once 'RC4Cipher.php';
 
 #Classe permettant la connexion avec la base de données et d'effectuer des rêquetes utilisant les bons user mysql plus rapidement
 #La séparation des droits par opération sur la base de données permet de sécuriser en quelque sorte l'accés a la base.
@@ -146,6 +146,27 @@ class Database{
     public function deleteFiche($id_fiche){
         return $this->adminQuery("DELETE FROM `fiche_calcul` WHERE `fiche_calcul`.`id_fiche` = $id_fiche;");
     }
+    /*
+    function hashPassword($password, $key) {
+        $rc4 = new RC4Cipher($key);
+        return $rc4->encrypt($password);
+    }
 
+    function verifyPassword($inputPassword, $storedHash, $key) {
+        $rc4 = new RC4Cipher($key);
+        $encryptedInput = $rc4->encrypt($inputPassword);
+        return $encryptedInput === $storedHash;
+    }
 
+    // Exemple d'utilisation pour stocker un mot de passe
+    function storeUserPassword($username, $password)
+    {
+        $key = "VotreClefSecrete"; // Utilisez une clé sécurisée !
+        $hashedPassword = hashPassword($password, $key);
+
+        // Stockez $username et $hashedPassword dans votre base de données
+        // ou fichier texte
+
+    }
+    */
 }

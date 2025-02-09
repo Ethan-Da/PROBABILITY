@@ -36,6 +36,12 @@ html, body {
     cursor: pointer;
 }
 
+.profil-button:hover{
+    border-color: blue;
+    border-width: 2px;
+    border-style: solid;
+}
+
 
 #profil{
     height: 350px;
