@@ -42,6 +42,7 @@ if (isset($_GET["error"])) {
 
         <label for="pass" style="cursor: pointer">Mot de passe</label>
 
+        <!-- Afficher/Masquer le mot de passe -->
         <div class="password-container">
         <input type="password" name="pass" id="pass" <?php if (isset($_GET['pass'])) {
             echo "value=" . htmlspecialchars($_GET['pass']) . " readonly";
@@ -76,6 +77,7 @@ if (isset($_GET["error"])) {
 </div>
 
 <script>
+    <!-- Fonction JavaScript pour Afficher/Masquer le mot de passe quand on apppuie sur l'icone-->
     function togglePassword(inputId) {
         const input = document.getElementById(inputId);
         const type = input.type === 'password' ? 'text' : 'password';
