@@ -2,6 +2,7 @@
 
 require_once '../../fonctions/Database.php';
 require_once '../../fonctions/fonctionsLogs.php';
+require_once '../../fonctions/RC4Cipher.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -13,11 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         else {
+            // Création d'une instance RC4 avec une clé secrète
+            $key = "Key"; // Insérer une clé sécurisée !
+            $rc4 = new RC4Cipher($key);
+
+            // Chiffrement du mot de passe avec RC4
+            $encryptedPassword = $rc4->encrypt($_POST['pass']);
+
             $connexionDB = new Database();
-            if ($connexionDB->addNewAccount($_POST['login'], md5($_POST['pass']))) {
+            // Utilisation du mot de passe chiffré avec RC4 au lieu de md5
+            if ($connexionDB->addNewAccount($_POST['login'], $encryptedPassword)) {
                 session_start();
                 $_SESSION["login"] = $_POST['login'];
-                $_SESSION["pass"] = $_POST['pass'];
+                $_SESSION["pass"] = $_POST['pass']; // Stockage du mot de passe non chiffré en session
                 //logSignIn("success");
                 $connexionDB->updateLastConnectionLastIp($_POST['login']);
                 header('Location: ../index.php');
@@ -26,12 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //logSignIn("failure");
                 header('Location: ../inscription.php?error=' . $error);
             }
+            }
         }
 
 
     }
-
-
-
-
-}
