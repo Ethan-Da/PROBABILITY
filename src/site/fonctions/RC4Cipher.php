@@ -104,25 +104,4 @@ class RC4Cipher {
         return $plaintext;
     }
 }
-
-// Exemple d'utilisation
-function testRC4() {
-    // Tests basés sur les exemples fournis dans le document
-    $tests = [
-        ['key' => 'Key', 'plaintext' => 'Plaintext'],
-        ['key' => 'Wiki', 'plaintext' => 'pedia'],
-        ['key' => 'Secret', 'plaintext' => 'Attack at dawn']
-    ];
-
-    foreach ($tests as $test) {
-        $rc4 = new RC4Cipher($test['key']);
-        $encrypted = $rc4->encrypt($test['plaintext']);
-        $decrypted = $rc4->decrypt($encrypted);
-
-        echo "Test avec clé: " . $test['key'] . "\n";
-        echo "Texte original: " . $test['plaintext'] . "\n";
-        echo "Texte chiffré (hex): " . $encrypted . "\n";
-        echo "Texte déchiffré: " . $decrypted . "\n\n";
-    }
-}
 ?>
