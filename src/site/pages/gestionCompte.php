@@ -29,7 +29,7 @@ addAdminWebCheck();
         }
 
         if(isset($_POST['creerCompte'])) {
-            $database->addNewAccount($_POST['login'], $_POST['pass']);
+            $database->addNewAccount($_POST['login'], md5($_POST['pass']));
             header("Location: gestionCompte.php");
         }
 

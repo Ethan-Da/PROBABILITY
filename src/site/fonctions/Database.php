@@ -133,7 +133,7 @@ class Database{
     }
 
     public function getAllFicheFrom($user){
-        return $this -> userQuery("SELECT date, module, esperance, forme, T, EcartT, resultat, id_fiche FROM fiche_calcul WHERE login = ?","s",array($user));
+        return $this -> userQuery("SELECT date, module, methode, esperance, forme, T, EcartT, resultat, id_fiche FROM fiche_calcul WHERE login = ?","s",array($user));
     }
 
 

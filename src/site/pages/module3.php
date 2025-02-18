@@ -208,7 +208,7 @@ if (isset($_POST['E'])) {
             </table>
             <div class="button-group">
                 <button type="button" class="btn-retour" id="btn-retour">Retour</button>
-                <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFiche.php?resultat=$resultat&F=$F&E=$E&T=$T&ET=$ecartType&module=3&methode=$M'>Sauvegarder</a>" ?>
+                <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFiche.php?resultat=$resultat&F=$F&E=$E&T=$T&ET=$ecartType&methode=$M&module=3'>Sauvegarder</a>" ?>
             </div>
         </div>
     <?php endif; ?>
