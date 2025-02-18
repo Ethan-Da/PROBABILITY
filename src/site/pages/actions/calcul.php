@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '<input type="hidden" name="F" value="' . $F . '">';
             echo '<input type="hidden" name="T" value="' . $T . '">';
             echo '<input type="hidden" name="N" value="' . $N . '">';
+            echo '<input type="hidden" name="M" value="' . $methode . '">';
             echo '<input type="hidden" name="ET" value="' . $ecartType . '">';
             echo '<input type="hidden" name="proba_val" value="' . $resultat . '">';
             echo '</form>';

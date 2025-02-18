@@ -5,13 +5,14 @@ session_start();
 if (isset($_GET["module"])) {
     $resultat = $_GET["resultat"];
     $M = $_GET["module"];
+    $methode = $_GET["methode"];
     $E = $_GET["E"];
     $F = $_GET["F"];
     $T = $_GET["T"];
     $ET = $_GET["ET"];
     $login = $_SESSION["login"];
     $connexionDB = new Database();
-    if ($connexionDB-> saveFiche($M, $E, $F, $T,$ET,$resultat, $login)){
+    if ($connexionDB-> saveFiche($M,$methode, $E, $F, $T,$ET,$resultat, $login)){
         header("location: ../gestionFiche.php");
     }else{
         header("location: ../module3.php");

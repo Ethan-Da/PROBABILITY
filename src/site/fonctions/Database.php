@@ -137,10 +137,10 @@ class Database{
     }
 
 
-    public function saveFiche($M, $E, $F, $T, $ecartType, $resultat, $login){
-        return $this-> userQuery("INSERT INTO `fiche_calcul` (`id_fiche`, `date`, `module`, `esperance`, `forme`, `T`,`EcartT`, `resultat`, `login`) 
-                                        VALUES (NULL, current_timestamp(),?, ?, ?, ?, ?,?,?);",
-                                        "iddddds",array($M, $E, $F, $T,$ecartType, $resultat, $login));
+    public function saveFiche($M,$methode, $E, $F, $T, $ecartType, $resultat, $login){
+        return $this-> userQuery("INSERT INTO `fiche_calcul` (`id_fiche`, `date`, `module`,`methode`, `esperance`, `forme`, `T`,`EcartT`, `resultat`, `login`) 
+                                        VALUES (NULL, current_timestamp(), ?, ?, ?, ?, ?, ?, ?, ?);",
+                                        "iddddds",array($M,$methode, $E, $F, $T,$ecartType, $resultat, $login));
     }
 
     public function deleteFiche($id_fiche){

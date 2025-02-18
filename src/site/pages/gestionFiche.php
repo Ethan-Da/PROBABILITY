@@ -34,11 +34,12 @@ if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
                     <tr>
                         <th>Date</th>
                         <th>Module</th>
+                        <th>Méthode</th>
+                        <th>Résultat</th>
                         <th>Espérance</th>
                         <th>Forme</th>
                         <th>T</th>
                         <th>Écart Type</th>
-                        <th>Résultat</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -61,6 +62,7 @@ if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
         $E = $row['esperance'];
         $F = $row['forme'];
         $T = $row['T'];
+        $M = $row['methode'];
         $ET = $row['EcartT'];
         $resultat = $row['resultat'];
         $xValues = implode(',', valeursXY(100, $E, $F)[0]);
@@ -73,6 +75,7 @@ if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
                             <input type='hidden' name='E' value='$E'>
                             <input type='hidden' name='F' value='$F'>
                             <input type='hidden' name='T' value='$T'>
+                            <input type='hidden' name='M' value='$M'>
                             <input type='hidden' name='ET' value='$ET'>
                             <input type='hidden' name='N' value='100'>
                             <input type='hidden' name='proba_val' value='$resultat'>
