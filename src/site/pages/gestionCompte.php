@@ -18,10 +18,14 @@ addAdminWebCheck();
     <?php
         $database = new Database();
 
-
         if(isset($_POST['supprimerCompte'])) {
-            $database->deleteAccount($_POST['login']);
-            header("Location: gestionCompte.php");
+            $login = $_POST['login'];
+            if($login == 'adminweb' || $login == 'adminsys' ) {
+                header('Location: gestionCompte.php');
+            }else {
+                $database->deleteAccount($login);
+                header("Location: gestionCompte.php");
+            }
         }
 
         if(isset($_POST['creerCompte'])) {
