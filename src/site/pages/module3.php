@@ -177,7 +177,7 @@ if (isset($_POST['E'])) {
         $F =  $_POST['F'];
         $E =  $_POST['E'];
         $T =  $_POST['T'];
-        $M = $_POST['methode'];
+        $M = $_POST['M'];
         $ecartType = $_POST['ET'];
         //logUseModule("success", "3");
         ?>
