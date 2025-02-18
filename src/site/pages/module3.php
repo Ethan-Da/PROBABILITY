@@ -21,6 +21,7 @@ if (isset($_POST['E'])) {
     $E = $_POST['E'];
     $F = $_POST['F'];
     $T = $_POST['T'];
+    $M = $_POST['M'];
 }
 
 ?>
@@ -176,6 +177,7 @@ if (isset($_POST['E'])) {
         $F =  $_POST['F'];
         $E =  $_POST['E'];
         $T =  $_POST['T'];
+        $M = $_POST['methode'];
         $ecartType = $_POST['ET'];
         //logUseModule("success", "3");
         ?>
@@ -184,6 +186,7 @@ if (isset($_POST['E'])) {
             <table>
                 <thead>
                 <tr>
+                    <th>Méthode</th>
                     <th>Valeur</th>
                     <th>Forme</th>
                     <th>Esperance</th>
@@ -194,6 +197,7 @@ if (isset($_POST['E'])) {
                 <tbody>
                 <tr>
                     <!-- Affichage des parametres et du resultat envoyés en POST-->
+                    <td id="result-method"><?php echo $M; ?></td>
                     <td id="result-value"><?php echo $resultat; ?></td>
                     <td id="result-form"><?php echo $F; ?></td>
                     <td id="result-esp"><?php echo $E; ?></td>
