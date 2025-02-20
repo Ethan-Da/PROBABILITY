@@ -217,41 +217,75 @@ if (isset($_POST['E'])) {
 <script>
     // Création de la fonction pour revenir au formulaire avec btn-retour
     document.addEventListener('DOMContentLoaded', function() {
-        const T = '<?php echo $_POST['T'];?>';
+        const T = parseFloat('<?php echo $_POST['T'];?>');
         //explode pour récuperer le tableau PHP et json_encode pour pouvoir les utiliser en Javascript
         const xValues = <?php echo isset($_POST['xValues']) ? json_encode(explode(',', $_POST['xValues'])) : '[]'; ?>;
         const yValues = <?php echo isset($_POST['yValues']) ? json_encode(explode(',', $_POST['yValues'])) : '[]'; ?>;
+        const method = '<?php echo $_POST['M'];?>';
 
         if (xValues.length > 0 && yValues.length > 0) {
             const ctx = document.getElementById('myChart').getContext('2d');
             let numRectangles = 50;
-            let rectangleData = [];
-            {
-                const interval = T / numRectangles;
-                for (let i = 0; i < numRectangles; i++) {
-                    const x = i * interval;
-                    // trouve la hauteur la plus proche
-                    const yIndex = xValues.findIndex(val => parseFloat(val) >= x);
-                    const height = yValues[yIndex];
+            let geometryData = [];
 
-                    rectangleData.push({
-                        x: x,
-                        y: 0
-                    });
-                    rectangleData.push({
-                        x: x,
-                        y: height
-                    });
-                    rectangleData.push({
-                        x: x + interval,
-                        y: height
-                    });
-                    rectangleData.push({
-                        x: x + interval,
-                        y: 0
-                    });
+            if (method === 'rectangle_gauche' || method === 'rectangle_median') {
+                const interval = T / numRectangles;
+
+                for (let i = 0; i < numRectangles; i++) {
+                    let x, height;
+
+                    if (method === 'rectangle_gauche') {
+                        x = i * interval;
+                        // trouve la hauteur la plus proche
+                        const yIndex = xValues.findIndex(val => parseFloat(val) >= x);
+                        height = yValues[yIndex];
+                    }
+                    else {
+                        x = i * interval;
+                        const xMid = x + (interval / 2);
+                        let indexProche = 0;
+                        let minDistance = Infinity;
+
+                        for (let j = 0; j < xValues.length; j++) {
+                            const distance = Math.abs(parseFloat(xValues[j]) - xMid);
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                indexProche = j;
+                            }
+                        }
+                        height = parseFloat(yValues[indexProche]);
+                    }
+
+                    geometryData.push(
+                        {x: x, y: 0},
+                        {x: x, y: height},
+                        {x: x + interval, y: height},
+                        {x: x + interval, y: 0}
+                    );
+                }
+            } else if (method === 'trapeze') {
+                const interval = T / numRectangles;
+
+                for (let i = 0; i < numRectangles; i++) {
+                    const x1 = i * interval;
+                    const x2 = (i + 1) * interval;
+
+                    //trouve les hauteurs des deux côtés du trapèze
+                    const yIndex1 = xValues.findIndex(val => parseFloat(val) >= x1);
+                    const yIndex2 = xValues.findIndex(val => parseFloat(val) >= x2);
+                    const height1 = parseFloat(yValues[yIndex1]);
+                    const height2 = parseFloat(yValues[yIndex2]);
+
+                    //crée le trapèze
+                    geometryData.push(
+                        {x: x1, y: 0},
+                        {x: x1, y: height1},
+                        {x: x2, y: height2},
+                        {x: x2, y: 0}
+                    );
                 }
             }
+
             new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -266,16 +300,18 @@ if (isset($_POST['E'])) {
                             radius: 0,
                             type: 'line'
                         },
-                        {
-                        label: 'Rectangles',
-                        data: rectangleData,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 0.5)',
-                        borderWidth: 1,
-                        fill: true,
-                        radius: 0,
-                        stepped: true
-                        }
+                        geometryData.length > 0 ? {
+                            label: method === 'trapeze' ? 'Trapèzes' :
+                                method === 'rectangle_gauche' ? 'Rectangles gauches' :
+                                    'Rectangles médians',
+                            data: geometryData,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 0.5)',
+                            borderWidth: 1,
+                            fill: true,
+                            radius: 0,
+                            stepped: method !== 'trapeze'  // Désactivé pour les trapèzes pour avoir des lignes diagonales
+                        } : null
                     ].filter(Boolean)
                 },
                 options: {
@@ -293,22 +329,20 @@ if (isset($_POST['E'])) {
                             title: {
                                 display: true,
                                 text: 'f(x)'
-                            }
+                            },
+                            beginAtZero: true
                         }
                     }
                 }
             });
 
-            // Afficher les sections après le calcul
             document.getElementById('detail-calcul').style.display = 'block';
             document.getElementById('results-table').style.display = 'block';
-             // Masquer le formulaire après le calcul
             document.getElementById('calculation-form').style.display = 'none';
         } else {
             console.error("Aucune donnée reçue pour générer le graphique");
         }
 
-        // Fonction pour revenir au formulaire
         document.getElementById('btn-retour').addEventListener('click', function () {
             document.getElementById('calculation-form').style.display = 'block';
             document.getElementById('detail-calcul').style.display = 'none';
