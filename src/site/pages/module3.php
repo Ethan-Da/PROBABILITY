@@ -42,28 +42,28 @@ if (isset($_POST['E'])) {
             <div class="input-group">
                 <div class="form-field">
                     <label for="E">Espérance :</label>
-                    <input type="number" name="E" id="E" step="any" min="0.01" max="1000" required id="input-num-m3">
+                    <input type="number" name="E" id="E" step="any" min="0.01" max="1000" required>
                     <p style="font-size: 0.8rem"> > 0 <br> Représente la moyenne
                     </p>
                 </div>
 
                 <div class="form-field">
                     <label for="F">Forme :</label>
-                    <input type="number" name="F" id="F" step="any" min="0.01" max="100" required id="input-num-m3">
+                    <input type="number" name="F" id="F" step="any" min="0.01" max="100" required>
                     <p style="font-size: 0.8rem"> > 0 <br> Centre la courbe sur la moyenne
                     </p>
                 </div>
 
                 <div class="form-field">
                     <label for="T">Valeur t :</label>
-                    <input type="number" name="T" id="T" step="any" min="0" max="10000" required id="input-num-m3">
+                    <input type="number" name="T" id="T" step="any" min="0" max="10000" required>
                     <p style="font-size: 0.8rem"> > 0 <br> P(X < T)
                     </p>
                 </div>
 
                 <div class="form-field">
                     <label for="N">Nbr valeur :</label>
-                    <input type="number" name="N" id="N" min="100" max="10000"required id="input-num-m3">
+                    <input type="number" name="N" id="N" min="100" max="10000"required>
                     <p style="font-size: 0.8rem"> ≥ 100 <br> Le nombre de valeurs sur l'intervalle
                     </p>
                 </div>
