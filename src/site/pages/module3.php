@@ -56,14 +56,14 @@ if (isset($_POST['E'])) {
 
                 <div class="form-field">
                     <label for="T">Valeur t :</label>
-                    <input type="number" name="T" id="T" step="any" min="0" max="10000" required>
+                    <input type="number" name="T" id="T" step="any" min="0" max="10000" required">
                     <p style="font-size: 0.8rem"> > 0 <br> P(X < T)
                     </p>
                 </div>
 
                 <div class="form-field">
                     <label for="N">Nbr valeur :</label>
-                    <input type="number" name="N" id="N" min="100" max="10000"required>
+                    <input type="number" name="N" id="N" min="100" max="10000"required">
                     <p style="font-size: 0.8rem"> ≥ 100 <br> Le nombre de valeurs sur l'intervalle
                     </p>
                 </div>
@@ -217,34 +217,73 @@ if (isset($_POST['E'])) {
 <script>
     // Création de la fonction pour revenir au formulaire avec btn-retour
     document.addEventListener('DOMContentLoaded', function() {
-        // Récupération des données transmises via POST
         const T = '<?php echo $_POST['T'];?>';
-        // puis explode pour récuperer le tableau PHP et json_encode pour pouvoir les utiliser en Javascript
+        //explode pour récuperer le tableau PHP et json_encode pour pouvoir les utiliser en Javascript
         const xValues = <?php echo isset($_POST['xValues']) ? json_encode(explode(',', $_POST['xValues'])) : '[]'; ?>;
         const yValues = <?php echo isset($_POST['yValues']) ? json_encode(explode(',', $_POST['yValues'])) : '[]'; ?>;
 
         if (xValues.length > 0 && yValues.length > 0) {
-            // Création du graphique avec Chart.js
             const ctx = document.getElementById('myChart').getContext('2d');
+            let numRectangles = 50;
+            let rectangleData = [];
+            {
+                const interval = T / numRectangles;
+                for (let i = 0; i < numRectangles; i++) {
+                    const x = i * interval;
+                    // trouve la hauteur la plus proche
+                    const yIndex = xValues.findIndex(val => parseFloat(val) >= x);
+                    const height = yValues[yIndex];
+
+                    rectangleData.push({
+                        x: x,
+                        y: 0
+                    });
+                    rectangleData.push({
+                        x: x,
+                        y: height
+                    });
+                    rectangleData.push({
+                        x: x + interval,
+                        y: height
+                    });
+                    rectangleData.push({
+                        x: x + interval,
+                        y: 0
+                    });
+                }
+            }
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: xValues,
-                    datasets: [{
-                        label: 'Courbe de la fonction',
-                        data: yValues,
-                        backgroundColor: 'rgba(75, 192, 192, 1)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 2,
-                        fill: false,
-                        radius: 0
-                    }
-                    ]
+                    datasets: [
+                        {
+                            label: 'Courbe de la fonction',
+                            data: xValues.map((x, i) => ({x: parseFloat(x), y: parseFloat(yValues[i])})),
+                            backgroundColor: 'rgba(75, 192, 192, 1)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 2,
+                            fill: false,
+                            radius: 0,
+                            type: 'line'
+                        },
+                        {
+                        label: 'Rectangles',
+                        data: rectangleData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 0.5)',
+                        borderWidth: 1,
+                        fill: true,
+                        radius: 0,
+                        stepped: true
+                        }
+                    ].filter(Boolean)
                 },
                 options: {
                     responsive: true,
                     scales: {
                         x: {
+                            type: 'linear',
+                            position: 'bottom',
                             title: {
                                 display: true,
                                 text: 'x'
@@ -257,15 +296,13 @@ if (isset($_POST['E'])) {
                             }
                         }
                     }
-
                 }
             });
 
             // Afficher les sections après le calcul
             document.getElementById('detail-calcul').style.display = 'block';
             document.getElementById('results-table').style.display = 'block';
-
-            // Masquer le formulaire après le calcul
+             // Masquer le formulaire après le calcul
             document.getElementById('calculation-form').style.display = 'none';
         } else {
             console.error("Aucune donnée reçue pour générer le graphique");
@@ -284,11 +321,6 @@ if (isset($_POST['E'])) {
 
 <?php include '../includes/footer.php';
 
-/**
-if (!isset($_SESSION["login"])) {
-header("location:index.php");
-}
- */
 ?>
 </body>
 </html>
