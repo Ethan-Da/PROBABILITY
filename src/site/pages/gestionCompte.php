@@ -40,9 +40,10 @@ addAdminWebCheck();
             foreach($csvAsArray as $row) {
                 foreach($row as $column => $value) {
                     $strArray = explode(";",$value);
-                    $database->addNewAccount($strArray[0], $strArray[1]);
+                    $database->addNewAccount($strArray[0], md5($strArray[1]));
                 }
             }
+            header("Location: gestionCompte.php");
         }
 
         $allAccount = $database->getAllAccount();
