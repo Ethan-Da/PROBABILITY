@@ -61,7 +61,10 @@ addAdminWebCheck();
             while ($rowAccount = $allAccount->fetch_assoc()) {
                 echo "<tr>";
                 $login = $rowAccount['login'];
-                foreach ($rowAccount as $attribut) {
+                foreach ($rowAccount as $key=>$attribut) {
+                    if ($key == 'date') {
+                        $attribut=date('d-m-Y',strtotime($attribut));
+                    }
                     echo "<td>" . (!empty($attribut) ? htmlspecialchars($attribut) : "<span class='non-renseigne'>non renseigné</span>") . "</td>";
                 }
                 echo "<td><div class='boutonSupprCompte'>
