@@ -58,7 +58,7 @@ if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
             }
 
             if ($attribut == 'date'){
-                $attribut = $sqldate=date('d-m-Y',strtotime($attribut));
+                $value = $sqldate=date('d-m-Y',strtotime($value));
             }
 
             echo "<td>" . (!empty($value) ? htmlspecialchars($value) : "<span class='non-renseigne'>non renseigné</span>") . "</td>";
