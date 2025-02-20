@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             //les valeurs d'ordonnées pour la fonction de densité
 
-            $valeurs = valeursXY($N, $E, $F);
+            $valeurs = valeursXY($N, $E, $F,$T);
             $xValues = $valeurs[0];
             $yValues = $valeurs[1];
             $ecartType = ecartType($E,$F);
