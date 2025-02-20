@@ -56,6 +56,11 @@ if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
             if ($attribut == 'id_fiche') {
                 continue;
             }
+
+            if ($attribut == 'date'){
+                $attribut = $sqldate=date('d-m-Y',strtotime($attribut));
+            }
+
             echo "<td>" . (!empty($value) ? htmlspecialchars($value) : "<span class='non-renseigne'>non renseigné</span>") . "</td>";
         }
         $idFiche = $row['id_fiche'];

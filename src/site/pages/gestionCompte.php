@@ -62,7 +62,7 @@ addAdminWebCheck();
                 echo "<tr>";
                 $login = $rowAccount['login'];
                 foreach ($rowAccount as $key=>$attribut) {
-                    if ($key == 'date') {
+                    if ($key == 'last_connection') {
                         $attribut=date('d-m-Y',strtotime($attribut));
                     }
                     echo "<td>" . (!empty($attribut) ? htmlspecialchars($attribut) : "<span class='non-renseigne'>non renseigné</span>") . "</td>";
