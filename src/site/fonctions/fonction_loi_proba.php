@@ -46,16 +46,15 @@ function trapezes($esp, $lambda,$b,$n) {
     return round($proba,3);
 }
 
-function valeursXY($N,$E,$F)
-{
+function valeursXY($N, $E, $F, $T) {
     $yValues = [];
     $xValues = [];
     for ($i = 0; $i < $N+1 ; $i++) {
-        $yValues[] = inv_gauss($E, $F, $i*($E+$E/2)/$N);
-        $xValues[] = $i*($E+$E/2)/$N ;
+        $x = $i * $T / $N;
+        $yValues[] = inv_gauss($E, $F, $x);
+        $xValues[] = $x;
     }
-
-    return array($xValues,$yValues);
+    return array($xValues, $yValues);
 }
 
 function ecartType($esp, $F){
