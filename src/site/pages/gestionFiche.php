@@ -11,7 +11,7 @@ include '../includes/profil.php';
 </head>
 <body>
 <?php
-addSubscribedUserCheck();
+addUserCheck();
 ?>
 
 <?php

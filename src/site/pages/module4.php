@@ -2,7 +2,7 @@
 require_once '../fonctions/fonctionsDroits.php';
 include '../includes/profil.php';
 
-addSubscribedUserCheck();  //Vérification des droits d'accès
+addUserCheck();  //Vérification des droits d'accès
 ?>
 
 <title>Module1</title>

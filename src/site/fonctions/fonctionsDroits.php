@@ -32,7 +32,7 @@ function addAdminSysCheck(){
 
 
 
-function addSubscribedUserCheck(){
+function addUserCheck(){
     if (isset($_SESSION["login"])){
     }
     else{
