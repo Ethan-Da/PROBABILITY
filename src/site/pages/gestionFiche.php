@@ -5,6 +5,7 @@ require '../fonctions/fonction_loi_proba.php';
 require '../fonctions/fonctionsLogs.php';
 include '../includes/navbar.php';
 include '../includes/profil.php';
+include '../includes/footer.php';
 ?>
 
 <title>Mes fiches de calcul</title>

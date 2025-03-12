@@ -414,6 +414,7 @@ table.historique {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    justify-self: left;
 }
 
 .historique th, .historique td {

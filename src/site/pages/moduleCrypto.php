@@ -3,6 +3,7 @@
 require_once '../fonctions/fonctionsDroits.php';
 require_once '../fonctions/fonctionsLogs.php';
 require_once '../fonctions/RC4Cipher.php';
+include '../includes/footer.php';
 addUserCheck();
 ?>
     <title>Cryptographie</title>
