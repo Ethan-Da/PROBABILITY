@@ -3,8 +3,8 @@
 require_once '../fonctions/fonctionsDroits.php';
 require_once '../fonctions/fonctionsLogs.php';
 require_once '../fonctions/RC4Cipher.php';
-include '../includes/footer.php';
-addUserCheck();
+
+//addUserCheck();
 ?>
     <title>Cryptographie</title>
 </head>
@@ -22,15 +22,17 @@ include '../includes/profil.php';
     </div>
 
     <div>
-        <form action="moduleCrypto.php" method="post">
-            <label for="clef" style="color: black">Entrez une clé : </label>
-            <input type="text" id="clef" name="clef" >
-            <br>
-            <label style="color: black" for="message">Message :</label>
-            <input type="text" id="message" name="message">
+        <form action="moduleCrypto.php" method="post" class="crypto-form">
+            <label for="clef">Entrez une clé :</label>
+            <input type="text" id="clef" name="clef" placeholder="Insérez votre clé ici">
 
-            <input type="submit" name="submitChiffrer" value="Chiffrer le message">
-            <input type="submit" name="submitDechiffrer" value="Déchiffrer le message">
+            <label for="message">Message :</label>
+            <input type="text" id="message" name="message" placeholder="Insérez votre message ici">
+
+            <div class="form-buttons">
+                <input type="submit" name="submitChiffrer" value="Chiffrer le message">
+                <input type="submit" name="submitDechiffrer" value="Déchiffrer le message">
+            </div>
         </form>
 
         <?php
@@ -67,8 +69,8 @@ include '../includes/profil.php';
 </div>
 
 
+<?php include '../includes/footer.php';?>
 
 
-</body>
 
 

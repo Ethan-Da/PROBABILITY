@@ -5,14 +5,13 @@ require '../fonctions/fonction_loi_proba.php';
 require '../fonctions/fonctionsLogs.php';
 include '../includes/navbar.php';
 include '../includes/profil.php';
-include '../includes/footer.php';
 ?>
 
 <title>Mes fiches de calcul</title>
 </head>
 <body>
 <?php
-addUserCheck();
+//addUserCheck();
 ?>
 
 <?php
@@ -102,6 +101,5 @@ if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
 echo "</div>";
 ?>
 
-<?php include '../includes/footer.php'; ?>
-</body>
+<?php include '../includes/footer.php' ?>
 

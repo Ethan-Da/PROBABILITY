@@ -463,6 +463,81 @@ table.historique {
 
 
 
+/* Style global du formulaire */
+.crypto-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Style des labels */
+.crypto-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style des champs de saisie */
+.crypto-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.crypto-form input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Style des boutons */
+.crypto-form .form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.crypto-form input[type="submit"] {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.crypto-form input[name="submitChiffrer"] {
+    background-color: #28a745; /* Vert pour "Chiffrer" */
+}
+
+.crypto-form input[name="submitDechiffrer"] {
+    background-color: #dc3545; /* Rouge pour "Déchiffrer" */
+}
+
+.crypto-form input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+/* Placeholder style */
+.crypto-form input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+
+
+
 /***************************** Module 4  *******************************/
 
 
