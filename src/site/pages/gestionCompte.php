@@ -46,6 +46,23 @@ addAdminWebCheck();
             header("Location: gestionCompte.php");
         }
 
+        if(isset($_POST['creerCompteJSON'])) {
+            $name = $_FILES['json']['tmp_name'];
+            $jsonData = file_get_contents($name);
+            $comptes = json_decode($jsonData, true); // Décodage en tableau associatif
+            if ($comptes === null) {
+                die("Erreur : Le fichier JSON est invalide.");
+            }
+            echo "Comptes ajoutés";
+            foreach ($comptes as $compte) {
+                if (isset($compte['username'], $compte['password'])) {
+                    $database->addNewAccount($compte['username'], md5($compte['password']));
+                }
+            }
+            header("Location: gestionCompte.php");
+        }
+
+
         $allAccount = $database->getAllAccount();
 
         echo "<form action='gestionCompte.php' method='post'>
@@ -54,8 +71,9 @@ addAdminWebCheck();
             <input type='submit' name='creerCompte' value='Ajouter un nouveau compte'>
             </form>
             <form action='gestionCompte.php' method='post' enctype='multipart/form-data'>
-            <input type='file' name='csv' value='' />
-            <input type='submit' name='creerCompteCSV' value='Ajouter plusieurs comptes avec un fichier csv' /></form>";
+            <input type='file' name='file' value='' />
+            <input type='submit' name='creerCompteCSV' value='Ajouter plusieurs comptes avec un fichier csv' />
+            <input type='submit' name='creerCompteJSON' value='Ajouter plusieurs comptes avec un fichier JSON' /></form>";
 
         echo "<table class='historique'>";
         echo "<tr><th>Login</th><th>Mot de passe</th><th>Ip utilisé</th><th>Dernière connexion</th><th>Action</th></tr>";
