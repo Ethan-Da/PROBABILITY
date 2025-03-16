@@ -11,7 +11,7 @@ include '../includes/profil.php';
 </head>
 <body>
 <?php
-addUserCheck();
+//addUserCheck();
 ?>
 
 <?php
@@ -101,6 +101,5 @@ if ($allFiche = $connexionDb->getAllFicheFrom($login)) {
 echo "</div>";
 ?>
 
-<?php include '../includes/footer.php'; ?>
-</body>
+<?php include '../includes/footer.php' ?>
 
