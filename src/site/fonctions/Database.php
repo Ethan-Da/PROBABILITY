@@ -1,5 +1,5 @@
 <?php
-#require_once 'RC4Cipher.php';
+
 
 #Classe permettant la connexion avec la base de données et d'effectuer des rêquetes utilisant les bons user mysql plus rapidement
 #La séparation des droits par opération sur la base de données permet de sécuriser en quelque sorte l'accés a la base.
@@ -63,8 +63,8 @@ class Database{
         return false;
     }
 
-    public function isValidAccount($user){
-        $result = $this->userQuery("SELECT * FROM compte WHERE login = ?","s",array($user));
+    public function isValidAccount($user, $pass){
+        $result = $this->userQuery("SELECT * FROM compte WHERE login = ? AND password = ?","ss",array($user, $pass));
         if ($result){
             return mysqli_num_rows($result) > 0;
         }
@@ -87,39 +87,6 @@ class Database{
             return true;
         }
     }
-    
-    /*
-
-    //fonction pour ajoute le mail de l'utilisateur qui veut reset son password
-    public function addNewResetPassword($code, $email){
-        $this->userQuery("INSERT INTO resetPasswords(code, email) VALUES (?, ?)" ,"ss",array($code,$email));
-        return true;
-
-    }
-
-    public function getEmail($code){
-        $result = $this->userQuery("SELECT email FROM resetPasswords WHERE code = ?", "s", array($code));
-
-        if ($result === false) {
-            error_log("Erreur de requête SQL dans getEmail pour le code : $code", 3, 'erreurBD.log');
-            return false;
-        }
-
-        return $result;
-    }
-
-
-    public function updatePassword($user,$pass){
-        return $this->userQuery("UPDATE compte SET password = ? WHERE login = ?" ,"ss",array($pass,$user));
-
-    }
-
-    public function deleteEmail($email,$code) {
-        return $this->userQuery("UPDATE resetPasswords SET email = '' WHERE code = ?", "s", array($email,$code));
-    }
-    */
-
-
 
     public function getAllAccount(){
         return $this->adminQuery("SELECT * FROM compte");
@@ -146,27 +113,4 @@ class Database{
     public function deleteFiche($id_fiche){
         return $this->adminQuery("DELETE FROM `fiche_calcul` WHERE `fiche_calcul`.`id_fiche` = $id_fiche;");
     }
-    /*
-    function hashPassword($password, $key) {
-        $rc4 = new RC4Cipher($key);
-        return $rc4->encrypt($password);
-    }
-
-    function verifyPassword($inputPassword, $storedHash, $key) {
-        $rc4 = new RC4Cipher($key);
-        $encryptedInput = $rc4->encrypt($inputPassword);
-        return $encryptedInput === $storedHash;
-    }
-
-    // Exemple d'utilisation pour stocker un mot de passe
-    function storeUserPassword($username, $password)
-    {
-        $key = "VotreClefSecrete"; // Utilisez une clé sécurisée !
-        $hashedPassword = hashPassword($password, $key);
-
-        // Stockez $username et $hashedPassword dans votre base de données
-        // ou fichier texte
-
-    }
-    */
 }
