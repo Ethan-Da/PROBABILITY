@@ -14,13 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         else {
-            // Création d'une instance RC4 avec une clé secrète
-            $key = "Key"; // Insérer une clé sécurisée !
-            $rc4 = new RC4Cipher($key);
-
+            $rc4 = new RC4Cipher("Key");
             // Chiffrement du mot de passe avec RC4
             $encryptedPassword = $rc4->encrypt($_POST['pass']);
-
             $connexionDB = new Database();
             // Utilisation du mot de passe chiffré avec RC4 au lieu de md5
             if ($connexionDB->addNewAccount($_POST['login'], $encryptedPassword)) {

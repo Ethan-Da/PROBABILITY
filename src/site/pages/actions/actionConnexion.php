@@ -2,6 +2,7 @@
 require_once "../../fonctions/captcha.php";
 require_once "../../fonctions/Database.php";
 require_once "../../fonctions/fonctionsLogs.php";
+require_once "../../fonctions/RC4Cipher.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -20,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }else{
                 $error = 1;
                 header('Location: ../connexion.php?error=' . $error);
-
             }
         }
     }
