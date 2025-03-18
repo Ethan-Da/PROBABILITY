@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 function calculerDiscri($a, $b, $c) {
     return ($b * $b) - (4 * $a * $c);
 }
@@ -26,3 +27,5 @@ function calculerRacinesCmp($a, $b, $delta) {
     ];
 }
 ?>
+=======
+>>>>>>> 52e487e5efb37643c199f3138831be87aef243e0
