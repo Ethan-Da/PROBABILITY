@@ -110,6 +110,12 @@ class Database{
                                         "isddddds",array($M,$methode, $E, $F, $T,$ecartType, $resultat, $login));
     }
 
+    public function saveFichePolynome($M, $a, $b, $c, $resultat_str, $login){
+        return $this-> userQuery("INSERT INTO `fiche_calcul_poly` (`id_fiche`, `date`, `module`, `a`, `b`, `c`, `resultat`, `login`) 
+                                        VALUES (NULL, current_timestamp(), ?, ?, ?, ?, ?, ?);",
+            "isddddds",array($M, $a, $b, $c, $resultat_str, $login));
+    }
+
     public function deleteFiche($id_fiche){
         return $this->adminQuery("DELETE FROM `fiche_calcul` WHERE `fiche_calcul`.`id_fiche` = $id_fiche;");
     }
