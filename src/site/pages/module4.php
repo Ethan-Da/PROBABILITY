@@ -21,24 +21,37 @@ include '../includes/profil.php';
     }
     elseif (isset($_GET['delta'])) {
         $delta = $_GET['delta'];
+        $a = $_GET['a'];
+        $b = $_GET['b'];
+        $c = $_GET['c'];
         if ($delta > 0) {
             $x1 = $_GET['x1'];
             $x2 = $_GET['x2'];
+            $resultat = [$x1, $x2];
             echo "<p>Le discriminant (Δ) est positif : Δ = $delta</p>";
             echo "<p>Les racines réelles de l'équation sont : x1 = $x1 et x2 = $x2</p>";
         }
         elseif ($delta == 0) {
             $x = $_GET['x'];
+            $resultat = [$x];
             echo "<p>Le discriminant (Δ) est nul : Δ = $delta</p>";
             echo "<p>Il y a une racine réelle unique : x = $x</p>";
         }
         else {
             $z1 = $_GET['z1'];
             $z2 = $_GET['z2'];
+            $resultat = [$z1, $z2];
             echo "<p>Le discriminant (Δ) est négatif : Δ = $delta</p>";
             echo "<p>Les racines complexes sont : z1 = $z1 et z2 = $z2</p>";
         }
+
+        $resultat_str = implode(', ', $resultat);
         ?>
+
+        <div class="button-group">
+            <button type="button" class="btn-retour" id="btn-retour">Retour</button>
+            <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFichePoly.php?&a=$a&b=$b&c=$c&resultat=$resultat_str&module=4'>Sauvegarder</a>" ?>
+        </div>
         <?php
     }
     else {
