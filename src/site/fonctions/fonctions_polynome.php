@@ -1,21 +1,21 @@
 <?php
-<<<<<<< HEAD
+
 function calculerDiscri($a, $b, $c) {
     return ($b * $b) - (4 * $a * $c);
 }
 
 function calculerRacinesR($a, $b, $delta) {
-    $x1 = (-$b + sqrt($delta)) / (2 * $a);
-    $x2 = (-$b - sqrt($delta)) / (2 * $a);
+    $x1 = round((-$b + sqrt($delta)) / (2 * $a),3);
+    $x2 = round((-$b - sqrt($delta)) / (2 * $a),3);
 
     return [$x1,$x2];
 }
 function calculerRacineUnique($a, $b) {
-    return -$b / (2 * $a) ;
+    return round(-$b / (2 * $a),3) ;
 }
 function calculerRacinesCmp($a, $b, $delta) {
     $partieR = -$b / (2 * $a);
-    $partieIm = sqrt(abs($delta)) / (2 * $a);
+    $partieIm = round(sqrt(abs($delta)) / (2 * $a), 3);
 
     // Construction des chaînes représentant les nombres complexes
     $z1 = $partieR . ' + ' . $partieIm . 'i';
@@ -27,5 +27,4 @@ function calculerRacinesCmp($a, $b, $delta) {
     ];
 }
 ?>
-=======
->>>>>>> 52e487e5efb37643c199f3138831be87aef243e0
+
