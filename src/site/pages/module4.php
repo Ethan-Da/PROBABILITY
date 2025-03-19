@@ -50,7 +50,7 @@ addUserCheck();  // Vérification des droits d'accès
             echo "<p>Le discriminant (Δ) est négatif : Δ = $delta</p>";
             $delta = -$delta;
             echo "<p>Les racines complexes sont : </p>";
-            echo "<div>\\[ x_{1} = \\frac{ $b-"."i"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."i"."\\sqrt{$delta}}{$a} " . " \\]</div>";
+            echo "<div>\\[ z_{1} = \\frac{ $b-"."i"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ z_{2} = \\frac{ $b+"."i"."\\sqrt{$delta}}{$a} " . " \\]</div>";
 
             echo "<p>Les racines complexes calculées sont : z1 = $z1 et z2 = $z2</p>";
         }
@@ -59,8 +59,7 @@ addUserCheck();  // Vérification des droits d'accès
         ?>
 
         <div class="button-group">
-            <button type="button" class="btn-retour" id="btn-retour">Retour</button>
-            <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFichePoly.php?&a=$a&b=$b&c=$c&resultat=$resultat_str&module=4'>Sauvegarder</a>" ?>
+            <a href="module4.php"><button type="button" class="btn-retour" id="btn-retour">Retour</button></a>
         </div>
         <?php
     }
