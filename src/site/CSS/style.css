@@ -1,3 +1,18 @@
+/* General */
+input[type = number]{
+    border-radius: 7px;
+    border: 2px lightgray;
+    border-style: groove;
+}
+input[type = number]:focus{
+    border: 2px orange;
+    border-style: groove;
+}
+input[type = number]:hover{
+    background: lightgray;
+}
+
+
 /* Responsive */
 
 @media only screen and (max-width: 600px) {
@@ -212,6 +227,9 @@ footer {
     width: 80%;
     max-width: 800px;
 }
+#welcome-message-m4{
+    background: #00bcdd;
+}
 
 .none-connection-message {
     font-size: 1.2em;
@@ -245,20 +263,25 @@ footer {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 37px;
+    font-size: 75px;
     padding: 25px 0;
 }
 
 .titre h2a, .titre h2c {
-    font-size: 40px;
     margin: 0 10px;
 }
 
 .titre h2b {
-    color: #ffa500; /* Orange vif */
-    background-color: #333333; /* Fond sombre pour un meilleur contraste */
     padding: 5px 10px;
     border-radius: 5px;
+    transform: translateY(0px);
+}
+
+#m3{
+    color: #DC143C;
+}
+#m4{
+    color: #00bcdd;
 }
 
 /* Style pour les messages d'erreur */
@@ -664,6 +687,7 @@ table.historique {
 }
 
 .btn-calcul, .btn-save, .btn-reset, .btn-retour {
+
     padding: 10px 20px;                 /* Espacement interne des boutons */
     border: none;                       /* Suppression de la bordure des boutons */
     border-radius: 4px;                /* Coins arrondis des boutons */
@@ -707,6 +731,26 @@ table.historique {
 
 .btn-reset:hover, .btn-retour:hover {
     background-color: #fd9b9b;
+}
+
+#polynome-submit{
+    margin: 5px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background: #00bcff;
+    color: #3c3c3c;
+    font-weight: bold;
+
+}
+.polynome-resultat{
+    width: fit-content;
+    display: grid;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    box-shadow: 0 4px 8px lightgray;
+    background: white;
 }
 
 /* Fin CSS Pour le Module 4 -> Module de calcul */

@@ -26,9 +26,9 @@ if (isset($_POST['E'])) {
 ?>
 <div class="container">
     <div class="titre" id="m3">
-        <h2a style="color: #DC143C;">{</h2a>
-        <h2b style="color: #DC143C; background-color: white;">Calcul Proba</h2b>
-        <h2c style="color: #DC143C;">}</h2c>
+        <h2a">{</h2a>
+        <h2b style="background-color: white;">Calcul Proba</h2b>
+        <h2c>}</h2c>
     </div>
 
     <div>

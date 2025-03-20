@@ -23,7 +23,7 @@
                     <li class="nav-item" style="margin-right: 20px;">
                         <a href="../pages/moduleCrypto.php" class="bouton-nav" id="bouton-nav4" title="ModuleCrypto">Crypto</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a href="../pages/module4.php" class="bouton-nav" id="bouton-nav1" title="Module4">A venir</a></li>
+                        <a href="../pages/module4.php" class="bouton-nav" id="bouton-nav1" title="Module4">Polynome</a></li>
                     <li class="nav-item" style="margin-right: 20px;">
                         <a href="../pages/gestionFiche.php" class="bouton-nav" id="bouton-nav2" title="Fiche de Calcul">Historique</a></li>';
 

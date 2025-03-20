@@ -1,7 +1,7 @@
 <?php
 include '../includes/header.php';
 require_once '../fonctions/fonctions_polynome.php';
-require_once "../fonctions/fonctions.php";
+require_once "../fonctions/fonctionsDroits.php";
 include '../includes/profil.php';
 
 addUserCheck();  // Vérification des droits d'accès
@@ -15,8 +15,12 @@ addUserCheck();  // Vérification des droits d'accès
 <?php include '../includes/navbar.php'; ?>
 
 <div>
-    <h2>Module Polynôme</h2>
-    <p>Résolution d'une équation du second degré : ax² + bx + c = 0</p>
+    <h2 class="titre" id="m4">
+        <h2a>{</h2a>
+        <h2b>Module Polynôme</h2b>
+        <h2c>}</h2c>
+    </h2>
+    <p id="welcome-message-m4" class="welcome-message eb-garamond-text">Résolution d'une équation du second degré : ax² + bx + c = 0</p>
 
     <?php
     // Affichage des résultats si présents dans l'URL
@@ -30,37 +34,41 @@ addUserCheck();  // Vérification des droits d'accès
             $x1 = $_GET['x1'];
             $x2 = $_GET['x2'];
             $resultat = [$x1, $x2];
-            echo "<p>Le discriminant (Δ) est positif : Δ = $delta</p>";
-            echo "<p>Les racines réelles sont : </p>";
-            echo "<div>\\[ x_{1} = \\frac{ $b-"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."\\sqrt{$delta}}{$a} " . " \\]</div>";
-            echo "<p>Les racines réelles de l'équation sont : x1 = $x1 et x2 = $x2</p>";
+            echo "<div class='container'>
+                  <p>Le discriminant (Δ) est positif : Δ = $delta</p>
+                  <p>Les racines réelles sont : </p>
+                  <div>\\[ x_{1} = \\frac{ $b-"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."\\sqrt{$delta}}{$a} " . " \\]</div>
+                  <p>Les racines réelles de l'équation sont : x1 = $x1 et x2 = $x2</p>
+                  </div>";
         }
         elseif ($delta == 0) {
             $x = $_GET['x'];
             $resultat = [$x];
-            echo "<p>Le discriminant (Δ) est nul : Δ = $delta</p>";
-            echo "<p>La racine réelle est : </p>";
-            echo "<div>\\[ x_{1} = \\frac{ $b}{$a}</div>";
-            echo "<p>Il y a une racine réelle unique : x = $x</p>";
+            echo "<div class='container'>
+                  <p >Le discriminant (Δ) est nul : Δ = $delta</p>
+                  <p>La racine réelle est : </p>
+                  <div>\\[ x_{1} = \\frac{ $b}{$a}</div>
+                  <p>Il y a une racine réelle unique : x = $x</p>
+                  </div>";
         }
         else {
             $z1 = $_GET['z1'];
             $z2 = $_GET['z2'];
             $resultat = [$z1, $z2];
+            echo "<div class='container'>";
             echo "<p>Le discriminant (Δ) est négatif : Δ = $delta</p>";
             $delta = -$delta;
-            echo "<p>Les racines complexes sont : </p>";
-            echo "<div>\\[ x_{1} = \\frac{ $b-"."i"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."i"."\\sqrt{$delta}}{$a} " . " \\]</div>";
-
-            echo "<p>Les racines complexes calculées sont : z1 = $z1 et z2 = $z2</p>";
+            echo "<p>Les racines complexes sont : </p>
+                  <div>\\[ x_{1} = \\frac{ $b-"."i"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."i"."\\sqrt{$delta}}{$a} " . " \\]</div>
+                  <p>Les racines complexes calculées sont : z1 = $z1 et z2 = $z2</p>
+                  </div>";
         }
 
         $resultat_str = implode(', ', $resultat);
         ?>
 
         <div class="button-group">
-            <button type="button" class="btn-retour" id="btn-retour">Retour</button>
-            <?php echo "<a class='btn-save' id='btn-sauvegarder' href='./actions/saveFichePoly.php?&a=$a&b=$b&c=$c&resultat=$resultat_str&module=4'>Sauvegarder</a>" ?>
+            <button type="button"  id="polynome-submit">Retour</button>
         </div>
         <?php
     }
@@ -87,7 +95,7 @@ addUserCheck();  // Vérification des droits d'accès
                 </div>
 
                 <div class="form-group">
-                    <button type="submit">Résoudre</button>
+                    <button type="submit" id="polynome-submit">Résoudre</button>
                 </div>
             </form>
         </div>
