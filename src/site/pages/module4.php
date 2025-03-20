@@ -4,7 +4,7 @@ require_once '../fonctions/fonctions_polynome.php';
 require_once "../fonctions/fonctionsDroits.php";
 include '../includes/profil.php';
 
-addUserCheck();  // Vérification des droits d'accès
+ // Vérification des droits d'accès
 ?>
 <head>
     <title>Module Polynôme</title>
@@ -29,7 +29,6 @@ addUserCheck();  // Vérification des droits d'accès
         $delta = $_GET['delta'];
         $a = 2*$_GET['a'];
         $b = -$_GET['b'];
-        $c = $_GET['c'];
         if ($delta > 0) {
             $x1 = $_GET['x1'];
             $x2 = $_GET['x2'];
@@ -38,7 +37,7 @@ addUserCheck();  // Vérification des droits d'accès
                   <p>Le discriminant (Δ) est positif : Δ = $delta</p>
                   <p>Les racines réelles sont : </p>
                   <div>\\[ x_{1} = \\frac{ $b-"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."\\sqrt{$delta}}{$a} " . " \\]</div>
-                  <p>Les racines réelles de l'équation sont : x1 = $x1 et x2 = $x2</p>
+                  <p>Les racines réelles calculées de l'équation sont : x1 = $x1 et x2 = $x2</p>
                   </div>";
         }
         elseif ($delta == 0) {
@@ -59,7 +58,7 @@ addUserCheck();  // Vérification des droits d'accès
             echo "<p>Le discriminant (Δ) est négatif : Δ = $delta</p>";
             $delta = -$delta;
             echo "<p>Les racines complexes sont : </p>
-                  <div>\\[ x_{1} = \\frac{ $b-"."i"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."i"."\\sqrt{$delta}}{$a} " . " \\]</div>
+                  <div>\\[ z_{1} = \\frac{ $b-"."i"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ z_{2} = \\frac{ $b+"."i"."\\sqrt{$delta}}{$a} " . " \\]</div>
                   <p>Les racines complexes calculées sont : z1 = $z1 et z2 = $z2</p>
                   </div>";
         }
@@ -68,7 +67,7 @@ addUserCheck();  // Vérification des droits d'accès
         ?>
 
         <div class="button-group">
-            <button type="button"  id="polynome-submit">Retour</button>
+            <a href="module4.php"> <button type="button" id="polynome-submit">Retour</button></a>
         </div>
         <?php
     }
