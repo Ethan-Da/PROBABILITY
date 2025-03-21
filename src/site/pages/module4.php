@@ -9,17 +9,6 @@ include '../includes/profil.php';
 <head>
     <title>Module Polynôme</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']]
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
@@ -46,7 +35,7 @@ include '../includes/profil.php';
             echo "<div class='container'>
                   <p>Le discriminant (Δ) est positif : Δ = $delta</p>
                   <p>Les racines réelles sont : </p>
-                  <div>\\[ x_{1} = \\frac{ $b-"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."\\sqrt{$delta}}{$a} " . " \\]</div>
+                  <div>\\[ x_{1} = \\frac{ $b-"."\\sqrt{$delta}}{{$a}} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."\\sqrt{$delta}}{{$a}} " . " \\]</div>
                   <p>Les racines réelles calculées de l'équation sont : x1 = $x1 et x2 = $x2</p>
                   </div>";
         }
@@ -57,7 +46,7 @@ include '../includes/profil.php';
             echo "<div class='container'>
                   <p >Le discriminant (Δ) est nul : Δ = $delta</p>
                   <p>La racine réelle est : </p>
-                  <div>\\[ x_{1} = \\frac{ $b}{$a}</div>
+                  <div>\\[ x_{1} = \\frac{ $b}{{$a}}</div>
                   <p>Il y a une racine réelle unique : x = $x</p>
                   </div>";
         }
@@ -78,7 +67,7 @@ include '../includes/profil.php';
             echo "<p>Le discriminant (Δ) est négatif : Δ = $delta</p>";
             $delta = -$delta;
             echo "<p>Les racines complexes sont : </p>
-          <div>\\[ z_{1} = \\frac{ $b-"."i"."\\sqrt{$delta}}{$a} " . " \\] ou \\[ z_{2} = \\frac{ $b+"."i"."\\sqrt{$delta}}{$a} " . " \\]</div>
+          <div>\\[ x_{1} = \\frac{ $b-"."\\sqrt{$delta}}{{$a}} " . " \\] ou \\[ x_{2} = \\frac{ $b+"."\\sqrt{$delta}}{{$a}} " . " \\]</div>
           <p>Les racines complexes calculées sont : z1 = $z2 et z2 = $z1</p>
           </div>";
         }
