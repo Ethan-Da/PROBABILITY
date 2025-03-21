@@ -66,14 +66,14 @@ include '../includes/navbar.php';
         $allAccount = $database->getAllAccount();
 
         echo "<form action='gestionCompte.php' method='post' class='crypto-form'>
-            <input type='text' name='login' placeholder='login'  id =' #crypto-id'>
-            <input type='text' name='pass' placeholder='mdp'  id =' #crypto-id'>
-            <input type='submit' name='creerCompte' value='Ajouter un nouveau compte'  id =' #crypto-id'>
+            <input type='text' name='login' placeholder='login'  id ='crypto-id'>
+            <input type='text' name='pass' placeholder='mdp'  id ='crypto-id'>
+            <input type='submit' name='creerCompte' value='Ajouter un nouveau compte'  id ='crypto-id'>
             </form>
-            <form action='gestionCompte.php' method='post' enctype='multipart/form-data' class='crypto-form #crypto-id'>
-            <input type='file' name='file' value=''  id =' #crypto-id'/>
-            <input type='submit' name='creerCompteCSV' value='Ajouter plusieurs comptes avec un fichier csv'  id =' #crypto-id'/>
-            <input type='submit' name='creerCompteJSON' value='Ajouter plusieurs comptes avec un fichier JSON'  id =' #crypto-id'/></form>";
+            <form action='gestionCompte.php' method='post' enctype='multipart/form-data' class='crypto-form'>
+            <input type='file' name='file' value=''  id =' crypto-id'/>
+            <input type='submit' name='creerCompteCSV' value='Ajouter plusieurs comptes avec un fichier csv'  id ='crypto-id'/>
+            <input type='submit' name='creerCompteJSON' value='Ajouter plusieurs comptes avec un fichier JSON'  id ='crypto-id'/></form>";
 
         echo "<table class='historique'>";
         echo "<tr><th>Login</th><th>Mot de passe</th><th>Ip utilisé</th><th>Dernière connexion</th><th>Action</th></tr>";
