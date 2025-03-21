@@ -545,6 +545,13 @@ table.historique {
     transition: background-color 0.3s ease;
 }
 
+#crypto-id{
+    color: black;
+
+}
+
+
+
 .crypto-form input[name="submitChiffrer"] {
     background-color: #28a745; /* Vert pour "Chiffrer" */
 }
