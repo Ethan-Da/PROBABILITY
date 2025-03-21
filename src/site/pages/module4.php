@@ -4,7 +4,7 @@ require_once '../fonctions/fonctions_polynome.php';
 require_once "../fonctions/fonctionsDroits.php";
 include '../includes/profil.php';
 
-//addUserCheck();  // Vérification des droits d'accès
+addUserCheck();  // Vérification des droits d'accès
 ?>
 <head>
     <title>Module Polynôme</title>

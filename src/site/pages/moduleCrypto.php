@@ -4,7 +4,7 @@ require_once '../fonctions/fonctionsDroits.php';
 require_once '../fonctions/fonctionsLogs.php';
 require_once '../fonctions/RC4Cipher.php';
 
-//addUserCheck();
+addUserCheck();
 ?>
     <title>Cryptographie</title>
 </head>

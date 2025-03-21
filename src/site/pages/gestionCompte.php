@@ -9,7 +9,7 @@ require '../fonctions/fonctionsDroits.php';
 include '../includes/profil.php';
 include '../includes/navbar.php';
 
-//addAdminWebCheck();
+addAdminWebCheck();
 ?>
 
 

@@ -2,7 +2,7 @@
 require_once '../fonctions/fonctionsDroits.php';
 require_once '../fonctions/fonctionsLogs.php';
 
-//addUserCheck();  //Vérification des droits d'accès?>
+addUserCheck();  //Vérification des droits d'accès?>
 
     <title>Calcul Proba</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
