@@ -9,7 +9,7 @@ require '../fonctions/fonctionsDroits.php';
 include '../includes/profil.php';
 include '../includes/navbar.php';
 
-addAdminWebCheck();
+//addAdminWebCheck();
 ?>
 
 
@@ -65,12 +65,12 @@ addAdminWebCheck();
 
         $allAccount = $database->getAllAccount();
 
-        echo "<form action='gestionCompte.php' method='post'>
+        echo "<form action='gestionCompte.php' method='post' class='crypto-form'>
             <input type='text' name='login' placeholder='login'>
             <input type='text' name='pass' placeholder='mdp'>
             <input type='submit' name='creerCompte' value='Ajouter un nouveau compte'>
             </form>
-            <form action='gestionCompte.php' method='post' enctype='multipart/form-data'>
+            <form action='gestionCompte.php' method='post' enctype='multipart/form-data' class='crypto-form'>
             <input type='file' name='file' value='' />
             <input type='submit' name='creerCompteCSV' value='Ajouter plusieurs comptes avec un fichier csv' />
             <input type='submit' name='creerCompteJSON' value='Ajouter plusieurs comptes avec un fichier JSON' /></form>";
