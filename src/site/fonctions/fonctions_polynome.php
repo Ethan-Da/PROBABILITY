@@ -14,7 +14,7 @@ function calculerRacineUnique($a, $b) {
     return round(-$b / (2 * $a),3) ;
 }
 function calculerRacinesCmp($a, $b, $delta) {
-    $partieR = -$b / (2 * $a);
+    $partieR = round(-$b / (2 * $a));
     $partieIm = round(sqrt(abs($delta)) / (2 * $a), 3);
 
     // Construction des chaînes représentant les nombres complexes

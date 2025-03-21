@@ -2,7 +2,7 @@
 require_once '../fonctions/fonctionsDroits.php';
 require_once '../fonctions/fonctionsLogs.php';
 
-addUserCheck();  //Vérification des droits d'accès?>
+//addUserCheck();  //Vérification des droits d'accès?>
 
     <title>Calcul Proba</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -27,7 +27,7 @@ if (isset($_POST['E'])) {
 <div class="container">
     <div class="titre" id="m3">
         <h2a">{</h2a>
-        <h2b style="background-color: white;">Calcul Proba</h2b>
+        <h2b id="m3">Calcul Proba</h2b>
         <h2c>}</h2c>
     </div>
 

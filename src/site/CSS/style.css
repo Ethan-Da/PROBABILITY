@@ -9,7 +9,7 @@ input[type = number]:focus{
     border-style: groove;
 }
 input[type = number]:hover{
-    background: lightgray;
+    background: #efefef;
 }
 
 
@@ -257,13 +257,14 @@ footer {
     margin: 20px auto;
 }
 
+
 /* Style pour le titre */
 .titre {
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 75px;
+    font-size: 37px;
     padding: 25px 0;
 }
 
@@ -275,10 +276,13 @@ footer {
     padding: 5px 10px;
     border-radius: 5px;
     transform: translateY(0px);
+    color: #ffa500; /* Orange vif */
+    background-color: #333333; /* Fond sombre pour un meilleur contraste */
 }
 
 #m3{
     color: #DC143C;
+    background-color: white;
 }
 #m4{
     color: #00bcdd;
@@ -734,7 +738,7 @@ table.historique {
 }
 
 #polynome-submit{
-    margin: 5px;
+    margin: 7px;
     height: 40px;
     width: 100px;
     border-radius: 10px;
@@ -749,7 +753,7 @@ table.historique {
     justify-content: center;
     align-self: center;
     text-align: center;
-    box-shadow: 0 4px 8px lightgray;
+    box-shadow: 0 4px 8px #f1f1f1;
     background: white;
 }
 
