@@ -2,36 +2,24 @@
 
 
 function logConnec($succes){
-    $fcsv = fopen("../logs/activites.csv", "w");
-    $array = [$_SERVER['REMOTE_ADDR'],date("Y-m-d H:i:s") ,$_SESSION['login'],"Tentative de connexion",$succes];
-    fputcsv($fcsv, $array);
-    fclose($fcsv);
+
+    $date = getdate();
+    $fjson = fopen("../logs/log-"."$date[mday]"."-$date[mon]"."-$date[year]".".json", "a+");
+
+    ##$array = [$_SERVER['REMOTE_ADDR'],date("d-m-Y H:i:s") ,$_SESSION['login'],"Tentative de connexion",$succes];
+
+    $dict = array("date"=>date("d-m-Y"),
+                "heure" => date("H:i:s"),
+                "ip"=>"194.182.29.1",
+                "login" => "tata",
+                "success"=>true);
+
+    $json = json_encode($dict);
+    file_put_contents("../logs/log-"."$date[mday]"."-$date[mon]"."-$date[year]".".json", $json, FILE_APPEND);
+    fclose($fjson);
 }
 
-function logSignIn($succes){
-    $fcsv = fopen("../logs/activites.csv", "w");
-    $array = [$_SERVER['REMOTE_ADDR'],date("Y-m-d H:i:s") ,$_SESSION['login'],"Tentative d'inscription",$succes];
-    fputcsv($fcsv, $array);
-    fclose($fcsv);
-}
+logConnec(true);
 
-function logUseModule($succes, $module){
-    $fcsv = fopen("../logs/activites.csv", "w");
-    $array = [$_SERVER['REMOTE_ADDR'],date("Y-m-d H:i:s") ,$_SESSION['login'],"Utilisation du module $module",$succes];
-    fputcsv($fcsv, $array);
-    fclose($fcsv);
-}
 
-function logViewHistory($succes){
-    $fcsv = fopen("../logs/activites.csv", "w");
-    $array = [$_SERVER['REMOTE_ADDR'],date("Y-m-d H:i:s") ,$_SESSION['login'],"Utilisation de l'historique",$succes];
-    fputcsv($fcsv, $array);
-    fclose($fcsv);
-}
 
-function logDeleteFiche($succes){
-    $fcsv = fopen("../logs/activites.csv", "w");
-    $array = [$_SERVER['REMOTE_ADDR'],date("Y-m-d H:i:s") ,$_SESSION['login'],"Suppression d'une fiche de calcul",$succes];
-    fputcsv($fcsv, $array);
-    fclose($fcsv);
-}
