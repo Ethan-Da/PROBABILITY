@@ -10,7 +10,7 @@ addUserCheck();  //Vérification des droits d'accès
 // Fonction pour récupérer le chemin absolu des logs
 function getLogPath() {
     // Utilisez le chemin réel vers votre dossier de logs
-    return __DIR__ . '/../logs'; // Ajustez selon votre structure de dossiers
+    return __DIR__ . '/logs'; // Ajustez selon votre structure de dossiers
 }
 
 // Traitement des actions
