@@ -32,6 +32,11 @@
                         <a href="../pages/gestionCompte.php" class="bouton-nav" id="bouton-nav0" title="Gestion des comptes">Gestion Comptes</a></li>';
             }
 
+        if ($_SESSION["login"] == "adminsys"){
+            echo '<li class="nav-item" style="margin-right: 20px;">
+                        <a href="../pages/moduleAdminSys.php" class="bouton-nav" id="bouton-nav0" title="Module admin SYS">Module admin SYS/a></li>';
+        }
+
             echo '           
                 </ul>
                 <button class="menu" aria-label="Menu principal">
