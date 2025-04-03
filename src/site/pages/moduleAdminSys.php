@@ -107,6 +107,9 @@ $logFiles = getLogFiles();
                     <div class="log-file" id="<?php echo $logFile; ?>" draggable="true" ondragstart="dragstartHandler(event, '<?php echo $logFile; ?>')"
                          onclick="loadLogFile('<?php echo $logFile; ?>')">
                         <div><?php echo $logFile; ?></div>
+                             <div class="log-file-actions">
+                               <a href="javascript:void(0)" onclick="confirmDelete('<?php echo $logFile; ?>'); event.stopPropagation();" class="btn-small btn-danger">Supprimer</a>
+                             </div
 
                     </div>
                 <?php endforeach; ?>
