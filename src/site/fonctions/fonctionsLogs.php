@@ -4,7 +4,13 @@
 function logConnec($succes, $login){
 
     $date = getdate();
-    $fjson = file_get_contents("../logs/log-" . "$date[mday]" . "-$date[mon]" . "-$date[year]" . ".json", "a+");
+    $path = "/logs/log-"."$date[mday]"."-$date[mon]"."-$date[year]".".json";
+
+if (!file_exists($path)){
+    $file = fopen($path, "w");
+}
+
+    $fjson = file_get_contents($path);
     $json = json_decode($fjson, true);
 
     $dict = array("date"=>date("d-m-Y"),
@@ -16,7 +22,7 @@ function logConnec($succes, $login){
 
 
     $json = json_encode($json, JSON_PRETTY_PRINT);
-    file_put_contents("../logs/log-"."$date[mday]"."-$date[mon]"."-$date[year]".".json", $json);
+    file_put_contents($path, $json);
 }
 
 
