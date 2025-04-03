@@ -16,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pass = $rc4->encrypt($_POST["pass"]);
             $connexionDB = new Database();
             if ($connexionDB->isValidAccount($login, $pass)) {
-                logConnec(true);
+                logConnec(true, $login);
                 $captcha = randomIdCaptcha();
                 header('Location: ../connexion.php?login=' . $login . '&pass=' . $pass . '&captcha=' . $captcha);
             }else{
-                logConnec(false);
+                logConnec(false, $login);
                 $error = 1;
                 header('Location: ../connexion.php?error=' . $error);
             }

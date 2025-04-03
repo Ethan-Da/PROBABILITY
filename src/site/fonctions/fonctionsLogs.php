@@ -1,7 +1,7 @@
 <?php
 
 
-function logConnec($succes){
+function logConnec($succes, $login){
 
     $date = getdate();
     $fjson = file_get_contents("../logs/log-" . "$date[mday]" . "-$date[mon]" . "-$date[year]" . ".json", "a+");
@@ -9,7 +9,7 @@ function logConnec($succes){
 
     $dict = array("date"=>date("d-m-Y"),
                     "ip" => $_SERVER['REMOTE_ADDR'],
-                    "login" => $_SESSION['login'],
+                    "login" => $login,
                     "success"=>$succes);
 
     $json['logs'][date("H:i:s")] = $dict;
