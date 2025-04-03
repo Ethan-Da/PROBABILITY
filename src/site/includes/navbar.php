@@ -34,7 +34,7 @@
 
         if ($_SESSION["login"] == "adminsys"){
             echo '<li class="nav-item" style="margin-right: 20px;">
-                        <a href="../pages/moduleAdminSys.php" class="bouton-nav" id="bouton-nav0" title="Module admin SYS">Module admin SYS/a></li>';
+                        <a href="../pages/moduleAdminSys.php" class="bouton-nav" id="bouton-nav0" title="Module admin SYS">Module admin SYS</a></li>';
         }
 
             echo '           

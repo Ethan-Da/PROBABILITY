@@ -870,9 +870,6 @@ border .05s ease-out;
     border-radius: 4px;
     cursor: pointer;
 }
-.log-file:hover {
-    background-color: #f0f0f0;
-}
 .log-file-actions {
     margin-top: 5px;
 }
