@@ -33,7 +33,7 @@ if (isset($_GET['action'])) {
     // Action: Télécharger un fichier log
     if ($action === 'download' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
-        $filePath = '../logs/'.$file;
+        $filePath = '/logs/'.$file;
 
 
 
@@ -57,7 +57,7 @@ if (isset($_GET['action'])) {
     // Action: Supprimer un fichier log
     if ($action === 'delete' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
-        $filePath = '../logs/'.$file;
+        $filePath = '/logs/'.$file;
 
 
 
@@ -77,7 +77,7 @@ if (isset($_GET['action'])) {
 
 // Fonction pour récupérer la liste des fichiers logs
 function getLogFiles() {
-    $logDir = '../logs/';
+    $logDir = '/logs/';
     $logFiles = [];
 
 
@@ -119,7 +119,7 @@ $logFiles = getLogFiles();
                          onclick="loadLogFile('<?php echo $logFile; ?>')">
                         <div><?php echo $logFile; ?></div>
                         <div class="log-file-actions">
-                            <a href="<?php echo "../logs/".$logFile; ?>" download="json file" class="btn-small" >Télécharger</a>
+                            <a href="<?php echo "/logs/".$logFile; ?>" download="json file" class="btn-small" >Télécharger</a>
                             <a href="javascript:void(0)" onclick="confirmDelete('<?php echo $logFile; ?>'); event.stopPropagation();" class="btn-small btn-danger">Supprimer</a>
                         </div>
                     </div>
@@ -191,7 +191,7 @@ $logFiles = getLogFiles();
     <script>
         // Fonction pour charger un fichier log depuis le serveur
         function loadLogFile(fileName) {
-            fetch('../logs/' + fileName)
+            fetch('/logs/' + fileName)
                 .then(response => response.json())
                 .then(data => {
                     displayJsonData(data, fileName);
