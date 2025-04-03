@@ -5,7 +5,13 @@ include '../includes/profil.php';
 include '../includes/navbar.php';
 include '../includes/header.php';
 
-//addUserCheck();  //Vérification des droits d'accès
+addUserCheck();  //Vérification des droits d'accès
+
+// Fonction pour récupérer le chemin absolu des logs
+function getLogPath() {
+    // Utilisez le chemin réel vers votre dossier de logs
+    return __DIR__ . '/../logs'; // Ajustez selon votre structure de dossiers
+}
 
 // Traitement des actions
 if (isset($_GET['action'])) {
@@ -14,7 +20,7 @@ if (isset($_GET['action'])) {
     // Action: Télécharger un fichier log
     if ($action === 'download' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
-        $filePath = '/logs/'.$file;
+        $filePath = getLogPath() . '/' . $file;
 
         if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
             header('Content-Description: File Transfer');
@@ -26,13 +32,17 @@ if (isset($_GET['action'])) {
             header('Content-Length: '.filesize($filePath));
             readfile($filePath);
             exit;
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Fichier non trouvé']);
+            exit;
         }
     }
 
     // Action: Supprimer un fichier log
     if ($action === 'delete' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
-        $filePath = '/logs/'.$file;
+        $filePath = getLogPath() . '/' . $file;
 
         if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
             if (unlink($filePath)) {
@@ -42,11 +52,27 @@ if (isset($_GET['action'])) {
             }
         }
     }
+
+    // Action: Récupérer un fichier log via AJAX
+    if ($action === 'getlog' && isset($_GET['file'])) {
+        $file = basename($_GET['file']);
+        $filePath = getLogPath() . '/' . $file;
+
+        if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
+            header('Content-Type: application/json');
+            echo file_get_contents($filePath);
+            exit;
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => 'Fichier non trouvé']);
+            exit;
+        }
+    }
 }
 
 // Fonction pour récupérer la liste des fichiers logs
 function getLogFiles() {
-    $logDir = '/logs/';
+    $logDir = getLogPath();
     $logFiles = [];
 
     if (is_dir($logDir)) {
@@ -79,7 +105,7 @@ $logFiles = getLogFiles();
                          onclick="loadLogFile('<?php echo $logFile; ?>')">
                         <div><?php echo $logFile; ?></div>
                         <div class="log-file-actions">
-                            <a href="<?php echo "/logs/".$logFile; ?>" download="json file" class="btn-small" >Télécharger</a>
+                            <a href="?action=download&file=<?php echo urlencode($logFile); ?>" class="btn-small">Télécharger</a>
                             <a href="javascript:void(0)" onclick="confirmDelete('<?php echo $logFile; ?>'); event.stopPropagation();" class="btn-small btn-danger">Supprimer</a>
                         </div>
                     </div>
@@ -130,8 +156,14 @@ $logFiles = getLogFiles();
     <script>
         // Fonction pour charger un fichier log depuis le serveur
         function loadLogFile(fileName) {
-            fetch('/logs/' + fileName)
-                .then(response => response.json())
+            // Utiliser une URL dédiée pour récupérer les fichiers JSON
+            fetch('?action=getlog&file=' + encodeURIComponent(fileName))
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur HTTP ' + response.status);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     displayJsonData(data, fileName);
                 })
@@ -148,6 +180,63 @@ $logFiles = getLogFiles();
             }
         }
 
+        // Fonction pour normaliser les données JSON en format standard
+        function normalizeLogData(data) {
+            // Si les données sont déjà au format attendu
+            if (data.logs && typeof data.logs === 'object') {
+                return data;
+            }
+
+            // Convertir d'autres formats en format standard
+            let normalizedData = {
+                logs: {}
+            };
+
+            // Format tableau
+            if (Array.isArray(data)) {
+                data.forEach((entry, index) => {
+                    let timeKey = entry.time || entry.timestamp || ('entry_' + index);
+                    normalizedData.logs[timeKey] = {
+                        date: entry.date || '',
+                        ip: entry.ip || '',
+                        login: entry.login || entry.user || entry.username || '',
+                        success: entry.success !== undefined ? entry.success :
+                            (entry.status === 'success' ? true : (entry.status === 'failure' ? false : false))
+                    };
+                });
+            }
+            // Format objet plat ou autre
+            else if (typeof data === 'object') {
+                // Vérifier si c'est un objet simple ou une collection d'objets
+                if (data.date || data.ip || data.login || data.user || data.username) {
+                    // Objet simple
+                    let timeKey = data.time || data.timestamp || 'entry_0';
+                    normalizedData.logs[timeKey] = {
+                        date: data.date || '',
+                        ip: data.ip || '',
+                        login: data.login || data.user || data.username || '',
+                        success: data.success !== undefined ? data.success :
+                            (data.status === 'success' ? true : (data.status === 'failure' ? false : false))
+                    };
+                } else {
+                    // Collection d'objets avec des clés comme identifiants
+                    Object.entries(data).forEach(([key, value]) => {
+                        if (typeof value === 'object') {
+                            normalizedData.logs[key] = {
+                                date: value.date || '',
+                                ip: value.ip || '',
+                                login: value.login || value.user || value.username || '',
+                                success: value.success !== undefined ? value.success :
+                                    (value.status === 'success' ? true : (value.status === 'failure' ? false : false))
+                            };
+                        }
+                    });
+                }
+            }
+
+            return normalizedData;
+        }
+
         // Fonction pour afficher les données JSON
         function displayJsonData(data, fileName) {
             const jsonContent = document.getElementById('jsonContent');
@@ -155,104 +244,62 @@ $logFiles = getLogFiles();
             const tbody = document.getElementById('json-cont');
 
             // Réinitialiser le contenu
-            contentTitle.textContent = 'Contenu du fichier: ' + fileName;
+            contentTitle.textContent = '';
             tbody.innerHTML = "";
-            jsonContent.style.display = 'block';
 
-            // Déterminer le format des données et les traiter en conséquence
-            let logsList = [];
+            try {
+                // Normaliser les données pour les rendre compatibles
+                const normalizedData = normalizeLogData(data);
 
-            // Format standard avec structure data.logs
-            if (data.logs && typeof data.logs === 'object') {
-                logsList = Object.entries(data.logs).map(([time, log]) => [
-                    log.date || '', // Date
-                    time || '',     // Heure
-                    log.ip || '',   // IP
-                    log.login || '', // Login
-                    log.success !== undefined ? log.success : '' // Succès
+                // Afficher le titre
+                contentTitle.textContent = 'Contenu du fichier: ' + fileName;
+                jsonContent.style.display = 'block';
+
+                // Transformer les données en tableau pour l'affichage
+                const logsList = Object.entries(normalizedData.logs).map(([time, log]) => [
+                    log.date || '',
+                    time || '',
+                    log.ip || '',
+                    log.login || '',
+                    log.success !== undefined ? log.success : ''
                 ]);
-            }
-            // Format alternatif: tableau d'entrées de log
-            else if (Array.isArray(data)) {
-                logsList = data.map(entry => {
-                    // Extraire l'heure et la date si disponibles
-                    let date = entry.date || '';
-                    let time = entry.time || '';
 
-                    // Si l'entrée a un timestamp complet, essayer de l'extraire
-                    if (entry.timestamp) {
-                        const parts = entry.timestamp.split(' ');
-                        if (parts.length >= 2) {
-                            date = parts[0];
-                            time = parts[1];
+                console.log('Données normalisées:', logsList);
+
+                // Afficher les données dans le tableau
+                for (let i = 0; i < logsList.length; i++) {
+                    const logEntry = document.createElement('tr');
+                    logEntry.className = 'log-entry';
+
+                    // Assurer que toutes les données sont affichées correctement (conversion de booléens en texte)
+                    const displayValues = logsList[i].map(value => {
+                        if (typeof value === 'boolean') {
+                            return value ? 'true' : 'false';
                         }
-                    }
+                        return value;
+                    });
 
-                    return [
-                        date,
-                        time,
-                        entry.ip || '',
-                        entry.login || entry.user || entry.username || '',
-                        entry.success !== undefined ? entry.success : (entry.status === 'success' ? true : (entry.status === 'failure' ? false : ''))
-                    ];
-                });
-            }
-            // Format plat avec propriétés directes
-            else if (typeof data === 'object') {
-                // Vérifier si nous avons un objet simple
-                const entries = Object.entries(data);
-                if (entries.length > 0) {
-                    // Vérifier si les entrées sont des objets ou des valeurs simples
-                    if (typeof entries[0][1] === 'object') {
-                        // Format où les clés principales sont des timestamps ou identifiants
-                        logsList = entries.map(([key, value]) => {
-                            // Essayer de déterminer si la clé est une heure
-                            const isTimeKey = /^\d{1,2}:\d{1,2}(:\d{1,2})?$/.test(key);
-
-                            return [
-                                value.date || '',
-                                isTimeKey ? key : (value.time || ''),
-                                value.ip || '',
-                                value.login || value.user || value.username || '',
-                                value.success !== undefined ? value.success : (value.status === 'success' ? true : (value.status === 'failure' ? false : ''))
-                            ];
-                        });
-                    } else {
-                        // Format d'une seule entrée de log
-                        logsList = [[
-                            data.date || '',
-                            data.time || '',
-                            data.ip || '',
-                            data.login || data.user || data.username || '',
-                            data.success !== undefined ? data.success : (data.status === 'success' ? true : (data.status === 'failure' ? false : ''))
-                        ]];
-                    }
+                    logEntry.innerHTML = `
+                    <td><p>${displayValues[0]}</p></td>
+                    <td><p>${displayValues[1]}</p></td>
+                    <td><p>${displayValues[2]}</p></td>
+                    <td><p>${displayValues[3]}</p></td>
+                    <td><p>${displayValues[4]}</p></td>
+                `;
+                    tbody.appendChild(logEntry);
                 }
-            }
+            } catch (error) {
+                console.error('Erreur lors du traitement des données:', error);
 
-            console.log(logsList);
+                // Afficher un message d'erreur
+                contentTitle.textContent = 'Erreur de traitement du fichier: ' + fileName;
+                jsonContent.style.display = 'block';
 
-            // Afficher les données dans le tableau
-            for (let i = 0; i < logsList.length; i++) {
-                const logEntry = document.createElement('tr');
-                logEntry.className = 'log-entry';
-
-                // Assurer que toutes les données sont affichées correctement (conversion de booléens en texte)
-                const displayValues = logsList[i].map(value => {
-                    if (typeof value === 'boolean') {
-                        return value ? 'true' : 'false';
-                    }
-                    return value;
-                });
-
-                logEntry.innerHTML = `
-                <td><p>${displayValues[0]}</p></td>
-                <td><p>${displayValues[1]}</p></td>
-                <td><p>${displayValues[2]}</p></td>
-                <td><p>${displayValues[3]}</p></td>
-                <td><p>${displayValues[4]}</p></td>
+                const errorRow = document.createElement('tr');
+                errorRow.innerHTML = `
+                <td colspan="5"><p class="error">Impossible d'interpréter le fichier. Format non compatible.</p></td>
             `;
-                tbody.appendChild(logEntry);
+                tbody.appendChild(errorRow);
             }
         }
 
