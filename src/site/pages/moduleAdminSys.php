@@ -5,26 +5,16 @@ include '../includes/profil.php';
 include '../includes/navbar.php';
 include '../includes/header.php';
 
-
-
-
-addUserCheck();  //Vérification des droits d'accès
-
-
-// Démarrage de la session
-//session_start();
-
+//addUserCheck();  //Vérification des droits d'accès
 
 // Traitement des actions
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 
-
     // Action: Télécharger un fichier log
     if ($action === 'download' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
         $filePath = '/logs/'.$file;
-
 
         if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
             header('Content-Description: File Transfer');
@@ -39,12 +29,10 @@ if (isset($_GET['action'])) {
         }
     }
 
-
     // Action: Supprimer un fichier log
     if ($action === 'delete' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
         $filePath = '/logs/'.$file;
-
 
         if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
             if (unlink($filePath)) {
@@ -56,12 +44,10 @@ if (isset($_GET['action'])) {
     }
 }
 
-
 // Fonction pour récupérer la liste des fichiers logs
 function getLogFiles() {
     $logDir = '/logs/';
     $logFiles = [];
-
 
     if (is_dir($logDir)) {
         $files = scandir($logDir);
@@ -74,542 +60,286 @@ function getLogFiles() {
         rsort($logFiles);
     }
 
-
     return $logFiles;
 }
 
-
 // Récupération de la liste des fichiers logs
 $logFiles = getLogFiles();
 ?>
-<body>
-<div class="container">
-    <!-- Sidebar avec la liste des fichiers logs -->
-    <div class="sidebar">
-        <h2>Fichiers de logs</h2>
-        <?php if (empty($logFiles)): ?>
-            <p>Aucun fichier log disponible.</p>
-        <?php else: ?>
-            <?php foreach ($logFiles as $logFile): ?>
-                <div class="log-file" id="<?php echo $logFile; ?>" draggable="true" ondragstart="dragstartHandler(event, '<?php echo $logFile; ?>')"
-                     onclick="loadLogFile('<?php echo $logFile; ?>')">
-                    <div><?php echo $logFile; ?></div>
-                    <div class="log-file-actions">
-                        <a href="<?php echo "/logs/".$logFile; ?>" download="json file" class="btn-small" >Télécharger</a>
-                        <a href="javascript:void(0)" onclick="confirmDelete('<?php echo $logFile; ?>'); event.stopPropagation();" class="btn-small btn-danger">Supprimer</a>
+    <body>
+    <div class="container">
+        <!-- Sidebar avec la liste des fichiers logs -->
+        <div class="sidebar">
+            <h2>Fichiers de logs</h2>
+            <?php if (empty($logFiles)): ?>
+                <p>Aucun fichier log disponible.</p>
+            <?php else: ?>
+                <?php foreach ($logFiles as $logFile): ?>
+                    <div class="log-file" id="<?php echo $logFile; ?>" draggable="true" ondragstart="dragstartHandler(event, '<?php echo $logFile; ?>')"
+                         onclick="loadLogFile('<?php echo $logFile; ?>')">
+                        <div><?php echo $logFile; ?></div>
+                        <div class="log-file-actions">
+                            <a href="<?php echo "/logs/".$logFile; ?>" download="json file" class="btn-small" >Télécharger</a>
+                            <a href="javascript:void(0)" onclick="confirmDelete('<?php echo $logFile; ?>'); event.stopPropagation();" class="btn-small btn-danger">Supprimer</a>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-
-
-    <!-- Contenu principal -->
-    <div class="content">
-
-
-        <?php if (isset($deleteSuccess)): ?>
-            <div class="notification success"><?php echo $deleteSuccess; ?></div>
-        <?php endif; ?>
-
-
-        <?php if (isset($deleteError)): ?>
-            <div class="notification error"><?php echo $deleteError; ?></div>
-        <?php endif; ?>
-
-
-        <!-- Zone de drag & drop pour les fichiers JSON -->
-        <div id="dropZone" class="drop-zone">
-            <p>Glissez-déposez un fichier log JSON ici pour visualiser son contenu</p>
-            <p>ou</p>
-            <label for="fileInput" class="btn">Sélectionner un fichier</label>
-            <input type="file" id="fileInput" style="display: none;" accept=".json">
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
+        <!-- Contenu principal -->
+        <div class="content">
 
-        <!-- Zone d'affichage du contenu JSON -->
-        <div id="jsonContent" class="json-content" style="display: none;">
-            <h2 id="json-content-title"></h2>
-            <table class="historique">
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Heure</th>
-                    <th>IP</th>
-                    <th>login</th>
-                    <th>success</th>
-                </tr>
-                </thead>
-                <tbody id="json-cont">
+            <?php if (isset($deleteSuccess)): ?>
+                <div class="notification success"><?php echo $deleteSuccess; ?></div>
+            <?php endif; ?>
 
+            <?php if (isset($deleteError)): ?>
+                <div class="notification error"><?php echo $deleteError; ?></div>
+            <?php endif; ?>
 
-                </tbody>
-            </table>
+            <!-- Zone de drag & drop pour les fichiers JSON -->
+            <div id="dropZone" class="drop-zone">
+                <p>Glissez-déposez un fichier log JSON ici pour visualiser son contenu</p>
+                <p>ou</p>
+                <label for="fileInput" class="btn">Sélectionner un fichier</label>
+                <input type="file" id="fileInput" style="display: none;" accept=".json">
+            </div>
+
+            <!-- Zone d'affichage du contenu JSON -->
+            <div id="jsonContent" class="json-content" style="display: none;">
+                <h2 id="json-content-title"></h2>
+                <table class="historique">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Heure</th>
+                        <th>IP</th>
+                        <th>login</th>
+                        <th>success</th>
+                    </tr>
+                    </thead>
+                    <tbody id="json-cont">
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-
-<script>
-    // Fonction pour charger un fichier log depuis le serveur
-    function loadLogFile(fileName) {
-        fetch('/logs/' + fileName)
-            .then(response => response.json())
-            .then(data => {
-                displayJsonData(data, fileName);
-            })
-            .catch(error => {
-                console.error('Erreur lors du chargement du fichier:', error);
-                alert('Erreur lors du chargement du fichier: ' + error.message);
-            });
-    }
-
-
-    // Fonction pour confirmer la suppression d'un fichier
-    function confirmDelete(fileName) {
-        if (confirm('Êtes-vous sûr de vouloir supprimer le fichier ' + fileName + ' ?')) {
-            window.location.href = '?action=delete&file=' + encodeURIComponent(fileName);
-        }
-    }
-
-
-    // Fonction pour afficher les données JSON
-    function displayJsonData(data, fileName) {
-        const jsonContent = document.getElementById('jsonContent');
-        const contentTitle = document.getElementById('json-content-title');
-        jsonContent.style.display = 'block';
-        const tbody = document.getElementById('json-cont');
-
-
-        const logsList = Object.entries(data.logs).map(([time, log]) => [
-            time, log.date, log.ip, log.login, log.success
-        ]);
-        console.log(logsList);
-
-
-        var title = document.createTextNode('Contenu du fichier: ' + fileName );
-        contentTitle.append(title);
-
-
-        tbody.innerHTML = "";
-
-
-        for (let i = 0 ; i< logsList.length; i++){
-            const logEntry = document.createElement('tr');
-            logEntry.className = 'log-entry';
-            logEntry.innerHTML = `<td><p>${logsList[i][0]}</p></td>
-                       <td><p> ${logsList[i][1]}</p></td>
-                       <td><p>${logsList[i][2]}</p></td>
-                       <td><p> ${logsList[i][3]}</p></td>
-                       <td><p>${logsList[i][4]}</p></td>`;
-            tbody.appendChild(logEntry);
-
-
+    <script>
+        // Fonction pour charger un fichier log depuis le serveur
+        function loadLogFile(fileName) {
+            fetch('/logs/' + fileName)
+                .then(response => response.json())
+                .then(data => {
+                    displayJsonData(data, fileName);
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement du fichier:', error);
+                    alert('Erreur lors du chargement du fichier: ' + error.message);
+                });
         }
 
-
-    }
-
-
-    // Configuration du drag & drop
-    const dropZone = document.getElementById('dropZone');
-    const fileInput = document.getElementById('fileInput');
-
-
-    // Événements pour le drag & drop
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, preventDefaults, false);
-    });
-
-
-    function preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    function dragstartHandler(event, fileName){
-        event.dataTransfer.setData("id", fileName);
-        console.log(fileName.toString());
-    }
-
-
-    ['dragenter', 'dragover'].forEach(eventName => {
-        dropZone.addEventListener(eventName, highlight, false);
-    });
-
-
-    ['dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, unhighlight, false);
-    });
-
-
-    function highlight() {
-        dropZone.classList.add('active');
-    }
-
-
-    function unhighlight() {
-        dropZone.classList.remove('active');
-    }
-
-
-    // Gestion de la dépose de fichier
-    dropZone.addEventListener('drop', handleDrop, false);
-
-
-    function handleDrop(e) {
-        console.log(e.dataTransfer.files.length);
-        if (e.dataTransfer.files.length > 0){
-            const dt = e.dataTransfer;
-            const files = dt.files;
-            handleFiles(files);
+        // Fonction pour confirmer la suppression d'un fichier
+        function confirmDelete(fileName) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer le fichier ' + fileName + ' ?')) {
+                window.location.href = '?action=delete&file=' + encodeURIComponent(fileName);
+            }
         }
-        else{
-            loadLogFile(e.dataTransfer.getData("id"))
-        }
-    }
 
+        // Fonction pour afficher les données JSON
+        function displayJsonData(data, fileName) {
+            const jsonContent = document.getElementById('jsonContent');
+            const contentTitle = document.getElementById('json-content-title');
+            const tbody = document.getElementById('json-cont');
 
-    // Gestion de la sélection de fichier via l'input
-    fileInput.addEventListener('change', function() {
-        handleFiles(this.files);
-    });
+            // Réinitialiser le contenu
+            contentTitle.textContent = 'Contenu du fichier: ' + fileName;
+            tbody.innerHTML = "";
+            jsonContent.style.display = 'block';
 
+            // Déterminer le format des données et les traiter en conséquence
+            let logsList = [];
 
-    // Traitement des fichiers
-    function handleFiles(files) {
-        if (files.length > 0) {
-            const file = files[0];
+            // Format standard avec structure data.logs
+            if (data.logs && typeof data.logs === 'object') {
+                logsList = Object.entries(data.logs).map(([time, log]) => [
+                    log.date || '', // Date
+                    time || '',     // Heure
+                    log.ip || '',   // IP
+                    log.login || '', // Login
+                    log.success !== undefined ? log.success : '' // Succès
+                ]);
+            }
+            // Format alternatif: tableau d'entrées de log
+            else if (Array.isArray(data)) {
+                logsList = data.map(entry => {
+                    // Extraire l'heure et la date si disponibles
+                    let date = entry.date || '';
+                    let time = entry.time || '';
 
-
-            if (file.type === 'application/json' || file.name.endsWith('.json')) {
-                const reader = new FileReader();
-
-
-                reader.onload = function(e) {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        displayJsonData(data, file.name);
-                    } catch (error) {
-                        alert('Erreur lors de l\'analyse du fichier JSON: ' + error.message);
+                    // Si l'entrée a un timestamp complet, essayer de l'extraire
+                    if (entry.timestamp) {
+                        const parts = entry.timestamp.split(' ');
+                        if (parts.length >= 2) {
+                            date = parts[0];
+                            time = parts[1];
+                        }
                     }
-                };
 
-
-                reader.readAsText(file);
-            } else {
-                alert('Veuillez sélectionner un fichier JSON.');
+                    return [
+                        date,
+                        time,
+                        entry.ip || '',
+                        entry.login || entry.user || entry.username || '',
+                        entry.success !== undefined ? entry.success : (entry.status === 'success' ? true : (entry.status === 'failure' ? false : ''))
+                    ];
+                });
             }
-        }
-    }
-
-
-    // Rendre l'input file cliquable depuis le drop zone
-    document.querySelector('label[for="fileInput"]').addEventListener('click', function() {
-        fileInput.click();
-    });
-
-
-</script>
-
-
-
-
-</body>
-<?php include '../includes/footer.php'; ?>
-<?php
-require '../fonctions/Database.php';
-require '../fonctions/fonctionsDroits.php';
-include '../includes/profil.php';
-include '../includes/navbar.php';
-include '../includes/header.php';
-
-
-
-
-addUserCheck();  //Vérification des droits d'accès
-
-
-// Démarrage de la session
-//session_start();
-
-
-// Traitement des actions
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-
-
-    // Action: Télécharger un fichier log
-    if ($action === 'download' && isset($_GET['file'])) {
-        $file = basename($_GET['file']);
-        $filePath = '/logs/'.$file;
-
-
-        if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/json');
-            header('Content-Disposition: attachment; filename="'.$file.'"');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: public');
-            header('Content-Length: '.filesize($filePath));
-            readfile($filePath);
-            exit;
-        }
-    }
-
-
-    // Action: Supprimer un fichier log
-    if ($action === 'delete' && isset($_GET['file'])) {
-        $file = basename($_GET['file']);
-        $filePath = '/logs/'.$file;
-
-
-        if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
-            if (unlink($filePath)) {
-                $deleteSuccess = "Le fichier $file a été supprimé avec succès.";
-            } else {
-                $deleteError = "Impossible de supprimer le fichier $file.";
-            }
-        }
-    }
-}
-
-
-
-// Récupération de la liste des fichiers logs
-$logFiles = getLogFiles();
-?>
-<body>
-<div class="container">
-    <!-- Sidebar avec la liste des fichiers logs -->
-    <div class="sidebar">
-        <h2>Fichiers de logs</h2>
-        <?php if (empty($logFiles)): ?>
-            <p>Aucun fichier log disponible.</p>
-        <?php else: ?>
-            <?php foreach ($logFiles as $logFile): ?>
-                <div class="log-file" id="<?php echo $logFile; ?>" draggable="true" ondragstart="dragstartHandler(event, '<?php echo $logFile; ?>')"
-                     onclick="loadLogFile('<?php echo $logFile; ?>')">
-                    <div><?php echo $logFile; ?></div>
-                    <div class="log-file-actions">
-                        <a href="<?php echo "/logs/".$logFile; ?>" download="json file" class="btn-small" >Télécharger</a>
-                        <a href="javascript:void(0)" onclick="confirmDelete('<?php echo $logFile; ?>'); event.stopPropagation();" class="btn-small btn-danger">Supprimer</a>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-
-
-    <!-- Contenu principal -->
-    <div class="content">
-
-
-        <?php if (isset($deleteSuccess)): ?>
-            <div class="notification success"><?php echo $deleteSuccess; ?></div>
-        <?php endif; ?>
-
-
-        <?php if (isset($deleteError)): ?>
-            <div class="notification error"><?php echo $deleteError; ?></div>
-        <?php endif; ?>
-
-
-        <!-- Zone de drag & drop pour les fichiers JSON -->
-        <div id="dropZone" class="drop-zone">
-            <p>Glissez-déposez un fichier log JSON ici pour visualiser son contenu</p>
-            <p>ou</p>
-            <label for="fileInput" class="btn">Sélectionner un fichier</label>
-            <input type="file" id="fileInput" style="display: none;" accept=".json">
-        </div>
-
-
-        <!-- Zone d'affichage du contenu JSON -->
-        <div id="jsonContent" class="json-content" style="display: none;">
-            <h2 id="json-content-title"></h2>
-            <table class="historique">
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Heure</th>
-                    <th>IP</th>
-                    <th>login</th>
-                    <th>success</th>
-                </tr>
-                </thead>
-                <tbody id="json-cont">
-
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    // Fonction pour charger un fichier log depuis le serveur
-    function loadLogFile(fileName) {
-        fetch('/logs/' + fileName)
-            .then(response => response.json())
-            .then(data => {
-                displayJsonData(data, fileName);
-            })
-            .catch(error => {
-                console.error('Erreur lors du chargement du fichier:', error);
-                alert('Erreur lors du chargement du fichier: ' + error.message);
-            });
-    }
-
-
-    // Fonction pour confirmer la suppression d'un fichier
-    function confirmDelete(fileName) {
-        if (confirm('Êtes-vous sûr de vouloir supprimer le fichier ' + fileName + ' ?')) {
-            window.location.href = '?action=delete&file=' + encodeURIComponent(fileName);
-        }
-    }
-
-
-    // Fonction pour afficher les données JSON
-    function displayJsonData(data, fileName) {
-        const jsonContent = document.getElementById('jsonContent');
-        const contentTitle = document.getElementById('json-content-title');
-        jsonContent.style.display = 'block';
-        const tbody = document.getElementById('json-cont');
-
-
-        const logsList = Object.entries(data.logs).map(([time, log]) => [
-            time, log.date, log.ip, log.login, log.success
-        ]);
-        console.log(logsList);
-
-
-        var title = document.createTextNode('Contenu du fichier: ' + fileName );
-        contentTitle.append(title);
-
-
-        tbody.innerHTML = "";
-
-
-        for (let i = 0 ; i< logsList.length; i++){
-            const logEntry = document.createElement('tr');
-            logEntry.className = 'log-entry';
-            logEntry.innerHTML = `<td><p>${logsList[i][0]}</p></td>
-                       <td><p> ${logsList[i][1]}</p></td>
-                       <td><p>${logsList[i][2]}</p></td>
-                       <td><p> ${logsList[i][3]}</p></td>
-                       <td><p>${logsList[i][4]}</p></td>`;
-            tbody.appendChild(logEntry);
-
-
-        }
-
-
-    }
-
-
-    // Configuration du drag & drop
-    const dropZone = document.getElementById('dropZone');
-    const fileInput = document.getElementById('fileInput');
-
-
-    // Événements pour le drag & drop
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, preventDefaults, false);
-    });
-
-
-    function preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    function dragstartHandler(event, fileName){
-        event.dataTransfer.setData("id", fileName);
-        console.log(fileName.toString());
-    }
-
-
-    ['dragenter', 'dragover'].forEach(eventName => {
-        dropZone.addEventListener(eventName, highlight, false);
-    });
-
-
-    ['dragleave', 'drop'].forEach(eventName => {
-        dropZone.addEventListener(eventName, unhighlight, false);
-    });
-
-
-    function highlight() {
-        dropZone.classList.add('active');
-    }
-
-
-    function unhighlight() {
-        dropZone.classList.remove('active');
-    }
-
-
-    // Gestion de la dépose de fichier
-    dropZone.addEventListener('drop', handleDrop, false);
-
-
-    function handleDrop(e) {
-        console.log(e.dataTransfer.files.length);
-        if (e.dataTransfer.files.length > 0){
-            const dt = e.dataTransfer;
-            const files = dt.files;
-            handleFiles(files);
-        }
-        else{
-            loadLogFile(e.dataTransfer.getData("id"))
-        }
-    }
-
-
-    // Gestion de la sélection de fichier via l'input
-    fileInput.addEventListener('change', function() {
-        handleFiles(this.files);
-    });
-
-
-    // Traitement des fichiers
-    function handleFiles(files) {
-        if (files.length > 0) {
-            const file = files[0];
-
-
-            if (file.type === 'application/json' || file.name.endsWith('.json')) {
-                const reader = new FileReader();
-
-
-                reader.onload = function(e) {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        displayJsonData(data, file.name);
-                    } catch (error) {
-                        alert('Erreur lors de l\'analyse du fichier JSON: ' + error.message);
+            // Format plat avec propriétés directes
+            else if (typeof data === 'object') {
+                // Vérifier si nous avons un objet simple
+                const entries = Object.entries(data);
+                if (entries.length > 0) {
+                    // Vérifier si les entrées sont des objets ou des valeurs simples
+                    if (typeof entries[0][1] === 'object') {
+                        // Format où les clés principales sont des timestamps ou identifiants
+                        logsList = entries.map(([key, value]) => {
+                            // Essayer de déterminer si la clé est une heure
+                            const isTimeKey = /^\d{1,2}:\d{1,2}(:\d{1,2})?$/.test(key);
+
+                            return [
+                                value.date || '',
+                                isTimeKey ? key : (value.time || ''),
+                                value.ip || '',
+                                value.login || value.user || value.username || '',
+                                value.success !== undefined ? value.success : (value.status === 'success' ? true : (value.status === 'failure' ? false : ''))
+                            ];
+                        });
+                    } else {
+                        // Format d'une seule entrée de log
+                        logsList = [[
+                            data.date || '',
+                            data.time || '',
+                            data.ip || '',
+                            data.login || data.user || data.username || '',
+                            data.success !== undefined ? data.success : (data.status === 'success' ? true : (data.status === 'failure' ? false : ''))
+                        ]];
                     }
-                };
+                }
+            }
 
+            console.log(logsList);
 
-                reader.readAsText(file);
-            } else {
-                alert('Veuillez sélectionner un fichier JSON.');
+            // Afficher les données dans le tableau
+            for (let i = 0; i < logsList.length; i++) {
+                const logEntry = document.createElement('tr');
+                logEntry.className = 'log-entry';
+
+                // Assurer que toutes les données sont affichées correctement (conversion de booléens en texte)
+                const displayValues = logsList[i].map(value => {
+                    if (typeof value === 'boolean') {
+                        return value ? 'true' : 'false';
+                    }
+                    return value;
+                });
+
+                logEntry.innerHTML = `
+                <td><p>${displayValues[0]}</p></td>
+                <td><p>${displayValues[1]}</p></td>
+                <td><p>${displayValues[2]}</p></td>
+                <td><p>${displayValues[3]}</p></td>
+                <td><p>${displayValues[4]}</p></td>
+            `;
+                tbody.appendChild(logEntry);
             }
         }
-    }
 
+        // Configuration du drag & drop
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
 
-    // Rendre l'input file cliquable depuis le drop zone
-    document.querySelector('label[for="fileInput"]').addEventListener('click', function() {
-        fileInput.click();
-    });
+        // Événements pour le drag & drop
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
 
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
 
-</script>
+        function dragstartHandler(event, fileName) {
+            event.dataTransfer.setData("id", fileName);
+            console.log(fileName.toString());
+        }
 
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
 
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
 
+        function highlight() {
+            dropZone.classList.add('active');
+        }
 
-</body>
+        function unhighlight() {
+            dropZone.classList.remove('active');
+        }
+
+        // Gestion de la dépose de fichier
+        dropZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            console.log(e.dataTransfer.files.length);
+            if (e.dataTransfer.files.length > 0) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleFiles(files);
+            }
+            else {
+                loadLogFile(e.dataTransfer.getData("id"))
+            }
+        }
+
+        // Gestion de la sélection de fichier via l'input
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+
+        // Traitement des fichiers
+        function handleFiles(files) {
+            if (files.length > 0) {
+                const file = files[0];
+
+                if (file.type === 'application/json' || file.name.endsWith('.json')) {
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            displayJsonData(data, file.name);
+                        } catch (error) {
+                            alert('Erreur lors de l\'analyse du fichier JSON: ' + error.message);
+                        }
+                    };
+
+                    reader.readAsText(file);
+                } else {
+                    alert('Veuillez sélectionner un fichier JSON.');
+                }
+            }
+        }
+
+        // Rendre l'input file cliquable depuis le drop zone
+        document.querySelector('label[for="fileInput"]').addEventListener('click', function() {
+            fileInput.click();
+        });
+    </script>
+
+    </body>
 <?php include '../includes/footer.php'; ?>
