@@ -4,22 +4,21 @@
 function logConnec($succes){
 
     $date = getdate();
-    $fjson = fopen("../logs/log-"."$date[mday]"."-$date[mon]"."-$date[year]".".json", "a+");
-
-    ##$array = [$_SERVER['REMOTE_ADDR'],date("d-m-Y H:i:s") ,$_SESSION['login'],"Tentative de connexion",$succes];
+    $fjson = file_get_contents("../logs/log-" . "$date[mday]" . "-$date[mon]" . "-$date[year]" . ".json", "a+");
+    $json = json_decode($fjson, true);
 
     $dict = array("date"=>date("d-m-Y"),
-                "heure" => date("H:i:s"),
-                "ip"=>"194.182.29.1",
-                "login" => "tata",
-                "success"=>true);
+                    "ip" => $_SERVER['REMOTE_ADDR'],
+                    "login" => $_SESSION['login'],
+                    "success"=>$succes);
 
-    $json = json_encode($dict);
-    file_put_contents("../logs/log-"."$date[mday]"."-$date[mon]"."-$date[year]".".json", $json, FILE_APPEND);
-    fclose($fjson);
+    $json['logs'][date("H:i:s")] = $dict;
+
+
+    $json = json_encode($json, JSON_PRETTY_PRINT);
+    file_put_contents("../logs/log-"."$date[mday]"."-$date[mon]"."-$date[year]".".json", $json);
 }
 
-logConnec(true);
 
 
 
