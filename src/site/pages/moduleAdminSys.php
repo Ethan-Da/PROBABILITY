@@ -6,21 +6,11 @@ include '../includes/navbar.php';
 include '../includes/header.php';
 
 
-
-
-
-
-
-
-//Vérification des droits d'accès
-
-
+addAdminSysCheck();//Vérification des droits d'accès
 
 
 // Démarrage de la session
 session_start();
-
-
 
 
 // Traitement des actions
@@ -28,38 +18,34 @@ if (isset($_GET['action'])) {
     $action = $_GET['action'];
 
 
-
-
     // Action: Télécharger un fichier log
     if ($action === 'download' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
         $filePath = '/logs/'.$file;
 
-
-
-
+        // Vérification que le fichier existe et est bien un JSON
         if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/json');
-            header('Content-Disposition: attachment; filename="'.$file.'"');
+
+            header('Content-Description: File Transfer'); //Indique qu'il s'agit d'un transfert de fichier
+            header('Content-Type: application/json'); //Spécifie le type du fichier (JSON)
+            header('Content-Disposition: attachment; filename="'.$file.'"'); //Force le téléchargement du fichier plutôt que son affichage dans le navigateur et définit le nom de fichier proposé
+            //Contrôlent la mise en cache pour s'assurer que le fichier est toujours téléchargé dans sa version la plus récente
             header('Expires: 0');
             header('Cache-Control: must-revalidate');
             header('Pragma: public');
-            header('Content-Length: '.filesize($filePath));
+
+            header('Content-Length: '.filesize($filePath)); //Indique au navigateur la taille exacte du fichier à télécharger
+
             readfile($filePath);
             exit;
         }
     }
 
 
-
-
     // Action: Supprimer un fichier log
     if ($action === 'delete' && isset($_GET['file'])) {
         $file = basename($_GET['file']);
         $filePath = '/logs/'.$file;
-
-
 
 
         if (file_exists($filePath) && pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
@@ -73,15 +59,10 @@ if (isset($_GET['action'])) {
 }
 
 
-
-
 // Fonction pour récupérer la liste des fichiers logs
 function getLogFiles() {
     $logDir = '/logs/';
     $logFiles = [];
-
-
-
 
     if (is_dir($logDir)) {
         $files = scandir($logDir);
@@ -93,14 +74,8 @@ function getLogFiles() {
         // Trier les fichiers par date (du plus récent au plus ancien)
         rsort($logFiles);
     }
-
-
-
-
     return $logFiles;
 }
-
-
 
 
 // Récupération de la liste des fichiers logs
@@ -127,12 +102,8 @@ $logFiles = getLogFiles();
         </div>
 
 
-
-
         <!-- Contenu principal -->
         <div class="content">
-
-
 
 
             <?php if (isset($deleteSuccess)): ?>
@@ -140,14 +111,9 @@ $logFiles = getLogFiles();
             <?php endif; ?>
 
 
-
-
             <?php if (isset($deleteError)): ?>
                 <div class="notification error"><?php echo $deleteError; ?></div>
             <?php endif; ?>
-
-
-
 
             <!-- Zone de drag & drop pour les fichiers JSON -->
             <div id="dropZone" class="drop-zone">
@@ -156,9 +122,6 @@ $logFiles = getLogFiles();
                 <label for="fileInput" class="btn">Sélectionner un fichier</label>
                 <input type="file" id="fileInput" style="display: none;" accept=".json">
             </div>
-
-
-
 
             <!-- Zone d'affichage du contenu JSON -->
             <div id="jsonContent" class="json-content" style="display: none;">
@@ -175,15 +138,11 @@ $logFiles = getLogFiles();
                     </thead>
                     <tbody id="json-cont">
 
-
-
-
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 
 
 
@@ -202,8 +161,6 @@ $logFiles = getLogFiles();
         }
 
 
-
-
         // Fonction pour confirmer la suppression d'un fichier
         function confirmDelete(fileName) {
             if (confirm('Êtes-vous sûr de vouloir supprimer le fichier ' + fileName + ' ?')) {
@@ -212,16 +169,12 @@ $logFiles = getLogFiles();
         }
 
 
-
-
         // Fonction pour afficher les données JSON
         function displayJsonData(data, fileName) {
             const jsonContent = document.getElementById('jsonContent');
             const contentTitle = document.getElementById('json-content-title');
             jsonContent.style.display = 'block';
             const tbody = document.getElementById('json-cont');
-
-
 
 
             const logsList = Object.entries(data.logs).map(([time, log]) => [
@@ -239,8 +192,6 @@ $logFiles = getLogFiles();
             tbody.innerHTML = "";
 
 
-
-
             for (let i = 0 ; i< logsList.length; i++){
                 const logEntry = document.createElement('tr');
                 logEntry.className = 'log-entry';
@@ -251,24 +202,14 @@ $logFiles = getLogFiles();
                       <td><p>${logsList[i][4]}</p></td>`;
                 tbody.appendChild(logEntry);
 
-
-
-
             }
-
-
 
 
         }
 
-
-
-
         // Configuration du drag & drop
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
-
-
 
 
         // Événements pour le drag & drop
@@ -289,13 +230,9 @@ $logFiles = getLogFiles();
         }
 
 
-
-
         ['dragenter', 'dragover'].forEach(eventName => {
             dropZone.addEventListener(eventName, highlight, false);
         });
-
-
 
 
         ['dragleave', 'drop'].forEach(eventName => {
@@ -303,26 +240,18 @@ $logFiles = getLogFiles();
         });
 
 
-
-
         function highlight() {
             dropZone.classList.add('active');
         }
 
 
-
-
-        function unhighlight() {
+      function unhighlight() {
             dropZone.classList.remove('active');
         }
 
 
-
-
         // Gestion de la dépose de fichier
         dropZone.addEventListener('drop', handleDrop, false);
-
-
 
 
         function handleDrop(e) {
@@ -338,14 +267,10 @@ $logFiles = getLogFiles();
         }
 
 
-
-
         // Gestion de la sélection de fichier via l'input
         fileInput.addEventListener('change', function() {
             handleFiles(this.files);
         });
-
-
 
 
         // Traitement des fichiers
@@ -353,14 +278,8 @@ $logFiles = getLogFiles();
             if (files.length > 0) {
                 const file = files[0];
 
-
-
-
                 if (file.type === 'application/json' || file.name.endsWith('.json')) {
                     const reader = new FileReader();
-
-
-
 
                     reader.onload = function(e) {
                         try {
@@ -372,8 +291,6 @@ $logFiles = getLogFiles();
                     };
 
 
-
-
                     reader.readAsText(file);
                 } else {
                     alert('Veuillez sélectionner un fichier JSON.');
@@ -381,25 +298,12 @@ $logFiles = getLogFiles();
             }
         }
 
-
-
-
         // Rendre l'input file cliquable depuis le drop zone
         document.querySelector('label[for="fileInput"]').addEventListener('click', function() {
             fileInput.click();
         });
 
-
-
-
     </script>
-
-
-
-
-
-
-
 
     </body>
 <?php include '../includes/footer.php'; ?>
