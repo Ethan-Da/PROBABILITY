@@ -5,8 +5,8 @@ function calculerDiscri($a, $b, $c) {
 }
 
 function calculerRacinesR($a, $b, $delta) {
-    $x1 = round((-$b + sqrt($delta)) / (2 * $a),3);
-    $x2 = round((-$b - sqrt($delta)) / (2 * $a),3);
+    $x1 = round((-$b - sqrt($delta)) / (2 * $a),3);
+    $x2 = round((-$b + sqrt($delta)) / (2 * $a),3);
 
     return [$x1,$x2];
 }
