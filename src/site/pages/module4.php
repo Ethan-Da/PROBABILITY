@@ -46,7 +46,7 @@ addUserCheck();  // Vérification des droits d'accès
             echo "<div class='container'>
                   <p >Le discriminant (Δ) est nul : Δ = $delta</p>
                   <p>La racine réelle est : </p>
-                  <div>\\[ x_{1} = \\frac{ $b}{{$a}}</div>
+                  <div>\\[ x_{1} = \\frac{ $b}{{$a}}\\]</div>
                   <p>Il y a une racine réelle unique : x = $x</p>
                   </div>";
         }
